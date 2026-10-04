@@ -82,6 +82,82 @@
             background: rgba(120, 53, 15, 0.25);
             border-color: #d97706;
         }
+
+        /* ---------- Mobile safety ---------- */
+        #notes-reader { min-width: 0; overflow-wrap: break-word; }
+        #notes-reader svg, #notes-reader img { max-width: 100%; height: auto; }
+        .math-block { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+        .katex-display { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+        @media (max-width: 639px) {
+            .math-block { padding: 0.65rem 0.8rem; }
+            .srp-box { padding: 0.8rem; }
+            .crumb-sec { display: none !important; }
+        }
+
+        /* ---------- Subject picker ---------- */
+        #subject-picker { position: relative; min-width: 0; }
+        .sp-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0.6rem 0.3rem 0.35rem; border-radius: 0.8rem; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: 600; font-size: 0.8rem; color: #1f2937; cursor: pointer; max-width: 100%; transition: border-color .15s, box-shadow .15s; }
+        .sp-btn:hover { border-color: #93c5fd; }
+        .sp-btn:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+        .dark .sp-btn { background: #1e293b; border-color: #334155; color: #f1f5f9; }
+        .sp-ico { width: 1.7rem; height: 1.7rem; border-radius: 0.55rem; display: grid; place-items: center; color: #fff; font-size: 0.75rem; flex-shrink: 0; }
+        .sp-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 6rem; }
+        .sp-chev { font-size: 0.6rem; opacity: 0.6; transition: transform .2s; flex-shrink: 0; }
+        .sp-open .sp-chev { transform: rotate(180deg); }
+        .sp-panel { position: fixed; left: 0.75rem; right: 0.75rem; top: 4.25rem; z-index: 60; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; box-shadow: 0 24px 48px -12px rgba(15, 23, 42, .4); padding: 0.4rem; max-height: calc(100vh - 5.5rem); overflow-y: auto; }
+        .dark .sp-panel { background: #0f172a; border-color: #334155; }
+        .sp-panel[hidden] { display: none; }
+        .sp-head { font-size: 0.62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #9ca3af; padding: 0.4rem 0.6rem 0.25rem; }
+        .sp-item { display: flex; width: 100%; align-items: center; gap: 0.75rem; padding: 0.55rem 0.6rem; border-radius: 0.8rem; text-align: left; cursor: pointer; background: transparent; border: 0; color: inherit; }
+        .sp-item:hover, .sp-item:focus-visible { background: #f3f4f6; outline: none; }
+        .dark .sp-item:hover, .dark .sp-item:focus-visible { background: #1e293b; }
+        .sp-item[aria-selected="true"] { background: rgba(59, 130, 246, .12); }
+        .sp-text { min-width: 0; flex: 1; }
+        .sp-name { display: block; font-weight: 600; font-size: 0.86rem; }
+        .sp-sub { display: block; font-size: 0.7rem; color: #6b7280; margin-top: 1px; }
+        .dark .sp-sub { color: #94a3b8; }
+        .sp-check { color: #3b82f6; font-size: 0.8rem; flex-shrink: 0; }
+        @media (min-width: 640px) {
+            .sp-label { max-width: 11rem; }
+            .sp-panel { position: absolute; left: auto; right: 0; top: calc(100% + 0.5rem); width: 19rem; max-height: 70vh; }
+        }
+
+        /* ---------- Font-size popover (mobile) ---------- */
+        .pop-panel { position: absolute; right: 0; top: calc(100% + 0.5rem); z-index: 60; display: flex; align-items: center; gap: 0.25rem; padding: 0.35rem; border-radius: 0.9rem; background: #fff; border: 1px solid #e5e7eb; box-shadow: 0 24px 48px -12px rgba(15, 23, 42, .4); }
+        .dark .pop-panel { background: #0f172a; border-color: #334155; }
+        .pop-panel[hidden] { display: none; }
+        .pop-panel button { min-width: 2.6rem; padding: 0.45rem 0.6rem; border-radius: 0.6rem; font-size: 0.78rem; font-weight: 700; background: transparent; border: 0; color: inherit; cursor: pointer; }
+        .pop-panel button:hover { background: rgba(59, 130, 246, .12); }
+
+        /* ---------- Standard integral cards ---------- */
+        .int-note { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.8rem 0.95rem; border-radius: 0.9rem; background: rgba(245, 158, 11, .1); border: 1px solid rgba(245, 158, 11, .45); font-size: 0.82rem; line-height: 1.45; }
+        .int-note b { font-weight: 700; }
+        .int-card { border: 1px solid #e5e7eb; background: #fff; border-radius: 1rem; overflow: hidden; }
+        .dark .int-card { border-color: #1e293b; background: #020617; }
+        .int-head { display: flex; align-items: center; gap: 0.7rem; padding: 0.75rem 0.95rem; border-bottom: 1px solid #eef2f7; }
+        .dark .int-head { border-color: #1e293b; }
+        .int-badge { width: 2.1rem; height: 2.1rem; flex-shrink: 0; border-radius: 0.65rem; display: grid; place-items: center; font-weight: 800; font-size: 0.78rem; color: #fff; font-family: 'Inter', sans-serif; }
+        .int-title { font-weight: 700; font-size: 0.88rem; }
+        .int-tip { font-size: 0.74rem; color: #6b7280; line-height: 1.35; margin-top: 1px; }
+        .dark .int-tip { color: #94a3b8; }
+        .int-grid { display: grid; grid-template-columns: minmax(0, 1fr); }
+        .int-cell { padding: 0.7rem 0.95rem 0.5rem; min-width: 0; }
+        .int-cell + .int-cell { border-top: 1px solid #eef2f7; }
+        .dark .int-cell + .int-cell { border-color: #1e293b; }
+        .int-tag { display: inline-block; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; padding: 0.12rem 0.5rem; border-radius: 9999px; background: rgba(59, 130, 246, .12); color: #2563eb; }
+        .dark .int-tag { color: #93c5fd; }
+        .int-tag.lin { background: rgba(244, 63, 94, .12); color: #e11d48; }
+        .dark .int-tag.lin { color: #fda4af; }
+        .int-math { font-size: clamp(0.8rem, 3.8vw, 1.08rem); overflow-x: auto; overflow-y: hidden; padding: 0.15rem 0; }
+        .int-math .katex-display { margin: 0.35rem 0; }
+        .int-foot { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0 0.95rem 0.8rem; }
+        .int-chip { font-size: 0.7rem; padding: 0.15rem 0.55rem; border-radius: 9999px; border: 1px solid #e5e7eb; color: #4b5563; }
+        .dark .int-chip { border-color: #334155; color: #cbd5e1; }
+        @media (min-width: 640px) {
+            .int-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .int-cell + .int-cell { border-top: 0; border-left: 1px solid #eef2f7; }
+            .dark .int-cell + .int-cell { border-left-color: #1e293b; }
+        }
         .tab-btn.active {
             border-bottom: 2px solid #3b82f6;
             color: #3b82f6;
@@ -92,16 +168,16 @@
 <body class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-slate-100 font-sans h-screen flex flex-col overflow-hidden transition-colors duration-200">
 
     <!-- TOP HEADER -->
-    <header class="h-16 border-b border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 md:px-6 flex items-center justify-between z-20 shrink-0">
-        <div class="flex items-center space-x-3">
-            <button id="toggle-sidebar-mobile" class="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800">
+    <header class="h-16 border-b border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 md:px-6 flex items-center justify-between gap-2 z-20 shrink-0">
+        <div class="flex items-center gap-2 min-w-0">
+            <button id="toggle-sidebar-mobile" aria-label="Open menu" class="md:hidden shrink-0 p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800">
                 <i class="fa-solid fa-bars text-lg"></i>
             </button>
-            <div id="home-link" class="flex items-center space-x-2 cursor-pointer select-none" title="Go to home">
+            <div id="home-link" class="flex items-center gap-2 cursor-pointer select-none shrink-0" title="Go to home">
                 <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-                <div>
+                <div class="hidden sm:block">
                     <h1 class="font-bold text-lg leading-none tracking-tight">LC Revision Hub</h1>
                     <span class="text-xs text-gray-500 dark:text-slate-400 font-medium">Leaving Cert Active Hub</span>
                 </div>
@@ -111,32 +187,24 @@
         <!-- Quick Term Search -->
         <div class="hidden lg:flex items-center flex-1 max-w-md mx-8 relative">
             <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 dark:text-slate-500 text-sm"></i>
-            <input type="text" id="content-search" placeholder="Search current notes (formulas, rules, SRPs)..." 
+            <input type="text" id="content-search" placeholder="Search current notes (formulas, rules, SRPs)..."
                 class="w-full pl-9 pr-4 py-1.5 text-sm rounded-lg border border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-slate-200 placeholder-gray-400 dark:placeholder-slate-500">
         </div>
 
-        <!-- Subject Switcher & Utilities -->
-        <div class="flex items-center space-x-3">
-            <div class="relative">
-                <label for="subject-select" class="sr-only">Select Subject</label>
-                <div class="flex items-center bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-2.5 py-1.5 shadow-sm">
-                    <i class="fa-solid fa-book-bookmark text-blue-500 mr-2 text-sm"></i>
-                    <select id="subject-select" class="bg-transparent font-semibold text-sm focus:outline-none cursor-pointer pr-1 text-gray-800 dark:text-slate-100">
-                        <option value="maths1">Maths P1</option>
-                        <option value="maths2">Maths P2</option>
-                        <option value="english">English</option>
-                        <option value="geography">Geography</option>
-                        <option value="cs">Computer Science</option>
-                        <option value="business">Business</option>
-                        <option value="physics">Physics</option>
-                        <option value="pe">PE</option>
-                    </select>
-                </div>
+        <!-- Subject picker & utilities -->
+        <div class="flex items-center gap-1 sm:gap-3 min-w-0">
+            <div id="subject-picker">
+                <button id="subject-btn" type="button" class="sp-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose subject">
+                    <span class="sp-ico" id="subject-ico"><i class="fa-solid fa-square-root-variable"></i></span>
+                    <span class="sp-label" id="subject-label">Maths P1</span>
+                    <i class="fa-solid fa-chevron-down sp-chev"></i>
+                </button>
+                <div id="subject-panel" class="sp-panel" role="listbox" aria-label="Subjects" hidden></div>
             </div>
 
-            <div class="h-6 w-px bg-gray-200 dark:bg-slate-800 hidden sm:block"></div>
+            <div class="h-6 w-px bg-gray-200 dark:bg-slate-800 hidden md:block"></div>
 
-            <div class="flex items-center space-x-1">
+            <div class="hidden md:flex items-center space-x-1">
                 <button id="font-dec" title="Decrease font size" class="p-2 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
                     <span class="text-xs font-bold">A-</span>
                 </button>
@@ -149,18 +217,32 @@
                 <button id="toggle-focus" title="Full-screen Focus Mode" class="p-2 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors ml-1">
                     <i class="fa-solid fa-expand text-sm"></i>
                 </button>
-                <button id="toggle-theme" title="Toggle Theme" class="p-2 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
-                    <i class="fa-solid fa-moon dark:hidden text-sm"></i>
-                    <i class="fa-solid fa-sun hidden dark:inline text-sm text-amber-400"></i>
-                </button>
             </div>
+
+            <!-- Mobile text-size menu -->
+            <div class="relative md:hidden shrink-0">
+                <button id="font-pop-btn" aria-label="Text size" aria-expanded="false" class="p-2 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                    <span class="text-xs font-bold">Aa</span>
+                </button>
+                <div id="font-pop" class="pop-panel" hidden>
+                    <button id="m-font-dec" aria-label="Smaller text">A-</button>
+                    <button id="m-font-reset" aria-label="Reset text size">100%</button>
+                    <button id="m-font-inc" aria-label="Larger text">A+</button>
+                </div>
+            </div>
+
+            <button id="toggle-theme" title="Toggle Theme" aria-label="Toggle theme" class="shrink-0 p-2 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                <i class="fa-solid fa-moon dark:hidden text-sm"></i>
+                <i class="fa-solid fa-sun hidden dark:inline text-sm text-amber-400"></i>
+            </button>
         </div>
     </header>
 
     <!-- WORKSPACE -->
     <div class="flex flex-1 overflow-hidden relative">
+        <div id="sidebar-backdrop" class="hidden md:hidden absolute inset-0 z-[5] bg-black/50"></div>
         <!-- SIDEBAR -->
-        <aside id="sidebar" class="w-80 border-r border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 flex flex-col transition-all duration-300 ease-in-out absolute md:relative z-10 h-full -translate-x-full md:translate-x-0 shadow-lg md:shadow-none">
+        <aside id="sidebar" class="w-[85vw] max-w-xs md:w-80 border-r border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 flex flex-col transition-all duration-300 ease-in-out absolute md:relative z-10 h-full -translate-x-full md:translate-x-0 shadow-lg md:shadow-none">
             <div class="p-4 border-b border-gray-100 dark:border-slate-900">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-slate-500" id="sidebar-subject-title">Maths P1</span>
@@ -193,31 +275,31 @@
 
         <!-- MAIN DISPLAY -->
         <main id="main-content" class="flex-1 flex flex-col bg-gray-50 dark:bg-slate-900 overflow-hidden relative">
-            <div id="notes-header-bar" class="h-12 border-b border-gray-200/80 dark:border-slate-800 bg-white/60 dark:bg-slate-950/60 backdrop-blur-md px-6 flex items-center justify-between shrink-0">
-                <div class="flex items-center space-x-2 text-xs text-gray-500 dark:text-slate-400 overflow-hidden text-ellipsis whitespace-nowrap">
-                    <button id="breadcrumb-home" title="Home" class="hover:text-blue-600 dark:hover:text-blue-400"><i class="fa-solid fa-house"></i></button>
-                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i>
-                    <span id="breadcrumb-subject">Maths P1</span>
-                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i>
-                    <span id="breadcrumb-section" class="font-medium text-gray-700 dark:text-slate-300">Section 8</span>
-                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i>
-                    <span id="breadcrumb-chapter" class="font-semibold text-blue-600 dark:text-blue-400">Differentiation Summary</span>
+            <div id="notes-header-bar" class="h-12 border-b border-gray-200/80 dark:border-slate-800 bg-white/60 dark:bg-slate-950/60 backdrop-blur-md px-3 md:px-6 gap-2 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-slate-400 overflow-hidden whitespace-nowrap min-w-0 flex-1">
+                    <button id="breadcrumb-home" title="Home" aria-label="Home" class="shrink-0 hover:text-blue-600 dark:hover:text-blue-400"><i class="fa-solid fa-house"></i></button>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 shrink-0"></i>
+                    <span id="breadcrumb-subject" class="shrink-0">Maths P1</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 shrink-0 crumb-sec"></i>
+                    <span id="breadcrumb-section" class="font-medium text-gray-700 dark:text-slate-300 truncate crumb-sec">Section 8</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 shrink-0"></i>
+                    <span id="breadcrumb-chapter" class="font-semibold text-blue-600 dark:text-blue-400 truncate min-w-0">Differentiation Summary</span>
                 </div>
 
-                <div class="flex items-center space-x-2">
-                    <button id="fav-btn" class="hidden flex items-center space-x-1.5 px-3 py-1 rounded-md text-xs font-medium text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-800 transition-all" title="Save to revision list">
+                <div class="flex items-center gap-2 shrink-0">
+                    <button id="fav-btn" class="hidden shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-md text-xs font-medium text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-800 transition-all" title="Save to revision list" aria-label="Save to revision list">
                         <i id="fav-icon" class="fa-regular fa-heart"></i>
-                        <span id="fav-label">Save</span>
+                        <span id="fav-label" class="hidden sm:inline">Save</span>
                     </button>
-                    <button id="copy-notes-btn" class="flex items-center space-x-1.5 px-3 py-1 rounded-md text-xs font-medium text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-800 transition-all">
+                    <button id="copy-notes-btn" class="shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-md text-xs font-medium text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-800 transition-all" aria-label="Copy notes">
                         <i class="fa-regular fa-copy"></i>
-                        <span>Copy Notes</span>
+                        <span class="hidden sm:inline">Copy Notes</span>
                     </button>
                 </div>
             </div>
 
-            <div class="flex-1 overflow-y-auto p-4 md:p-8 flex justify-center" id="notes-scroll-container">
-                <div id="notes-reader" class="w-full max-w-4xl transition-all duration-150">
+            <div class="flex-1 overflow-y-auto overflow-x-hidden p-3 sm:p-4 md:p-8 flex justify-center" id="notes-scroll-container">
+                <div id="notes-reader" class="w-full min-w-0 max-w-4xl transition-all duration-150">
                     <!-- Note contents populated dynamically -->
                 </div>
             </div>
@@ -225,7 +307,7 @@
     </div>
 
     <!-- Toast Notification Overlay -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 px-4 py-2.5 rounded-lg shadow-xl text-xs font-medium translate-y-16 opacity-0 transition-all duration-300 flex items-center space-x-2 z-50 pointer-events-none">
+    <div id="toast" class="fixed bottom-5 right-5 max-w-[calc(100vw-2.5rem)] bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 px-4 py-2.5 rounded-lg shadow-xl text-xs font-medium translate-y-16 opacity-0 transition-all duration-300 flex items-center space-x-2 z-50 pointer-events-none">
         <i class="fa-solid fa-circle-info text-blue-400 dark:text-blue-600"></i>
         <span id="toast-message">Notification message</span>
     </div>
@@ -362,9 +444,9 @@
                 content: `
                     <div class="space-y-6">
                         <!-- Navigation Tabs for Differentiation -->
-                        <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium">
-                            <button onclick="switchTab('diff-tab-1', this)" class="tab-btn px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">1. First Principles & Basic Rules</button>
-                            <button onclick="switchTab('diff-tab-2', this)" class="tab-btn px-4 py-2 text-gray-500 hover:text-blue-500">2. Specific Functions Derivatives</button>
+                        <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchTab('diff-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">1. First Principles & Basic Rules</button>
+                            <button onclick="switchTab('diff-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">2. Specific Functions Derivatives</button>
                         </div>
 
                         <!-- TAB 1: Rules -->
@@ -708,9 +790,9 @@
                 content: `
                     <div class="space-y-6">
                         <!-- Navigation Tabs for Integration -->
-                        <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium">
-                            <button onclick="switchTab('int-tab-1', this)" class="tab-btn px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">1. Notation & Basic Rules</button>
-                            <button onclick="switchTab('int-tab-2', this)" class="tab-btn px-4 py-2 text-gray-500 hover:text-blue-500">2. Standard Functions Integrals</button>
+                        <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchTab('int-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">1. Notation & Basic Rules</button>
+                            <button onclick="switchTab('int-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">2. Standard Functions Integrals</button>
                         </div>
 
                         <!-- TAB 1: Notation & Rules -->
@@ -754,45 +836,94 @@
                         <div id="int-tab-2" class="tab-content hidden space-y-4">
                             <h3 class="font-bold text-md text-gray-800 dark:text-slate-100">4. Standard Functions Integrals</h3>
 
-                            <!-- Algebraic -->
-                            <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
-                                <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(a) Algebraic Rules</h4>
-                                <div class="space-y-2 text-xs font-mono">
-                                    <p>\\( \\int x^p dx = \\frac{x^{p+1}}{p+1} + c, \\quad p \\in \\mathbb{R}, p \\neq -1 \\)</p>
-                                    <p>\\( \\int (ax + b)^p dx = \\frac{1}{a} \\times \\frac{(ax + b)^{p+1}}{p+1} + c, \\quad p \\in \\mathbb{R}, p \\neq -1 \\)</p>
+                            <div class="int-note">
+                                <i class="fa-solid fa-lightbulb text-amber-500 mt-0.5"></i>
+                                <div>
+                                    <b>Golden rule:</b> if the inside is <i>px + q</i> instead of just <i>x</i>, do the normal integral, then <b>divide by the number in front of x</b>.
+                                    The <span style="color:#f43f5e;font-weight:700">red part</span> in each formula is exactly what changes. Don't forget <b>+ c</b>.
                                 </div>
                             </div>
 
-                            <!-- Exponential -->
-                            <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
-                                <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(b & c) Exponential Integrals</h4>
-                                <div class="grid md:grid-cols-2 gap-2 text-xs font-mono">
-                                    <p>\\( \\int e^x dx = e^x + c \\)</p>
-                                    <p>\\( \\int e^{px + q} dx = \\frac{1}{p} e^{px + q} + c \\)</p>
-                                    <p>\\( \\int a^x dx = \\frac{a^x}{\\ln a} + c \\)</p>
-                                    <p>\\( \\int a^{px + q} dx = \\frac{a^{px + q}}{p \\ln a} + c \\)</p>
-                                </div>
+                    <div class="int-card">
+                        <div class="int-head">
+                            <div class="int-badge" style="background:#3b82f6">x<sup>p</sup></div>
+                            <div class="min-w-0">
+                                <div class="int-title">Powers of x</div>
+                                <div class="int-tip">Add 1 to the power, then divide by the new power.</div>
                             </div>
-
-                            <!-- Logarithmic / Rational -->
-                            <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
-                                <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(d) Reciprocal / Natural Log Forms</h4>
-                                <div class="space-y-2 text-xs font-mono">
-                                    <p>\\( \\int \\frac{1}{x} dx = \\ln x + c \\quad (x > 0) \\)</p>
-                                    <p>\\( \\int \\frac{1}{px + q} dx = \\frac{1}{p} \\ln (px + q) + c \\)</p>
-                                </div>
+                        </div>
+                        <div class="int-grid">
+                            <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int x^{p}\\,dx = \\frac{x^{p+1}}{p+1} + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With ax + b</span><div class="int-math">\\[ \\int (ax+b)^{p}\\,dx = \\textcolor{#f43f5e}{\\frac{1}{a}}\\cdot\\frac{(ax+b)^{p+1}}{p+1} + c \\]</div></div>
+                        </div>
+                    <div class="int-foot"><span class="int-chip">\\( p \\in \\mathbb{R} \\)</span><span class="int-chip">\\( p \\neq -1 \\)</span></div>
+                    </div>
+                    <div class="int-card">
+                        <div class="int-head">
+                            <div class="int-badge" style="background:#8b5cf6">e<sup>x</sup></div>
+                            <div class="min-w-0">
+                                <div class="int-title">Exponential: e</div>
+                                <div class="int-tip">e<sup>x</sup> never changes when you integrate it.</div>
                             </div>
-
-                            <!-- Trigonometric -->
-                            <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
-                                <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(e & f) Trigonometric Integrals</h4>
-                                <div class="grid md:grid-cols-2 gap-2 text-xs font-mono">
-                                    <p>\\( \\int \\sin x dx = -\\cos x + c \\)</p>
-                                    <p>\\( \\int \\sin(px + q) dx = -\\frac{1}{p} \\cos(px + q) + c \\)</p>
-                                    <p>\\( \\int \\cos x dx = \\sin x + c \\)</p>
-                                    <p>\\( \\int \\cos(px + q) dx = \\frac{1}{p} \\sin(px + q) + c \\)</p>
-                                </div>
+                        </div>
+                        <div class="int-grid">
+                            <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int e^{x}\\,dx = e^{x} + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int e^{px+q}\\,dx = \\textcolor{#f43f5e}{\\frac{1}{p}}\\,e^{px+q} + c \\]</div></div>
+                        </div>
+                    </div>
+                    <div class="int-card">
+                        <div class="int-head">
+                            <div class="int-badge" style="background:#a855f7">a<sup>x</sup></div>
+                            <div class="min-w-0">
+                                <div class="int-title">Exponential: any base a</div>
+                                <div class="int-tip">Divide by ln a (and by p too when it is px + q).</div>
                             </div>
+                        </div>
+                        <div class="int-grid">
+                            <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int a^{x}\\,dx = \\frac{a^{x}}{\\ln a} + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int a^{px+q}\\,dx = \\frac{a^{px+q}}{\\textcolor{#f43f5e}{p}\\,\\ln a} + c \\]</div></div>
+                        </div>
+                    </div>
+                    <div class="int-card">
+                        <div class="int-head">
+                            <div class="int-badge" style="background:#10b981">ln</div>
+                            <div class="min-w-0">
+                                <div class="int-title">Reciprocal: 1 / x</div>
+                                <div class="int-tip">Always gives a natural log.</div>
+                            </div>
+                        </div>
+                        <div class="int-grid">
+                            <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int \\frac{1}{x}\\,dx = \\ln x + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int \\frac{1}{px+q}\\,dx = \\textcolor{#f43f5e}{\\frac{1}{p}}\\,\\ln(px+q) + c \\]</div></div>
+                        </div>
+                    <div class="int-foot"><span class="int-chip">\\( x > 0 \\) for the basic one</span><span class="int-chip">\\( px+q > 0 \\) for the linear one</span></div>
+                    </div>
+                    <div class="int-card">
+                        <div class="int-head">
+                            <div class="int-badge" style="background:#f59e0b">sin</div>
+                            <div class="min-w-0">
+                                <div class="int-title">Sine</div>
+                                <div class="int-tip">sin becomes <b>minus</b> cos. Watch the minus sign!</div>
+                            </div>
+                        </div>
+                        <div class="int-grid">
+                            <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int \\sin x\\,dx = -\\cos x + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int \\sin(px+q)\\,dx = -\\textcolor{#f43f5e}{\\frac{1}{p}}\\,\\cos(px+q) + c \\]</div></div>
+                        </div>
+                    </div>
+                    <div class="int-card">
+                        <div class="int-head">
+                            <div class="int-badge" style="background:#f97316">cos</div>
+                            <div class="min-w-0">
+                                <div class="int-title">Cosine</div>
+                                <div class="int-tip">cos becomes sin (no minus sign).</div>
+                            </div>
+                        </div>
+                        <div class="int-grid">
+                            <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int \\cos x\\,dx = \\sin x + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int \\cos(px+q)\\,dx = \\textcolor{#f43f5e}{\\frac{1}{p}}\\,\\sin(px+q) + c \\]</div></div>
+                        </div>
+                    </div>
                         </div>
                     </div>
                 `
@@ -1036,8 +1167,7 @@
         };
 
         // DOM elements
-        const subjectSelect = document.getElementById('subject-select');
-        const sidebarSubjectTitle = document.getElementById('sidebar-subject-title');
+                const sidebarSubjectTitle = document.getElementById('sidebar-subject-title');
         const sidebarTopicCount = document.getElementById('sidebar-topic-count');
         const topicListContainer = document.getElementById('topic-list-container');
         const topicSearch = document.getElementById('topic-search');
@@ -1056,19 +1186,18 @@
         const copyNotesBtn = document.getElementById('copy-notes-btn');
         const toggleSidebarMobile = document.getElementById('toggle-sidebar-mobile');
         const sidebar = document.getElementById('sidebar');
+        const sidebarBackdrop = document.getElementById('sidebar-backdrop');
 
         window.addEventListener('DOMContentLoaded', () => {
             loadStore();
+            updateSubjectPicker();
             setupEventListeners();
             showHome();   // always start on the home page, never on a random chapter
         });
 
         function setupEventListeners() {
-            subjectSelect.addEventListener('change', (e) => {
-                currentState.subject = e.target.value;
-                showHome();
-                sidebar.classList.remove('-translate-x-full'); // open the menu so you can pick a chapter
-            });
+            setupSubjectPicker();
+            sidebarBackdrop.addEventListener('click', closeSidebar);
 
             topicSearch.addEventListener('input', (e) => {
                 currentState.filterText = e.target.value.toLowerCase();
@@ -1114,7 +1243,7 @@
             });
 
             document.getElementById('home-link').addEventListener('click', showHome);
-            document.getElementById('sidebar-home-btn').addEventListener('click', () => { showHome(); sidebar.classList.add('-translate-x-full'); });
+            document.getElementById('sidebar-home-btn').addEventListener('click', () => { showHome(); closeSidebar(); });
             document.getElementById('breadcrumb-home').addEventListener('click', showHome);
             document.getElementById('fav-btn').addEventListener('click', () => {
                 if (currentState.activeTopicId) toggleFav(currentState.activeTopicId);
@@ -1133,7 +1262,23 @@
             });
 
             toggleSidebarMobile.addEventListener('click', () => {
-                sidebar.classList.toggle('-translate-x-full');
+                sidebar.classList.contains('-translate-x-full') ? openSidebar() : closeSidebar();
+            });
+
+            // Mobile text-size popover
+            const fontPop = document.getElementById('font-pop');
+            const fontPopBtn = document.getElementById('font-pop-btn');
+            fontPopBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeSubjectPanel();
+                fontPop.hidden = !fontPop.hidden;
+                fontPopBtn.setAttribute('aria-expanded', String(!fontPop.hidden));
+            });
+            document.getElementById('m-font-dec').addEventListener('click', () => adjustFontSize(-10));
+            document.getElementById('m-font-inc').addEventListener('click', () => adjustFontSize(10));
+            document.getElementById('m-font-reset').addEventListener('click', () => setFontSize(100));
+            document.addEventListener('click', (e) => {
+                if (!fontPop.hidden && !fontPop.contains(e.target)) { fontPop.hidden = true; fontPopBtn.setAttribute('aria-expanded', 'false'); }
             });
         }
 
@@ -1297,6 +1442,109 @@
             }
         }
 
+        // ===== Sidebar open/close (with mobile backdrop) =====
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            sidebarBackdrop.classList.remove('hidden');
+        }
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            sidebarBackdrop.classList.add('hidden');
+        }
+
+        // ===== Custom subject picker =====
+        const SUBJECT_META = {
+            maths1:    { icon: 'fa-square-root-variable', color: '#3b82f6' },
+            maths2:    { icon: 'fa-compass-drafting',     color: '#6366f1' },
+            english:   { icon: 'fa-book-open',            color: '#ec4899' },
+            geography: { icon: 'fa-earth-europe',         color: '#10b981' },
+            cs:        { icon: 'fa-laptop-code',          color: '#06b6d4' },
+            business:  { icon: 'fa-briefcase',            color: '#f59e0b' },
+            physics:   { icon: 'fa-atom',                 color: '#8b5cf6' },
+            pe:        { icon: 'fa-person-running',       color: '#ef4444' }
+        };
+
+        function subjectIconHtml(key) {
+            const m = SUBJECT_META[key] || { icon: 'fa-book', color: '#64748b' };
+            return `<span class="sp-ico" style="background:${m.color}"><i class="fa-solid ${m.icon}"></i></span>`;
+        }
+
+        function updateSubjectPicker() {
+            const key = currentState.subject;
+            const m = SUBJECT_META[key] || { icon: 'fa-book', color: '#64748b' };
+            const ico = document.getElementById('subject-ico');
+            ico.style.background = m.color;
+            ico.innerHTML = `<i class="fa-solid ${m.icon}"></i>`;
+            document.getElementById('subject-label').textContent = SYLLABUS_DATA[key].title;
+        }
+
+        function renderSubjectPanel() {
+            const panel = document.getElementById('subject-panel');
+            let html = '<div class="sp-head">Choose a subject</div>';
+            Object.keys(SYLLABUS_DATA).forEach(key => {
+                const d = SYLLABUS_DATA[key];
+                const chs = d.sections.flatMap(sec => sec.chapters);
+                const ready = chs.filter(c => c.status === 'ready').length;
+                const saved = chs.filter(c => isFav(c.id)).length;
+                const active = key === currentState.subject;
+                html += `
+                    <button type="button" class="sp-item" role="option" aria-selected="${active}" data-subject="${key}">
+                        ${subjectIconHtml(key)}
+                        <span class="sp-text">
+                            <span class="sp-name">${escapeHtml(d.title)}</span>
+                            <span class="sp-sub">${ready} of ${chs.length} chapters ready${saved ? ` &middot; <i class="fa-solid fa-heart" style="color:#f43f5e"></i> ${saved} saved` : ''}</span>
+                        </span>
+                        ${active ? '<i class="fa-solid fa-check sp-check"></i>' : ''}
+                    </button>`;
+            });
+            panel.innerHTML = html;
+        }
+
+        function openSubjectPanel() {
+            renderSubjectPanel();
+            document.getElementById('subject-panel').hidden = false;
+            document.getElementById('subject-btn').setAttribute('aria-expanded', 'true');
+            document.getElementById('subject-picker').classList.add('sp-open');
+            const fp = document.getElementById('font-pop');
+            if (fp) fp.hidden = true;
+        }
+
+        function closeSubjectPanel() {
+            document.getElementById('subject-panel').hidden = true;
+            document.getElementById('subject-btn').setAttribute('aria-expanded', 'false');
+            document.getElementById('subject-picker').classList.remove('sp-open');
+        }
+
+        function setSubject(key) {
+            if (key === currentState.subject) return;
+            currentState.subject = key;
+            updateSubjectPicker();
+            showHome();
+            openSidebar(); // open the menu so you can pick a chapter straight away (mobile)
+        }
+
+        function setupSubjectPicker() {
+            const btn = document.getElementById('subject-btn');
+            const panel = document.getElementById('subject-panel');
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                panel.hidden ? openSubjectPanel() : closeSubjectPanel();
+            });
+            panel.addEventListener('click', (e) => {
+                const item = e.target.closest('[data-subject]');
+                if (!item) return;
+                const key = item.dataset.subject;
+                closeSubjectPanel();
+                setSubject(key);
+            });
+            document.addEventListener('click', (e) => {
+                if (!panel.hidden && !document.getElementById('subject-picker').contains(e.target)) closeSubjectPanel();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !panel.hidden) { closeSubjectPanel(); btn.focus(); }
+            });
+        }
+
         // ===== Saved topics (revision list) + Home page =====
         const STORE_KEY = 'lcRevisionHub.v1';
         let store = { favs: {}, last: null };
@@ -1373,14 +1621,14 @@
             const found = findChapter(id);
             if (!found) return;
             currentState.subject = found.subKey;
-            subjectSelect.value = found.subKey;
+            updateSubjectPicker();
             currentState.activeTopicId = id;
             store.last = id;
             saveStore();
             renderSidebar();
             loadTopicContent(id);
             document.getElementById('notes-scroll-container').scrollTop = 0;
-            sidebar.classList.add('-translate-x-full');
+            closeSidebar();
         }
 
         function updateFavButton() {
@@ -1512,6 +1760,8 @@
         function setFontSize(size) {
             currentState.fontSize = size;
             notesReader.style.fontSize = `${currentState.fontSize}%`;
+            const mReset = document.getElementById('m-font-reset');
+            if (mReset) mReset.textContent = `${currentState.fontSize}%`;
             showToast(`Font size set to ${currentState.fontSize}%`);
         }
 
