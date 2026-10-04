@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaving Certificate Revision Hub</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- KaTeX for rendering mathematical notation -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.4); border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(156, 163, 175, 0.6); }
+
+        .math-block {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(59, 130, 246, 0.05);
+            border-left: 4px solid #3b82f6;
+            padding: 0.85rem 1.1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 0.75rem 0;
+        }
+        .dark .math-block {
+            background: rgba(30, 58, 138, 0.25);
+            border-left-color: #60a5fa;
+        }
+        .srp-box {
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            background: rgba(59, 130, 246, 0.03);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .dark .srp-box {
+            border-color: rgba(59, 130, 246, 0.2);
+            background: rgba(15, 23, 42, 0.6);
+        }
+        .tip-box {
+            border: 1px solid #f59e0b;
+            background: rgba(245, 158, 11, 0.08);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .dark .tip-box {
+            background: rgba(120, 53, 15, 0.25);
+            border-color: #d97706;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #3b82f6;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-slate-100 font-sans h-screen flex flex-col overflow-hidden transition-colors duration-200">
+
+    <!-- TOP HEADER -->
+    <header class="h-16 border-b border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 md:px-6 flex items-center justify-between z-20 shrink-0">
+        <div class="flex items-center space-x-3">
+            <button id="toggle-sidebar-mobile" class="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+            <div class="flex items-center space-x-2">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-none tracking-tight">LC Revision Hub</h1>
+                    <span class="text-xs text-gray-500 dark:text-slate-400 font-medium">Leaving Cert Active Hub</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Term Search -->
+        <div class="hidden lg:flex items-center flex-1 max-w-md mx-8 relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 dark:text-slate-500 text-sm"></i>
+            <input type="text" id="content-search" placeholder="Search current notes (formulas, rules, SRPs)..." 
+                class="w-full pl-9 pr-4 py-1.5 text-sm rounded-lg border border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-slate-200 placeholder-gray-400 dark:placeholder-slate-500">
+        </div>
+
+        <!-- Subject Switcher & Utilities -->
+        <div class="flex items-center space-x-3">
+            <div class="relative">
+                <label for="subject-select" class="sr-only">Select Subject</label>
+                <div class="flex items-center bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg px-2.5 py-1.5 shadow-sm">
+                    <i class="fa-solid fa-book-bookmark text-blue-500 mr-2 text-sm"></i>
+                    <select id="subject-select" class="bg-transparent font-semibold text-sm focus:outline-none cursor-pointer pr-1 text-gray-800 dark:text-slate-100">
+                        <option value="maths1">Maths P1</option>
+                        <option value="maths2">Maths P2</option>
+                        <option value="english">English</option>
+                        <option value="geography">Geography</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="business">Business</option>
+                        <option value="physics">Physics</option>
+                        <option value="pe">PE</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="h-6 w-px bg-gray-200 dark:bg-slate-800 hidden sm:block"></div>
+
+            <div class="flex items-center space-x-1">
+                <button id="font-dec" title="Decrease font size" class="p-2 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                    <span class="text-xs font-bold">A-</span>
+                </button>
+                <button id="font-reset" title="Reset font size" class="p-2 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                    <span class="text-xs font-bold">A</span>
+                </button>
+                <button id="font-inc" title="Increase font size" class="p-2 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                    <span class="text-xs font-bold">A+</span>
+                </button>
+                <button id="toggle-focus" title="Full-screen Focus Mode" class="p-2 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors ml-1">
+                    <i class="fa-solid fa-expand text-sm"></i>
+                </button>
+                <button id="toggle-theme" title="Toggle Theme" class="p-2 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                    <i class="fa-solid fa-moon dark:hidden text-sm"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline text-sm text-amber-400"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- WORKSPACE -->
+    <div class="flex flex-1 overflow-hidden relative">
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="w-80 border-r border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 flex flex-col transition-all duration-300 ease-in-out absolute md:relative z-10 h-full -translate-x-full md:translate-x-0 shadow-lg md:shadow-none">
+            <div class="p-4 border-b border-gray-100 dark:border-slate-900">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-slate-500" id="sidebar-subject-title">Maths P1</span>
+                    <span class="text-xs bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-semibold px-2 py-0.5 rounded-full" id="sidebar-topic-count">27 Chapters</span>
+                </div>
+                <div class="relative">
+                    <i class="fa-solid fa-filter absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                    <input type="text" id="topic-search" placeholder="Filter topics/chapters..." 
+                        class="w-full pl-8 pr-3 py-1.5 text-xs rounded-md border border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-800 dark:text-slate-200">
+                </div>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-3 space-y-1" id="topic-list-container">
+                <!-- Chapters loaded dynamically -->
+            </div>
+
+            <div class="p-3 border-t border-gray-100 dark:border-slate-900 bg-gray-50/50 dark:bg-slate-900/30 text-xs text-gray-400 dark:text-slate-500 flex items-center justify-between">
+                <span>Active Maths 4 Summary Engine</span>
+                <i class="fa-solid fa-circle-check text-emerald-500" title="All Scans Loaded"></i>
+            </div>
+        </aside>
+
+        <!-- MAIN DISPLAY -->
+        <main id="main-content" class="flex-1 flex flex-col bg-gray-50 dark:bg-slate-900 overflow-hidden relative">
+            <div id="notes-header-bar" class="h-12 border-b border-gray-200/80 dark:border-slate-800 bg-white/60 dark:bg-slate-950/60 backdrop-blur-md px-6 flex items-center justify-between shrink-0">
+                <div class="flex items-center space-x-2 text-xs text-gray-500 dark:text-slate-400 overflow-hidden text-ellipsis whitespace-nowrap">
+                    <span id="breadcrumb-subject">Maths P1</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i>
+                    <span id="breadcrumb-section" class="font-medium text-gray-700 dark:text-slate-300">Section 8</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i>
+                    <span id="breadcrumb-chapter" class="font-semibold text-blue-600 dark:text-blue-400">Differentiation Summary</span>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <button id="copy-notes-btn" class="flex items-center space-x-1.5 px-3 py-1 rounded-md text-xs font-medium text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-800 transition-all">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>Copy Notes</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-4 md:p-8 flex justify-center" id="notes-scroll-container">
+                <div id="notes-reader" class="w-full max-w-4xl transition-all duration-150">
+                    <!-- Note contents populated dynamically -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification Overlay -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 px-4 py-2.5 rounded-lg shadow-xl text-xs font-medium translate-y-16 opacity-0 transition-all duration-300 flex items-center space-x-2 z-50 pointer-events-none">
+        <i class="fa-solid fa-circle-info text-blue-400 dark:text-blue-600"></i>
+        <span id="toast-message">Notification message</span>
+    </div>
+
+    <script>
+        const SYLLABUS_DATA = {
+            maths1: {
+                title: "Maths P1",
+                sections: [
+                    {
+                        name: "Section 1: Number Systems",
+                        chapters: [
+                            { id: "m1-c1", name: "Ch 1: Number Systems", status: "ready" },
+                            { id: "m1-c2", name: "Ch 2: Arithmetic", status: "ready" }
+                        ]
+                    },
+                    {
+                        name: "Section 2: Algebraic Expressions",
+                        chapters: [
+                            { id: "m1-c3", name: "Ch 3: Working with Algebraic Expressions", status: "pending" },
+                            { id: "m1-c4", name: "Ch 4: Polynomial and Rational Expressions", status: "pending" }
+                        ]
+                    },
+                    {
+                        name: "Section 3: Algebraic Equations",
+                        chapters: [
+                            { id: "m1-c5", name: "Ch 5: Exponentials and Logs", status: "pending" },
+                            { id: "m1-c6", name: "Ch 6: Polynomial Equations", status: "pending" },
+                            { id: "m1-c7", name: "Ch 7: Other Types of Equations", status: "pending" },
+                            { id: "m1-c8", name: "Ch 8: Systems of Simultaneous Equations", status: "pending" },
+                            { id: "m1-c9", name: "Ch 9: Inequalities", status: "ready" }
+                        ]
+                    },
+                    {
+                        name: "Section 4: Sequences and Series",
+                        chapters: [
+                            { id: "m1-c10", name: "Ch 10: Sequences and Series", status: "pending" },
+                            { id: "m1-c11", name: "Ch 11: Analysing Sequences and Series", status: "pending" },
+                            { id: "m1-c12", name: "Ch 12: Arithmetic Sequences and Series", status: "pending" },
+                            { id: "m1-c13", name: "Ch 13: Geometric Sequences and Series", status: "pending" }
+                        ]
+                    },
+                    {
+                        name: "Section 5: Financial Maths",
+                        chapters: [
+                            { id: "m1-c14", name: "Ch 14: Financial Maths 1", status: "pending" },
+                            { id: "m1-c15", name: "Ch 15: Financial Maths 2", status: "pending" }
+                        ]
+                    },
+                    {
+                        name: "Section 6: Complex Numbers",
+                        chapters: [
+                            { id: "m1-c16", name: "Ch 16: Complex Numbers 1", status: "pending" },
+                            { id: "m1-c17", name: "Ch 17: Complex Numbers 2", status: "pending" }
+                        ]
+                    },
+                    {
+                        name: "Section 7: Functions",
+                        chapters: [
+                            { id: "m1-c18", name: "Ch 18: Relations and Functions", status: "pending" },
+                            { id: "m1-c19", name: "Ch 19: Linear Functions", status: "pending" },
+                            { id: "m1-c20", name: "Ch 20: Quadratic Functions", status: "pending" },
+                            { id: "m1-c21", name: "Ch 21: Cubic Functions", status: "pending" },
+                            { id: "m1-c22", name: "Ch 22: Exponential and Logarithmic Functions", status: "pending" }
+                        ]
+                    },
+                    {
+                        name: "Section 8: Differentiation",
+                        chapters: [
+                            { id: "m1-c23", name: "Ch 23: Techniques of Differentiation", status: "ready" },
+                            { id: "m1-c24", name: "Ch 24: Applications of Differentiation", status: "ready" }
+                        ]
+                    },
+                    {
+                        name: "Section 9: Integration",
+                        chapters: [
+                            { id: "m1-c25", name: "Ch 25: Techniques of Integration", status: "ready" },
+                            { id: "m1-c26", name: "Ch 26: Applications of Integration", status: "ready" }
+                        ]
+                    },
+                    {
+                        name: "Section 10: Mathematical Induction",
+                        chapters: [
+                            { id: "m1-c27", name: "Ch 27: Proof by Induction", status: "ready" }
+                        ]
+                    }
+                ]
+            },
+            maths2: {
+                title: "Maths P2",
+                sections: [
+                    {
+                        name: "Geometry & Trigonometry",
+                        chapters: [
+                            { id: "m2-c1", name: "Co-ordinate Geometry: Line & Circle", status: "pending" },
+                            { id: "m2-c2", name: "Trigonometry & Triangles", status: "pending" }
+                        ]
+                    }
+                ]
+            },
+            english: {
+                title: "English",
+                sections: [
+                    {
+                        name: "Paper 1 & Paper 2",
+                        chapters: [
+                            { id: "eng-c1", name: "Comprehension & Essay Composition", status: "pending" },
+                            { id: "eng-c2", name: "Comparative Study & Poetry", status: "pending" }
+                        ]
+                    }
+                ]
+            },
+            geography: {
+                title: "Geography",
+                sections: [
+                    {
+                        name: "Unit 2: Core Regional Geography",
+                        chapters: [
+                            { id: "geo-c4", name: "Greater Dublin Area (GDA) Climate Essay", status: "ready" }
+                        ]
+                    }
+                ]
+            },
+            cs: { title: "Computer Science", sections: [{ name: "Strands 1 & 2", chapters: [{ id: "cs-c1", name: "Algorithms & Python", status: "pending" }] }] },
+            business: { title: "Business", sections: [{ name: "Enterprise & Marketing", chapters: [{ id: "bus-c1", name: "Contract Law & Marketing Mix", status: "pending" }] }] },
+            physics: { title: "Physics", sections: [{ name: "Mechanics & Waves", chapters: [{ id: "phy-c1", name: "Motion, Waves & Particles", status: "pending" }] }] },
+            pe: { title: "PE", sections: [{ name: "Performance", chapters: [{ id: "pe-c1", name: "Skill & Fitness Demands", status: "pending" }] }] }
+        };
+
+        const NOTES_DATABASE = {
+            "m1-c23": {
+                title: "Section 8 Summary: Techniques of Differentiation",
+                section: "Section 8: Differentiation",
+                content: `
+                    <div class="space-y-6">
+                        <!-- Navigation Tabs for Differentiation -->
+                        <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium">
+                            <button onclick="switchTab('diff-tab-1', this)" class="tab-btn px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">1. First Principles & Basic Rules</button>
+                            <button onclick="switchTab('diff-tab-2', this)" class="tab-btn px-4 py-2 text-gray-500 hover:text-blue-500">2. Specific Functions Derivatives</button>
+                        </div>
+
+                        <!-- TAB 1: Rules -->
+                        <div id="diff-tab-1" class="tab-content space-y-6">
+                            <div class="bg-blue-50/50 dark:bg-slate-800/40 p-4 rounded-xl border border-blue-100 dark:border-slate-800">
+                                <h3 class="font-bold text-blue-600 dark:text-blue-400 text-md mb-2">1. First Principles Definition</h3>
+                                <p class="text-sm">For any continuous function \\( y = f(x) \\), the derivative is defined as:</p>
+                                <div class="math-block text-lg font-bold">
+                                    \\( \\frac{dy}{dx} = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} \\)
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="font-bold text-gray-800 dark:text-slate-100 text-md mb-3">2. Core Rules of Differentiation</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                                    <div class="math-block">
+                                        <span class="font-bold text-blue-600 dark:text-blue-400 block mb-1">(a) Basic Power Rule:</span>
+                                        \\( y = x^p \\implies \\frac{dy}{dx} = p x^{p-1}, \\quad p \\in \\mathbb{R} \\)
+                                    </div>
+                                    <div class="math-block">
+                                        <span class="font-bold text-blue-600 dark:text-blue-400 block mb-1">(b) Multiplication by a Constant:</span>
+                                        \\( y = c \\cdot u(x), \\text{ c constant} \\implies \\frac{dy}{dx} = c \\frac{du}{dx} \\)
+                                    </div>
+                                    <div class="math-block">
+                                        <span class="font-bold text-blue-600 dark:text-blue-400 block mb-1">(c) Constant Rule:</span>
+                                        \\( y = c, \\text{ c constant} \\implies \\frac{dy}{dx} = 0 \\)
+                                    </div>
+                                    <div class="math-block">
+                                        <span class="font-bold text-blue-600 dark:text-blue-400 block mb-1">(d) Sum Rule:</span>
+                                        \\( y = u(x) + v(x) \\implies \\frac{dy}{dx} = \\frac{du}{dx} + \\frac{dv}{dx} \\)
+                                    </div>
+                                    <div class="math-block col-span-1 md:col-span-2">
+                                        <span class="font-bold text-blue-600 dark:text-blue-400 block mb-1">(e) Product Rule:</span>
+                                        \\( y = u(x) \\cdot v(x) \\implies \\frac{dy}{dx} = u \\frac{dv}{dx} + v \\frac{du}{dx} \\)
+                                    </div>
+                                    <div class="math-block col-span-1 md:col-span-2">
+                                        <span class="font-bold text-blue-600 dark:text-blue-400 block mb-1">(f) Quotient Rule:</span>
+                                        \\( y = \\frac{u(x)}{v(x)} \\implies \\frac{dy}{dx} = \\frac{v \\frac{du}{dx} - u \\frac{dv}{dx}}{v^2} \\)
+                                    </div>
+                                    <div class="math-block col-span-1 md:col-span-2">
+                                        <span class="font-bold text-blue-600 dark:text-blue-400 block mb-1">(g) The Chain Rule:</span>
+                                        If \\( y \\) is a function of \\( u \\) and \\( u \\) is a function of \\( x \\):<br>
+                                        \\( \\frac{dy}{dx} = \\frac{dy}{du} \\times \\frac{du}{dx} \\)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 2: Specific Functions -->
+                        <div id="diff-tab-2" class="tab-content hidden space-y-6">
+                            <div class="tip-box">
+                                <h4 class="font-bold text-amber-800 dark:text-amber-400 text-sm mb-1"><i class="fa-solid fa-lightbulb mr-2"></i>Exam Tip & Strategy</h4>
+                                <p class="text-xs text-amber-900 dark:text-amber-300">
+                                    <strong>Always simplify a function before you differentiate it. Always substitute values into a function after you differentiate it.</strong>
+                                </p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <!-- Algebraic -->
+                                <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
+                                    <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(a) Algebraic Functions</h4>
+                                    <div class="text-xs font-mono space-y-1">
+                                        <p>(i) \\( y = x^p \\implies \\frac{dy}{dx} = p x^{p-1} \\)</p>
+                                        <p>(ii) \\( y = [f(x)]^p \\implies \\frac{dy}{dx} = p [f(x)]^{p-1} \\times f'(x) \\)</p>
+                                    </div>
+                                </div>
+
+                                <!-- Trigonometric -->
+                                <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
+                                    <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(b) Trigonometric Functions</h4>
+                                    <div class="grid md:grid-cols-2 gap-2 text-xs font-mono">
+                                        <p>(i) \\( y = \\sin x \\implies \\frac{dy}{dx} = \\cos x \\)</p>
+                                        <p>(ii) \\( y = \\sin f(x) \\implies \\frac{dy}{dx} = \\cos f(x) \\times f'(x) \\)</p>
+                                        <p>(iii) \\( y = \\cos x \\implies \\frac{dy}{dx} = -\\sin x \\)</p>
+                                        <p>(iv) \\( y = \\cos f(x) \\implies \\frac{dy}{dx} = -\\sin f(x) \\times f'(x) \\)</p>
+                                    </div>
+                                </div>
+
+                                <!-- Inverse Trig -->
+                                <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
+                                    <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(c) Inverse Trigonometric Functions</h4>
+                                    <div class="grid md:grid-cols-2 gap-2 text-xs font-mono">
+                                        <p>(i) \\( y = \\sin^{-1} x \\implies \\frac{dy}{dx} = \\frac{1}{\\sqrt{1 - x^2}} \\)</p>
+                                        <p>(ii) \\( y = \\sin^{-1} f(x) \\implies \\frac{dy}{dx} = \\frac{1}{\\sqrt{1 - [f(x)]^2}} \\times f'(x) \\)</p>
+                                        <p>(iii) \\( y = \\cos^{-1} x \\implies \\frac{dy}{dx} = -\\frac{1}{\\sqrt{1 - x^2}} \\)</p>
+                                        <p>(iv) \\( y = \\cos^{-1} f(x) \\implies \\frac{dy}{dx} = -\\frac{1}{\\sqrt{1 - [f(x)]^2}} \\times f'(x) \\)</p>
+                                        <p>(v) \\( y = \\tan^{-1} x \\implies \\frac{dy}{dx} = \\frac{1}{1 + x^2} \\)</p>
+                                        <p>(vi) \\( y = \\tan^{-1} f(x) \\implies \\frac{dy}{dx} = \\frac{1}{1 + [f(x)]^2} \\times f'(x) \\)</p>
+                                    </div>
+                                </div>
+
+                                <!-- Exponential -->
+                                <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
+                                    <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(d) Exponential Functions</h4>
+                                    <div class="grid md:grid-cols-2 gap-2 text-xs font-mono">
+                                        <p>(i) \\( y = e^x \\implies \\frac{dy}{dx} = e^x \\)</p>
+                                        <p>(ii) \\( y = e^{f(x)} \\implies \\frac{dy}{dx} = e^{f(x)} \\times f'(x) \\)</p>
+                                        <p>(iii) \\( y = a^x \\implies \\frac{dy}{dx} = a^x \\ln a \\)</p>
+                                        <p>(iv) \\( y = a^{f(x)} \\implies \\frac{dy}{dx} = a^{f(x)} \\ln a \\times f'(x) \\)</p>
+                                    </div>
+                                </div>
+
+                                <!-- Logarithmic -->
+                                <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
+                                    <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(e) Logarithmic Functions</h4>
+                                    <div class="grid md:grid-cols-2 gap-2 text-xs font-mono">
+                                        <p>(i) \\( y = \\ln x \\implies \\frac{dy}{dx} = \\frac{1}{x} \\)</p>
+                                        <p>(ii) \\( y = \\ln f(x) \\implies \\frac{dy}{dx} = \\frac{1}{f(x)} \\times f'(x) \\)</p>
+                                        <p>(iii) \\( y = \\log_a x = \\frac{\\ln x}{\\ln a} \\implies \\frac{dy}{dx} = \\frac{1}{x \\ln a} \\)</p>
+                                        <p>(iv) \\( y = \\log_a f(x) = \\frac{\\ln f(x)}{\\ln a} \\implies \\frac{dy}{dx} = \\frac{1}{f(x) \\ln a} \\times f'(x) \\)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            "m1-c24": {
+                title: "Section 8 Summary: Applications of Differentiation",
+                section: "Section 8: Differentiation",
+                content: `
+                    <div class="space-y-6">
+                        <!-- Curves & Tangents -->
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 shadow-sm space-y-3">
+                            <h3 class="font-bold text-lg text-blue-600 dark:text-blue-400">4. Curves and Tangents</h3>
+                            <p class="text-sm">(a) \\( \\frac{dy}{dx} = \\text{slope of the tangent } k \\text{ to the curve } y = f(x) \\text{ at point } P(x, y) \\).</p>
+                            <p class="text-sm">(b) A stationary point is a point at which \\( \\frac{dy}{dx} = 0 \\).</p>
+                            
+                            <!-- Table of Derivative Signs -->
+                            <div class="overflow-x-auto mt-4">
+                                <table class="w-full text-xs text-center border-collapse border border-gray-200 dark:border-slate-800">
+                                    <thead>
+                                        <tr class="bg-gray-100 dark:bg-slate-800">
+                                            <th class="p-2 border border-gray-200 dark:border-slate-700">Derivative</th>
+                                            <th class="p-2 border border-gray-200 dark:border-slate-700"> > 0</th>
+                                            <th class="p-2 border border-gray-200 dark:border-slate-700"> < 0</th>
+                                            <th class="p-2 border border-gray-200 dark:border-slate-700"> = 0</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-2 font-mono font-bold border border-gray-200 dark:border-slate-800">\\( \\frac{dy}{dx} \\)</td>
+                                            <td class="p-2 border border-gray-200 dark:border-slate-800 text-emerald-600 font-semibold">Increasing</td>
+                                            <td class="p-2 border border-gray-200 dark:border-slate-800 text-rose-500 font-semibold">Decreasing</td>
+                                            <td class="p-2 border border-gray-200 dark:border-slate-800">Flat / Stationary</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 font-mono font-bold border border-gray-200 dark:border-slate-800">\\( \\frac{d^2y}{dx^2} \\)</td>
+                                            <td class="p-2 border border-gray-200 dark:border-slate-800">Concave up ( \\( \\cup \\) )</td>
+                                            <td class="p-2 border border-gray-200 dark:border-slate-800">Concave down ( \\( \\cap \\) )</td>
+                                            <td class="p-2 border border-gray-200 dark:border-slate-800 font-bold text-amber-500">Point of Inflection</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Maxima & Minima -->
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+                                <h4 class="font-bold text-blue-600 dark:text-blue-400 text-sm mb-2">5(a) Local Maximum at P</h4>
+                                <div class="math-block text-xs">
+                                    \\( \\frac{dy}{dx} = 0 \\text{ at } P \\) &nbsp;and&nbsp; \\( \\frac{d^2y}{dx^2} < 0 \\text{ at } P \\)
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+                                <h4 class="font-bold text-blue-600 dark:text-blue-400 text-sm mb-2">5(b) Local Minimum at Q</h4>
+                                <div class="math-block text-xs">
+                                    \\( \\frac{dy}{dx} = 0 \\text{ at } Q \\) &nbsp;and&nbsp; \\( \\frac{d^2y}{dx^2} > 0 \\text{ at } Q \\)
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kinematics & Optimisation -->
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+                                <h3 class="font-bold text-sm text-gray-900 dark:text-slate-100 mb-2">6. Rate of Change & Kinematics</h3>
+                                <ul class="space-y-2 text-xs font-mono">
+                                    <li>(a) \\( \\frac{dV}{dt} = \\text{rate of change of } V \\)</li>
+                                    <li>(b) Velocity: \\( v = \\frac{ds}{dt} \\) where \\( s \\) is distance relative to the origin</li>
+                                    <li>Acceleration: \\( a = \\frac{dv}{dt} \\) where \\( v \\) is velocity</li>
+                                    <li>(c) Related rates use the Chain Rule: \\( \\frac{dV}{dt} = \\frac{dV}{dh} \\times \\frac{dh}{dt} \\)</li>
+                                </ul>
+                            </div>
+
+                            <div class="p-4 rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+                                <h3 class="font-bold text-sm text-gray-900 dark:text-slate-100 mb-2">7. Optimisation Strategy</h3>
+                                <p class="text-xs text-gray-600 dark:text-slate-400">(a) Model the problem first into a single variable function.</p>
+                                <p class="text-xs text-gray-600 dark:text-slate-400">(b) Differentiate to find local maxima or minima (set \\( \\frac{dy}{dx} = 0 \\)).</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            "m1-c25": {
+                title: "Section 9 Summary: Techniques of Integration",
+                section: "Section 9: Integration",
+                content: `
+                    <div class="space-y-6">
+                        <!-- Navigation Tabs for Integration -->
+                        <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium">
+                            <button onclick="switchTab('int-tab-1', this)" class="tab-btn px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">1. Notation & Basic Rules</button>
+                            <button onclick="switchTab('int-tab-2', this)" class="tab-btn px-4 py-2 text-gray-500 hover:text-blue-500">2. Standard Functions Integrals</button>
+                        </div>
+
+                        <!-- TAB 1: Notation & Rules -->
+                        <div id="int-tab-1" class="tab-content space-y-5">
+                            <div class="bg-blue-50/50 dark:bg-slate-800/40 p-4 rounded-xl border border-blue-100 dark:border-slate-800">
+                                <h3 class="font-bold text-blue-600 dark:text-blue-400 text-md mb-2">1. Notation & Concept</h3>
+                                <p class="text-sm mb-2">(a) \\( \\int g(x) dx = \\text{A function } f(x) \\text{ such that when you differentiate it with respect to } x, \\text{ you get } g(x) \\).</p>
+                                <div class="math-block text-xs font-mono">
+                                    \\( \\cdot f'(x) = g(x) \\)<br>
+                                    \\( (b) \\quad \\frac{dy}{dx} = g(x) \\implies dy = g(x) dx \\implies \\int dy = \\int g(x) dx \\implies y = \\int g(x) dx \\)
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-gray-800 dark:text-slate-100 text-md">2. Core Integration Rules</h3>
+                                <div class="space-y-2 text-xs">
+                                    <div class="math-block">
+                                        <span class="font-bold text-blue-600 dark:text-blue-400 block mb-1">(a) Sum Rule:</span>
+                                        \\( \\int (u(x) + v(x)) dx = \\int u(x) dx + \\int v(x) dx \\)
+                                    </div>
+                                    <div class="math-block">
+                                        <span class="font-bold text-blue-600 dark:text-blue-400 block mb-1">(b) Multiplication by a Constant:</span>
+                                        \\( \\int c \\cdot u(x) dx = c \\int u(x) dx, \\quad \\text{where } c \\text{ is a constant} \\)
+                                    </div>
+                                    <div class="math-block">
+                                        <span class="font-bold text-blue-600 dark:text-blue-400 block mb-1">(c) The One Rule:</span>
+                                        \\( \\int 1 dx = x + c \\)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+                                <h3 class="font-bold text-sm text-blue-600 dark:text-blue-400 mb-2">3. Definite Integration</h3>
+                                <div class="math-block text-sm">
+                                    \\( \\int_a^b g(x) dx = [f(x)]_a^b = f(b) - f(a) \\)
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 2: Standard Integrals -->
+                        <div id="int-tab-2" class="tab-content hidden space-y-4">
+                            <h3 class="font-bold text-md text-gray-800 dark:text-slate-100">4. Standard Functions Integrals</h3>
+
+                            <!-- Algebraic -->
+                            <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
+                                <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(a) Algebraic Rules</h4>
+                                <div class="space-y-2 text-xs font-mono">
+                                    <p>\\( \\int x^p dx = \\frac{x^{p+1}}{p+1} + c, \\quad p \\in \\mathbb{R}, p \\neq -1 \\)</p>
+                                    <p>\\( \\int (ax + b)^p dx = \\frac{1}{a} \\times \\frac{(ax + b)^{p+1}}{p+1} + c, \\quad p \\in \\mathbb{R}, p \\neq -1 \\)</p>
+                                </div>
+                            </div>
+
+                            <!-- Exponential -->
+                            <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
+                                <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(b & c) Exponential Integrals</h4>
+                                <div class="grid md:grid-cols-2 gap-2 text-xs font-mono">
+                                    <p>\\( \\int e^x dx = e^x + c \\)</p>
+                                    <p>\\( \\int e^{px + q} dx = \\frac{1}{p} e^{px + q} + c \\)</p>
+                                    <p>\\( \\int a^x dx = \\frac{a^x}{\\ln a} + c \\)</p>
+                                    <p>\\( \\int a^{px + q} dx = \\frac{a^{px + q}}{p \\ln a} + c \\)</p>
+                                </div>
+                            </div>
+
+                            <!-- Logarithmic / Rational -->
+                            <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
+                                <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(d) Reciprocal / Natural Log Forms</h4>
+                                <div class="space-y-2 text-xs font-mono">
+                                    <p>\\( \\int \\frac{1}{x} dx = \\ln x + c \\quad (x > 0) \\)</p>
+                                    <p>\\( \\int \\frac{1}{px + q} dx = \\frac{1}{p} \\ln (px + q) + c \\)</p>
+                                </div>
+                            </div>
+
+                            <!-- Trigonometric -->
+                            <div class="border border-gray-200 dark:border-slate-800 rounded-lg p-3.5 bg-white dark:bg-slate-950">
+                                <h4 class="font-bold text-blue-600 dark:text-blue-400 text-xs uppercase tracking-wider mb-2">(e & f) Trigonometric Integrals</h4>
+                                <div class="grid md:grid-cols-2 gap-2 text-xs font-mono">
+                                    <p>\\( \\int \\sin x dx = -\\cos x + c \\)</p>
+                                    <p>\\( \\int \\sin(px + q) dx = -\\frac{1}{p} \\cos(px + q) + c \\)</p>
+                                    <p>\\( \\int \\cos x dx = \\sin x + c \\)</p>
+                                    <p>\\( \\int \\cos(px + q) dx = \\frac{1}{p} \\sin(px + q) + c \\)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            "m1-c26": {
+                title: "Section 9 Summary: Applications of Integration",
+                section: "Section 9: Integration",
+                content: `
+                    <div class="space-y-6">
+                        <!-- Area Under Curves -->
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-4">
+                            <h3 class="font-bold text-lg text-blue-600 dark:text-blue-400">5. Area Calculations</h3>
+                            
+                            <div class="space-y-3">
+                                <h4 class="font-bold text-sm text-gray-800 dark:text-slate-200">(a) One Curve</h4>
+                                <ul class="text-xs space-y-2">
+                                    <li>Area under \\( y = g(x) \\) from \\( a \\) to \\( b \\): <span class="font-mono bg-blue-50 dark:bg-slate-900 px-2 py-1 rounded border dark:border-slate-800">\\( A = \\int_a^b g(x) dx \\)</span></li>
+                                    <li>Area against y-axis \\( x = g(y) \\) from \\( a \\) to \\( b \\): <span class="font-mono bg-blue-50 dark:bg-slate-900 px-2 py-1 rounded border dark:border-slate-800">\\( A = \\int_a^b g(y) dy \\)</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="border-t border-gray-100 dark:border-slate-900 pt-3 space-y-2">
+                                <h4 class="font-bold text-sm text-gray-800 dark:text-slate-200">(b) Two Curves</h4>
+                                <p class="text-xs">If \\( f(x) \\geq g(x) \\) on interval \\( [a, b] \\):</p>
+                                <div class="math-block text-xs font-mono">
+                                    Shaded Area = \\( \\int_a^b [f(x) - g(x)] dx \\)
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Average Value -->
+                        <div class="p-5 rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 space-y-2">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">6. Average Value of a Function</h3>
+                            <p class="text-xs text-gray-600 dark:text-slate-400">The average value \\( \\bar{y} \\) of a function \\( y = g(x) \\) on interval \\( [a, b] \\) is:</p>
+                            <div class="math-block text-sm font-mono font-bold">
+                                \\( \\bar{y} = \\frac{1}{b - a} \\int_a^b g(x) dx \\)
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            "m1-c1": {
+                title: "Chapter 1: Number Systems",
+                section: "Section 1: Number Systems",
+                content: `
+                    <div class="space-y-4">
+                        <div class="math-block">
+                            <p class="font-bold text-sm">Natural \\( \\mathbb{N} \\), Integers \\( \\mathbb{Z} \\), Rational \\( \\mathbb{Q} \\), Real \\( \\mathbb{R} \\)</p>
+                        </div>
+                        <p class="text-sm">Comprehensive rules for surds, rationalising the denominator, and modulus inequalities.</p>
+                    </div>
+                `
+            },
+            "m1-c2": {
+                title: "Chapter 2: Arithmetic",
+                section: "Section 1: Number Systems",
+                content: `
+                    <div class="space-y-4">
+                        <div class="math-block">
+                            <p class="font-bold text-sm">Compound Interest: \\( F = P(1+i)^t \\)</p>
+                            <p class="font-bold text-sm">Depreciation: \\( F = P(1-i)^t \\)</p>
+                        </div>
+                    </div>
+                `
+            },
+            "m1-c9": {
+                title: "Chapter 9: Inequalities",
+                section: "Section 3: Algebraic Equations",
+                content: `
+                    <div class="space-y-4">
+                        <div class="math-block text-sm">
+                            Solve \\( |2x - 3| \\leq 5 \\implies -5 \\leq 2x - 3 \\leq 5 \\implies -1 \\leq x \\leq 4 \\)
+                        </div>
+                    </div>
+                `
+            },
+            "m1-c27": {
+                title: "Chapter 27: Proof by Induction",
+                section: "Section 10: Mathematical Induction",
+                content: `
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-lg bg-blue-600 text-white font-bold text-sm">
+                            4-Step Protocol: P(1) Base Case \u2192 P(k) Assumption \u2192 P(k+1) Proof \u2192 Formal Conclusion
+                        </div>
+                    </div>
+                `
+            },
+            "geo-c4": {
+                title: "Greater Dublin Area (GDA) Climate Essay",
+                section: "Unit 2: Core Regional Geography",
+                content: `
+                    <div class="space-y-4">
+                        <div class="bg-indigo-950 text-white p-5 rounded-xl">
+                            <span class="text-xs uppercase tracking-widest text-indigo-400 font-bold">LC Geography 30-Mark Essay</span>
+                            <h2 class="text-xl font-bold mt-1">Impact of Climate on Development in the GDA</h2>
+                        </div>
+
+                        <div class="srp-box">
+                            <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">SRP 1 - Climate Type</span>
+                            <p class="text-sm mt-1">The Greater Dublin Area (GDA) experiences a Cool Temperate Oceanic climate, moderated by the North Atlantic Drift and south-westerly winds.</p>
+                        </div>
+                        <div class="srp-box">
+                            <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">SRP 2 - Temperature Range</span>
+                            <p class="text-sm mt-1">Average temperatures range from 6°C in January to 16°C in July, yielding a low annual temperature range and an extended 270-day growing season.</p>
+                        </div>
+                        <div class="srp-box">
+                            <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">SRP 3 - Rain Shadow Effect</span>
+                            <p class="text-sm mt-1">Lying in the rain shadow of the Wicklow Mountains, the GDA receives ~800mm annual rainfall, reducing Potato Blight risk for arable farming.</p>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        let currentState = {
+            subject: 'maths1',
+            activeTopicId: 'm1-c23',
+            fontSize: 100,
+            isDark: true,
+            filterText: ''
+        };
+
+        // DOM elements
+        const subjectSelect = document.getElementById('subject-select');
+        const sidebarSubjectTitle = document.getElementById('sidebar-subject-title');
+        const sidebarTopicCount = document.getElementById('sidebar-topic-count');
+        const topicListContainer = document.getElementById('topic-list-container');
+        const topicSearch = document.getElementById('topic-search');
+        const contentSearch = document.getElementById('content-search');
+        const notesReader = document.getElementById('notes-reader');
+        
+        const breadcrumbSubject = document.getElementById('breadcrumb-subject');
+        const breadcrumbSection = document.getElementById('breadcrumb-section');
+        const breadcrumbChapter = document.getElementById('breadcrumb-chapter');
+
+        const toggleThemeBtn = document.getElementById('toggle-theme');
+        const toggleFocusBtn = document.getElementById('toggle-focus');
+        const fontIncBtn = document.getElementById('font-inc');
+        const fontDecBtn = document.getElementById('font-dec');
+        const fontResetBtn = document.getElementById('font-reset');
+        const copyNotesBtn = document.getElementById('copy-notes-btn');
+        const toggleSidebarMobile = document.getElementById('toggle-sidebar-mobile');
+        const sidebar = document.getElementById('sidebar');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderSidebar();
+            loadTopicContent(currentState.activeTopicId);
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            subjectSelect.addEventListener('change', (e) => {
+                currentState.subject = e.target.value;
+                const firstTopic = getFirstTopicIdOfSubject(currentState.subject);
+                currentState.activeTopicId = firstTopic;
+                renderSidebar();
+                loadTopicContent(firstTopic);
+            });
+
+            topicSearch.addEventListener('input', (e) => {
+                currentState.filterText = e.target.value.toLowerCase();
+                renderSidebar();
+            });
+
+            toggleThemeBtn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                currentState.isDark = document.documentElement.classList.contains('dark');
+                showToast(currentState.isDark ? "Switched to Dark Mode" : "Switched to Light Mode");
+            });
+
+            fontIncBtn.addEventListener('click', () => adjustFontSize(10));
+            fontDecBtn.addEventListener('click', () => adjustFontSize(-10));
+            fontResetBtn.addEventListener('click', () => setFontSize(100));
+
+            copyNotesBtn.addEventListener('click', () => {
+                const text = notesReader.innerText;
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text);
+                } else {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                }
+                showToast("Notes text copied to clipboard!");
+            });
+
+            toggleFocusBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(() => showToast("Fullscreen mode blocked"));
+                } else {
+                    if (document.exitFullscreen) document.exitFullscreen();
+                }
+            });
+
+            contentSearch.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                filterContentTerms(query);
+            });
+
+            toggleSidebarMobile.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+        }
+
+        function getFirstTopicIdOfSubject(subKey) {
+            const data = SYLLABUS_DATA[subKey];
+            if (data && data.sections.length > 0 && data.sections[0].chapters.length > 0) {
+                return data.sections[0].chapters[0].id;
+            }
+            return null;
+        }
+
+        function renderSidebar() {
+            const subData = SYLLABUS_DATA[currentState.subject];
+            sidebarSubjectTitle.textContent = subData.title;
+            
+            let totalChapters = 0;
+            topicListContainer.innerHTML = '';
+
+            subData.sections.forEach(sec => {
+                const filteredChapters = sec.chapters.filter(ch => 
+                    ch.name.toLowerCase().includes(currentState.filterText)
+                );
+
+                totalChapters += sec.chapters.length;
+                if (filteredChapters.length === 0 && currentState.filterText !== '') return;
+
+                const sectionGroup = document.createElement('div');
+                sectionGroup.className = 'mb-3';
+
+                const sectionTitle = document.createElement('div');
+                sectionTitle.className = 'text-[11px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider px-2 py-1 flex items-center justify-between cursor-pointer';
+                sectionTitle.innerHTML = `<span>${sec.name}</span>`;
+
+                const chapterList = document.createElement('div');
+                chapterList.className = 'mt-1 space-y-0.5';
+
+                filteredChapters.forEach(ch => {
+                    const isActive = ch.id === currentState.activeTopicId;
+                    const itemBtn = document.createElement('button');
+                    itemBtn.className = `w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-all ${
+                        isActive 
+                        ? 'bg-blue-600 text-white shadow-sm font-semibold' 
+                        : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-900'
+                    }`;
+
+                    const statusBadge = ch.status === 'ready' 
+                        ? `<span class="w-2 h-2 rounded-full ${isActive ? 'bg-white' : 'bg-emerald-500'}" title="Notes Transcribed"></span>`
+                        : `<span class="text-[10px] opacity-60"><i class="fa-regular fa-clock"></i></span>`;
+
+                    itemBtn.innerHTML = `<span class="truncate pr-2">${ch.name}</span>${statusBadge}`;
+
+                    itemBtn.addEventListener('click', () => {
+                        currentState.activeTopicId = ch.id;
+                        renderSidebar();
+                        loadTopicContent(ch.id);
+                        sidebar.classList.add('-translate-x-full');
+                    });
+
+                    chapterList.appendChild(itemBtn);
+                });
+
+                sectionGroup.appendChild(sectionTitle);
+                sectionGroup.appendChild(chapterList);
+                topicListContainer.appendChild(sectionGroup);
+            });
+
+            sidebarTopicCount.textContent = `${totalChapters} Chapters`;
+        }
+
+        function loadTopicContent(topicId) {
+            const subData = SYLLABUS_DATA[currentState.subject];
+            let activeChapterObj = null;
+            let activeSectionName = "";
+
+            for (let sec of subData.sections) {
+                for (let ch of sec.chapters) {
+                    if (ch.id === topicId) {
+                        activeChapterObj = ch;
+                        activeSectionName = sec.name;
+                        break;
+                    }
+                }
+            }
+
+            breadcrumbSubject.textContent = subData.title;
+            breadcrumbSection.textContent = activeSectionName || "Section";
+            breadcrumbChapter.textContent = activeChapterObj ? activeChapterObj.name : "Topic";
+
+            contentSearch.value = '';
+
+            if (NOTES_DATABASE[topicId]) {
+                const note = NOTES_DATABASE[topicId];
+                notesReader.innerHTML = `
+                    <div class="mb-6 border-b border-gray-200 dark:border-slate-800 pb-4">
+                        <span class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">${note.section}</span>
+                        <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white mt-1">${note.title}</h1>
+                    </div>
+                    <div id="notes-body">
+                        ${note.content}
+                    </div>
+                `;
+
+                // Trigger KaTeX math rendering
+                if (window.renderMathInElement) {
+                    try {
+                        renderMathInElement(document.getElementById('notes-body'), {
+                            delimiters: [
+                                {left: "\\(", right: "\\)", display: false},
+                                {left: "\\[", right: "\\]", display: true}
+                            ]
+                        });
+                    } catch(e) {}
+                }
+            } else {
+                const topicName = activeChapterObj ? activeChapterObj.name : "Selected Topic";
+                notesReader.innerHTML = `
+                    <div class="flex flex-col items-center justify-center py-12 px-4 text-center">
+                        <div class="w-20 h-20 rounded-2xl bg-blue-50 dark:bg-slate-800/80 border border-blue-100 dark:border-slate-700/60 flex items-center justify-center text-blue-500 mb-6 shadow-inner">
+                            <i class="fa-solid fa-file-circle-plus text-3xl"></i>
+                        </div>
+                        <span class="px-3 py-1 bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 font-semibold text-xs rounded-full mb-3 border border-amber-200 dark:border-amber-900/50">
+                            Notes Pending
+                        </span>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">${topicName}</h2>
+                        <p class="text-sm text-gray-500 dark:text-slate-400 max-w-md leading-relaxed mb-8">
+                            This chapter is ready for future scanned content uploads. When you provide textbook photos or scans for this chapter, complete summaries and worked examples will appear here.
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        function switchTab(tabId, btn) {
+            const container = btn.closest('#notes-body');
+            if (!container) return;
+            
+            const tabs = container.querySelectorAll('.tab-content');
+            tabs.forEach(t => t.classList.add('hidden'));
+
+            const targetTab = container.querySelector(`#${tabId}`);
+            if (targetTab) targetTab.classList.remove('hidden');
+
+            const tabBtns = container.querySelectorAll('.tab-btn');
+            tabBtns.forEach(b => {
+                b.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600', 'active');
+                b.classList.add('text-gray-500');
+            });
+
+            btn.classList.remove('text-gray-500');
+            btn.classList.add('text-blue-600', 'border-b-2', 'border-blue-600', 'active');
+        }
+
+        function adjustFontSize(delta) {
+            currentState.fontSize = Math.min(Math.max(currentState.fontSize + delta, 70), 150);
+            setFontSize(currentState.fontSize);
+        }
+
+        function setFontSize(size) {
+            currentState.fontSize = size;
+            notesReader.style.fontSize = `${currentState.fontSize}%`;
+            showToast(`Font size set to ${currentState.fontSize}%`);
+        }
+
+        function filterContentTerms(query) {
+            const body = document.getElementById('notes-body');
+            if (!body) return;
+
+            const elements = body.querySelectorAll('.math-block, .srp-box, .border');
+            elements.forEach(el => {
+                if (!query) {
+                    el.style.opacity = '1';
+                } else {
+                    const text = el.innerText.toLowerCase();
+                    el.style.opacity = text.includes(query) ? '1' : '0.3';
+                }
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-16', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-16', 'opacity-0');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
