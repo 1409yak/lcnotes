@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'><path d='M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1zM6 4h12v2H6V4zm0 4h12v11H6V8z'/></svg>">
     <title>Leaving Certificate Revision Hub</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- KaTeX for rendering mathematical notation -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
@@ -95,7 +97,7 @@
             <button id="toggle-sidebar-mobile" class="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800">
                 <i class="fa-solid fa-bars text-lg"></i>
             </button>
-            <div class="flex items-center space-x-2">
+            <div id="home-link" class="flex items-center space-x-2 cursor-pointer select-none" title="Go to home">
                 <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -164,6 +166,14 @@
                     <span class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-slate-500" id="sidebar-subject-title">Maths P1</span>
                     <span class="text-xs bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-semibold px-2 py-0.5 rounded-full" id="sidebar-topic-count">27 Chapters</span>
                 </div>
+                <div class="flex items-center gap-2 mb-3">
+                    <button id="sidebar-home-btn" class="flex-1 flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-md text-xs font-semibold border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-900 transition-all">
+                        <i class="fa-solid fa-house text-[11px]"></i><span>Home</span>
+                    </button>
+                    <button id="saved-only-btn" title="Show only saved chapters" class="flex-1 flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-md text-xs font-semibold border border-gray-200 dark:border-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-900 transition-all">
+                        <i class="fa-solid fa-heart text-[11px] text-rose-500"></i><span>Saved</span><span id="saved-count" class="text-[10px] opacity-70">0</span>
+                    </button>
+                </div>
                 <div class="relative">
                     <i class="fa-solid fa-filter absolute left-3 top-2.5 text-gray-400 text-xs"></i>
                     <input type="text" id="topic-search" placeholder="Filter topics/chapters..." 
@@ -185,6 +195,8 @@
         <main id="main-content" class="flex-1 flex flex-col bg-gray-50 dark:bg-slate-900 overflow-hidden relative">
             <div id="notes-header-bar" class="h-12 border-b border-gray-200/80 dark:border-slate-800 bg-white/60 dark:bg-slate-950/60 backdrop-blur-md px-6 flex items-center justify-between shrink-0">
                 <div class="flex items-center space-x-2 text-xs text-gray-500 dark:text-slate-400 overflow-hidden text-ellipsis whitespace-nowrap">
+                    <button id="breadcrumb-home" title="Home" class="hover:text-blue-600 dark:hover:text-blue-400"><i class="fa-solid fa-house"></i></button>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i>
                     <span id="breadcrumb-subject">Maths P1</span>
                     <i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i>
                     <span id="breadcrumb-section" class="font-medium text-gray-700 dark:text-slate-300">Section 8</span>
@@ -193,6 +205,10 @@
                 </div>
 
                 <div class="flex items-center space-x-2">
+                    <button id="fav-btn" class="hidden flex items-center space-x-1.5 px-3 py-1 rounded-md text-xs font-medium text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-800 transition-all" title="Save to revision list">
+                        <i id="fav-icon" class="fa-regular fa-heart"></i>
+                        <span id="fav-label">Save</span>
+                    </button>
                     <button id="copy-notes-btn" class="flex items-center space-x-1.5 px-3 py-1 rounded-md text-xs font-medium text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-800 transition-all">
                         <i class="fa-regular fa-copy"></i>
                         <span>Copy Notes</span>
@@ -262,8 +278,8 @@
                     {
                         name: "Section 6: Complex Numbers",
                         chapters: [
-                            { id: "m1-c16", name: "Ch 16: Complex Numbers 1", status: "pending" },
-                            { id: "m1-c17", name: "Ch 17: Complex Numbers 2", status: "pending" }
+                            { id: "m1-c16", name: "Ch 16: Complex Numbers 1", status: "ready" },
+                            { id: "m1-c17", name: "Ch 17: Complex Numbers 2", status: "ready" }
                         ]
                     },
                     {
@@ -543,6 +559,149 @@
                     </div>
                 `
             },
+            "m1-c16": {
+                title: "Section 6 Summary: Complex Numbers 1",
+                section: "Section 6: Complex Numbers",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">1. Imaginary Numbers</h3>
+                            <p class="text-xs">(a)</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( i = \\sqrt{-1} \\implies i^2 = -1 \\)</div>
+                            <p class="text-xs">(b) Powers of <i>i</i>, where \\( n \\in \\mathbb{N}_0 = \\{0, 1, 2, 3, \\dots\\} \\)</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( i^n = \\begin{cases} 1 & R = 0 \\\\ i & R = 1 \\\\ -1 & R = 2 \\\\ -i & R = 3 \\end{cases} \\)</div>
+                            <p class="text-xs">(c) \\( i^n = i^R \\), where <i>R</i> is the remainder when <i>n</i> is divided by 4.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">2. Complex Number Definition</h3>
+                            <div class="math-block text-sm overflow-x-auto">\\( z = a + bi, \\quad a, b \\in \\mathbb{R}, \\; i = \\sqrt{-1} \\)</div>
+                            <p class="text-xs">\\( a \\) is the real part (Re) of \\( z \\)</p>
+                            <p class="text-xs">\\( b \\) is the imaginary part (Im) of \\( z \\)</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">3. The Argand Diagram</h3>
+                            <svg viewBox="0 0 220 150" class="w-56 max-w-full mx-auto my-2" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="30" y1="125" x2="205" y2="125" stroke="currentColor" stroke-width="1.2" opacity="0.7"/><line x1="30" y1="140" x2="30" y2="10" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+                                <line x1="30" y1="125" x2="120" y2="35" stroke="#ef4444" stroke-width="1.8"/>
+                                <line x1="120" y1="35" x2="120" y2="125" stroke="currentColor" stroke-width="1.2" opacity="0.7" stroke-dasharray="3"/>
+                                <circle cx="120" cy="35" r="3" fill="#3b82f6"/><circle cx="120" cy="125" r="2.5" fill="currentColor"/>
+                                <text x="126" y="32" fill="currentColor" font-size="10" font-style="italic">P(x, y)</text><text x="60" y="30" fill="currentColor" font-size="10" font-style="italic">z = x + yi</text>
+                                <text x="22" y="138" fill="currentColor" font-size="10" font-style="italic">O</text><text x="72" y="138" fill="currentColor" font-size="10" font-style="italic">x</text><text x="126" y="82" fill="currentColor" font-size="10" font-style="italic">y</text>
+                                <text x="190" y="140" fill="currentColor" font-size="10" font-style="italic">Re</text><text x="8" y="14" fill="currentColor" font-size="10" font-style="italic">Im</text>
+                            </svg>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">4 &amp; 5. Addition and Scalar Multiplication</h3>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">Addition</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( (a + bi) + (c + di) = (a + c) + (b + d)i \\)</div>
+                            <p class="text-xs">Add the real parts and add the imaginary parts.</p>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">Multiplication by a scalar \\( k \\in \\mathbb{R} \\)</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( k(a + bi) = ka + kbi \\)</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">6, 7 &amp; 8. Modulus, Argument and Conjugate</h3>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">Modulus of \\( z = a + bi \\)</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( |z| = \\sqrt{a^2 + b^2} = \\sqrt{(\\text{Re})^2 + (\\text{Im})^2} \\)</div>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">Argument of \\( z = a + bi \\)</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( \\arg z = \\tan^{-1}\\left(\\frac{b}{a}\\right) = \\tan^{-1}\\left(\\frac{\\text{Im}}{\\text{Re}}\\right) \\)</div>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">Conjugate of \\( z = a + bi \\)</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( \\bar{z} = a - bi \\)</div>
+                            <p class="text-xs">Change the sign between Re and Im.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">9. Multiplication of Complex Numbers</h3>
+                            <div class="math-block text-sm overflow-x-auto">\\( (a + bi)(c + di) = (ac - bd) + (bc + ad)i \\)</div>
+                            <p class="text-xs">Multiply out the brackets and put \\( i^2 = -1 \\).</p>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">Conjugate multiplication</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( (a + bi)\\overline{(a + bi)} = (a + bi)(a - bi) = a^2 + b^2 \\)</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">10. Division of Complex Numbers</h3>
+                            <div class="math-block text-sm overflow-x-auto">\\( \\frac{a + bi}{c + di} = \\frac{(a + bi)(c - di)}{(c + di)(c - di)} \\)</div>
+                            <p class="text-xs">Multiply above and below by the conjugate of the complex number on the bottom.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">11. Powers of Complex Numbers</h3>
+                            <p class="text-sm">Multiply out the brackets.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">12. Equality of Complex Numbers</h3>
+                            <div class="math-block text-sm overflow-x-auto">\\( a + bi = c + di \\implies a = c \\text{ and } b = d \\)</div>
+                            <p class="text-xs"><b>Remember:</b> \\( 0 = 0 + 0i \\)</p>
+                        </div>
+                    </div>
+                `
+            },
+            "m1-c17": {
+                title: "Section 6 Summary: Complex Numbers 2",
+                section: "Section 6: Complex Numbers",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">13. Quadratic Equations</h3>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">(a) Solution</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( z = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\)</div>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">(b) Forming a quadratic equation from its roots</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( z^2 - Sz + P = 0 \\)</div>
+                            <p class="text-xs">(\\( S \\) = sum of the roots, \\( P \\) = product of the roots)</p>
+                            <div class="srp-box">
+                                <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">(c) Conjugate Root Theorem</span>
+                            <p class="text-xs">If all the coefficients of a polynomial equation (quadratic/cubic) are real, then if \\( p + qi \\) is a root so is \\( p - qi \\), and vice versa.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">14. Cubic Equations</h3>
+                            <div class="math-block text-sm overflow-x-auto">\\( \\text{Cubic} = \\text{Quadratic} \\times \\text{Linear} \\)</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">15. Polar Form</h3>
+                            <svg viewBox="0 0 220 150" class="w-56 max-w-full mx-auto my-2" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="20" y1="110" x2="205" y2="110" stroke="currentColor" stroke-width="1.2" opacity="0.7"/><line x1="110" y1="140" x2="110" y2="10" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+                                <line x1="110" y1="110" x2="55" y2="35" stroke="#ef4444" stroke-width="1.8"/>
+                                <circle cx="55" cy="35" r="3" fill="#3b82f6"/>
+                                <path d="M155 110 A45 45 0 0 0 78 78" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                                <text x="45" y="28" fill="currentColor" font-size="10" font-style="italic">z</text><text x="72" y="78" fill="currentColor" font-size="10" font-style="italic">r</text><text x="128" y="96" fill="currentColor" font-size="10" font-style="italic">A</text>
+                                <text x="100" y="124" fill="currentColor" font-size="10" font-style="italic">O</text><text x="190" y="124" fill="currentColor" font-size="10" font-style="italic">Re</text><text x="96" y="12" fill="currentColor" font-size="10" font-style="italic">Im</text>
+                            </svg>
+                            <div class="math-block text-sm overflow-x-auto">\\( z = x + yi \\implies r = |z| = \\sqrt{x^2 + y^2} = \\sqrt{(\\text{Re})^2 + (\\text{Im})^2} \\)</div>
+                            <div class="math-block text-sm overflow-x-auto">\\( |\\tan A| = \\left|\\frac{\\text{Im}}{\\text{Re}}\\right| = \\tan\\theta \\implies \\theta = \\tan^{-1}\\left|\\frac{\\text{Im}}{\\text{Re}}\\right| \\)</div>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">Polar form</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( z = r(\\cos A + i\\sin A) \\)</div>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">General polar form</p>
+                            <div class="math-block text-sm overflow-x-auto">\\( z = r\\big(\\cos(A + 2n\\pi) + i\\sin(A + 2n\\pi)\\big), \\quad n \\in \\mathbb{N}_0 \\)</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">16. DMO Tricks</h3>
+                            <p class="text-xs"><b>Sign convention:</b> \\( \\oplus \\) = same sign used throughout (all + or all &minus;); \\( \\mp \\) = the opposite sign.</p>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">(a)</p>
+                            <div class="math-block text-xs overflow-x-auto">\\( (\\cos A \\oplus i\\sin A)(\\cos B \\oplus i\\sin B) = \\cos(A + B) \\oplus i\\sin(A + B) \\)</div>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">(b)</p>
+                            <div class="math-block text-xs overflow-x-auto">\\( \\frac{1}{\\cos A \\pm i\\sin A} = \\cos A \\mp i\\sin A \\)</div>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">(c)</p>
+                            <div class="math-block text-xs overflow-x-auto">\\( \\frac{\\cos A \\oplus i\\sin A}{\\cos B \\oplus i\\sin B} = \\cos(A - B) \\oplus i\\sin(A - B) \\)</div>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">(d)</p>
+                            <div class="math-block text-xs overflow-x-auto">\\( (\\cos A \\oplus i\\sin A)^n = \\cos nA \\oplus i\\sin nA \\)</div>
+                            <div class="srp-box">
+                                <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">De Moivre's Theorem (DMT)</span>
+                            <div class="math-block text-xs overflow-x-auto">\\( [r(\\cos A + i\\sin A)]^p = r^p(\\cos A + i\\sin A)^p = r^p(\\cos pA + i\\sin pA), \\quad p \\in \\mathbb{R} \\)</div>
+                            </div>
+                            <p class="font-bold text-xs text-gray-700 dark:text-slate-300">DMT Applications</p>
+                            <ul class="text-xs space-y-1 list-disc pl-5"><li><b>(a)</b> Powers &ndash; polar form</li><li><b>(b)</b> Roots &ndash; general polar form</li><li><b>(c)</b> Trigonometric identities &ndash; binomial theorem</li></ul>
+                        </div>
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">17. Geometrical Interpretation</h3>
+                            <div class="srp-box">
+                                <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">(a) Multiplication</span>
+                            <p class="text-xs">If you multiply a complex number \\( z \\) by \\( w \\), \\( z \\) is rotated <b>anticlockwise</b> about \\( O(0,0) \\) through \\( \\arg w \\) and its modulus is <b>multiplied</b> by \\( |w| \\).</p>
+                            </div>
+                            <div class="srp-box">
+                                <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">(b) Division</span>
+                            <p class="text-xs">If you divide a complex number \\( z \\) by \\( w \\), \\( z \\) is rotated <b>clockwise</b> about \\( O(0,0) \\) through \\( \\arg w \\) and its modulus is <b>divided</b> by \\( |w| \\).</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
             "m1-c25": {
                 title: "Section 9 Summary: Techniques of Integration",
                 section: "Section 9: Integration",
@@ -560,7 +719,7 @@
                                 <h3 class="font-bold text-blue-600 dark:text-blue-400 text-md mb-2">1. Notation & Concept</h3>
                                 <p class="text-sm mb-2">(a) \\( \\int g(x) dx = \\text{A function } f(x) \\text{ such that when you differentiate it with respect to } x, \\text{ you get } g(x) \\).</p>
                                 <div class="math-block text-xs font-mono">
-                                    \\( \\cdot f'(x) = g(x) \\)<br>
+                                    \\( \\therefore f'(x) = g(x) \\)<br>
                                     \\( (b) \\quad \\frac{dy}{dx} = g(x) \\implies dy = g(x) dx \\implies \\int dy = \\int g(x) dx \\implies y = \\int g(x) dx \\)
                                 </div>
                             </div>
@@ -653,11 +812,38 @@
                                     <li>Area under \\( y = g(x) \\) from \\( a \\) to \\( b \\): <span class="font-mono bg-blue-50 dark:bg-slate-900 px-2 py-1 rounded border dark:border-slate-800">\\( A = \\int_a^b g(x) dx \\)</span></li>
                                     <li>Area against y-axis \\( x = g(y) \\) from \\( a \\) to \\( b \\): <span class="font-mono bg-blue-50 dark:bg-slate-900 px-2 py-1 rounded border dark:border-slate-800">\\( A = \\int_a^b g(y) dy \\)</span></li>
                                 </ul>
+                                <p class="text-[10px] uppercase tracking-wider text-gray-500 mt-2">Region under y = g(x)</p>
+                                <svg viewBox="0 0 200 115" class="w-48 max-w-full mx-auto my-2" xmlns="http://www.w3.org/2000/svg">
+                                    <defs><clipPath id="clip-one"><rect x="70" y="0" width="70" height="100"/></clipPath></defs>
+                                    <path d="M30 70 C55 20 90 25 105 45 S150 40 185 25 L185 100 L30 100 Z" fill="#3b82f6" fill-opacity="0.35" clip-path="url(#clip-one)"/>
+                                    <path d="M30 70 C55 20 90 25 105 45 S150 40 185 25" fill="none" stroke="#ef4444" stroke-width="1.8"/>
+                                    <line x1="20" y1="100" x2="192" y2="100" stroke="currentColor" stroke-width="1.2" opacity="0.7"/><line x1="20" y1="100" x2="20" y2="8" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+                                    <line x1="70" y1="35" x2="70" y2="100" stroke="currentColor" stroke-width="1.2" opacity="0.7" stroke-dasharray="3"/><line x1="140" y1="38" x2="140" y2="100" stroke="currentColor" stroke-width="1.2" opacity="0.7" stroke-dasharray="3"/>
+                                    <text x="67" y="111" fill="currentColor" font-size="10" font-style="italic">a</text><text x="137" y="111" fill="currentColor" font-size="10" font-style="italic">b</text><text x="186" y="95" fill="currentColor" font-size="10" font-style="italic">x</text><text x="8" y="12" fill="currentColor" font-size="10" font-style="italic">y</text><text x="140" y="18" fill="currentColor" font-size="10" font-style="italic">y = g(x)</text>
+                                </svg>
+                                <p class="text-[10px] uppercase tracking-wider text-gray-500 mt-2">Region against the y-axis, x = g(y)</p>
+                                <svg viewBox="0 0 200 120" class="w-48 max-w-full mx-auto my-2" xmlns="http://www.w3.org/2000/svg">
+                                    <defs><clipPath id="clip-y"><rect x="0" y="45" width="200" height="40"/></clipPath></defs>
+                                    <path d="M60 112 C70 85 120 75 170 15 L40 15 L40 112 Z" fill="#3b82f6" fill-opacity="0.35" clip-path="url(#clip-y)"/>
+                                    <path d="M60 112 C70 85 120 75 170 15" fill="none" stroke="#ef4444" stroke-width="1.8"/>
+                                    <line x1="40" y1="112" x2="40" y2="8" stroke="currentColor" stroke-width="1.2" opacity="0.7"/><line x1="20" y1="112" x2="192" y2="112" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+                                    <line x1="32" y1="45" x2="120" y2="45" stroke="currentColor" stroke-width="1.2" opacity="0.7" stroke-dasharray="3"/><line x1="32" y1="85" x2="120" y2="85" stroke="currentColor" stroke-width="1.2" opacity="0.7" stroke-dasharray="3"/>
+                                    <text x="22" y="48" fill="currentColor" font-size="10" font-style="italic">b</text><text x="22" y="88" fill="currentColor" font-size="10" font-style="italic">a</text><text x="186" y="108" fill="currentColor" font-size="10" font-style="italic">x</text><text x="46" y="12" fill="currentColor" font-size="10" font-style="italic">y</text><text x="140" y="45" fill="currentColor" font-size="10" font-style="italic">x = g(y)</text>
+                                </svg>
                             </div>
 
                             <div class="border-t border-gray-100 dark:border-slate-900 pt-3 space-y-2">
                                 <h4 class="font-bold text-sm text-gray-800 dark:text-slate-200">(b) Two Curves</h4>
                                 <p class="text-xs">If \\( f(x) \\geq g(x) \\) on interval \\( [a, b] \\):</p>
+                                <svg viewBox="0 0 200 120" class="w-48 max-w-full mx-auto my-2" xmlns="http://www.w3.org/2000/svg">
+                                    <defs><clipPath id="clip-two"><rect x="55" y="0" width="90" height="120"/></clipPath></defs>
+                                    <path d="M20 55 Q100 -5 180 55 Q100 115 20 55 Z" fill="#3b82f6" fill-opacity="0.35" clip-path="url(#clip-two)"/>
+                                    <path d="M20 55 Q100 -5 180 55" fill="none" stroke="#ef4444" stroke-width="1.8"/><path d="M20 55 Q100 115 180 55" fill="none" stroke="#10b981" stroke-width="1.8"/>
+                                    <line x1="10" y1="108" x2="192" y2="108" stroke="currentColor" stroke-width="1.2" opacity="0.7"/><line x1="20" y1="108" x2="20" y2="8" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+                                    <line x1="55" y1="30" x2="55" y2="108" stroke="currentColor" stroke-width="1.2" opacity="0.7" stroke-dasharray="3"/><line x1="145" y1="30" x2="145" y2="108" stroke="currentColor" stroke-width="1.2" opacity="0.7" stroke-dasharray="3"/>
+                                    <text x="52" y="119" fill="currentColor" font-size="10" font-style="italic">a</text><text x="142" y="119" fill="currentColor" font-size="10" font-style="italic">b</text><text x="186" y="104" fill="currentColor" font-size="10" font-style="italic">x</text><text x="8" y="12" fill="currentColor" font-size="10" font-style="italic">y</text>
+                                    <text x="95" y="14" fill="currentColor" font-size="10" font-style="italic">f(x)</text><text x="95" y="92" fill="currentColor" font-size="10" font-style="italic">g(x)</text>
+                                </svg>
                                 <div class="math-block text-xs font-mono">
                                     Shaded Area = \\( \\int_a^b [f(x) - g(x)] dx \\)
                                 </div>
@@ -669,7 +855,7 @@
                             <h3 class="font-bold text-md text-blue-600 dark:text-blue-400">6. Average Value of a Function</h3>
                             <p class="text-xs text-gray-600 dark:text-slate-400">The average value \\( \\bar{y} \\) of a function \\( y = g(x) \\) on interval \\( [a, b] \\) is:</p>
                             <div class="math-block text-sm font-mono font-bold">
-                                \\( \\bar{y} = \\frac{1}{b - a} \\int_a^b g(x) dx \\)
+                                \\( \\bar{y} = \\frac{\\int_a^b g(x) dx}{b - a} = \\frac{\\int_a^b y \\, dx}{b - a} \\)
                             </div>
                         </div>
                     </div>
@@ -714,9 +900,101 @@
                 title: "Chapter 27: Proof by Induction",
                 section: "Section 10: Mathematical Induction",
                 content: `
-                    <div class="space-y-4">
+                    <div class="space-y-6">
                         <div class="p-4 rounded-lg bg-blue-600 text-white font-bold text-sm">
                             4-Step Protocol: P(1) Base Case \u2192 P(k) Assumption \u2192 P(k+1) Proof \u2192 Formal Conclusion
+                        </div>
+
+                        <!-- 1. Steps -->
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-lg text-blue-600 dark:text-blue-400">1. Steps for Proving by Induction</h3>
+                            <ul class="text-sm space-y-2">
+                                <li><b>(a)</b> Prove that the result is true for a starting value of \\( n \\in \\mathbb{N} \\).</li>
+                                <li><b>(b)</b> Assume the result is true for \\( n = k \\).</li>
+                                <li><b>(c)</b> Prove that the result is true for \\( n = k + 1 \\) using <b>(b)</b>.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2. Types -->
+                        <div class="bg-white dark:bg-slate-950 p-5 rounded-xl border border-gray-200 dark:border-slate-800 space-y-3">
+                            <h3 class="font-bold text-lg text-blue-600 dark:text-blue-400">2. Types</h3>
+
+                            <h4 class="font-bold text-sm text-gray-800 dark:text-slate-200">(a) Sums (\\( \\Sigma \\))</h4>
+                            <p class="text-xs">Technique:</p>
+                            <div class="math-block text-sm">
+                                \\( \\sum_{r=1}^{k+1} T_r = (T_1 + T_2 + \\dots + T_k) + T_{k+1} \\)
+                            </div>
+
+                            <div class="border-t border-gray-100 dark:border-slate-900 pt-3 space-y-2">
+                                <h4 class="font-bold text-sm text-gray-800 dark:text-slate-200">(b) Factorisation (Divisibilities)</h4>
+                                <p class="text-xs">Technique:</p>
+                                <div class="math-block text-sm">
+                                    \\( b \\text{ is a factor of } a \\implies a = mb, \\; m \\in \\mathbb{N} \\)
+                                </div>
+                            </div>
+
+                            <div class="border-t border-gray-100 dark:border-slate-900 pt-3 space-y-3">
+                                <h4 class="font-bold text-sm text-gray-800 dark:text-slate-200">(c) Inequalities</h4>
+
+                                <div class="space-y-2">
+                                    <h5 class="font-bold text-xs text-gray-700 dark:text-slate-300">(i) Factorial / Exponential</h5>
+                                    <ul class="text-xs space-y-2 list-disc pl-5">
+                                        <li>Put the factorial on the left and break it up.</li>
+                                        <li>\\( a = b \\text{ and } s > t \\implies as > bt \\)</li>
+                                        <li>\\( (k+1)! = (k+1) \\times k! \\)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <h5 class="font-bold text-xs text-gray-700 dark:text-slate-300">(ii) Polynomial / Exponential</h5>
+
+                                    <div class="srp-box">
+                                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">(1) Linear Polynomials</span>
+                                        <p class="text-xs mt-1">Polynomials in which the power of the variable \\( n \\) is 1.</p>
+                                        <p class="text-xs mt-1">In <b>Step 1</b> put the exponential expression on the left-hand side of the inequality and in <b>Step 3</b> break up the exponential expression.</p>
+                                    </div>
+
+                                    <div class="srp-box">
+                                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">(2) Higher-Power Polynomials</span>
+                                        <p class="text-xs mt-1">Polynomials in which the power of the variable is greater than 1 (e.g. \\( n^2, n^3, n^4 \\), etc.).</p>
+                                        <p class="text-xs mt-1">In <b>Step 1</b> put the polynomial expression on the left-hand side of the inequality and in <b>Step 3</b> factorise the polynomial expression so that what appears on the left-hand side in <b>Step 2</b> is a factor of the polynomial.</p>
+                                    </div>
+
+                                    <div class="math-block text-xs">
+                                        <p class="font-bold mb-1">Note: If \\( k \\geq a \\) and \\( a \\) and \\( k \\) are both positive,</p>
+                                        then dividing by \\( ak \\) \u21d2 \\( \\frac{1}{a} \\geq \\frac{1}{k} \\) \u21d2 \\( \\frac{1}{a^2} \\geq \\frac{1}{k^2} \\)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-gray-100 dark:border-slate-900 pt-3">
+                                <h4 class="font-bold text-sm text-gray-800 dark:text-slate-200">(d) De Moivre's Theorem</h4>
+                            </div>
+
+                            <div class="srp-box space-y-3">
+                                <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Example 8</span>
+                                <p class="text-sm">Prove that \\( [r(\\cos\\theta + i\\sin\\theta)]^n = r^n(\\cos n\\theta + i\\sin n\\theta), \\; n \\in \\mathbb{N} \\).</p>
+
+                                <div class="space-y-2">
+                                    <p class="text-xs"><b>Step 1:</b> \\( n = 1 \\): Prove \\( [r(\\cos\\theta + i\\sin\\theta)]^1 = r^1(\\cos 1\\theta + i\\sin 1\\theta) \\).</p>
+                                    <div class="math-block text-xs overflow-x-auto">\\( r(\\cos\\theta + i\\sin\\theta) = r(\\cos\\theta + i\\sin\\theta) \\)</div>
+                                    <p class="text-xs">It is true for \\( n = 1 \\).</p>
+                                </div>
+
+                                <p class="text-xs"><b>Step 2:</b> \\( n = k \\): Assume \\( [r(\\cos\\theta + i\\sin\\theta)]^k = r^k(\\cos k\\theta + i\\sin k\\theta) \\).</p>
+
+                                <div class="space-y-2">
+                                    <p class="text-xs"><b>Step 3:</b> \\( n = k + 1 \\): Prove</p>
+                                    <div class="math-block text-xs overflow-x-auto">\\( [r(\\cos\\theta + i\\sin\\theta)]^{k+1} = r^{k+1}[\\cos(k+1)\\theta + i\\sin(k+1)\\theta] \\)</div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <p class="text-xs"><b>Proof:</b></p>
+                                    <div class="math-block text-xs overflow-x-auto">\\( \\begin{aligned} [r(\\cos\\theta + i\\sin\\theta)]^{k+1} &= [r(\\cos\\theta + i\\sin\\theta)]^k\\,[r(\\cos\\theta + i\\sin\\theta)] \\\\ &= r^k(\\cos k\\theta + i\\sin k\\theta)\\,r(\\cos\\theta + i\\sin\\theta) \\quad \\text{[From Step 2]} \\\\ &= r^{k+1}[(\\cos k\\theta\\cos\\theta - \\sin k\\theta\\sin\\theta) + i(\\sin k\\theta\\cos\\theta + \\cos k\\theta\\sin\\theta)] \\\\ &= r^{k+1}[\\cos(k+1)\\theta + i\\sin(k+1)\\theta] \\end{aligned} \\)</div>
+                                </div>
+
+                                <p class="text-xs font-bold">Therefore, assuming it is true for \\( n = k \\) means it is true for \\( n = k + 1 \\). So, true for \\( n = 1 \\) and true for \\( n = k \\) means it is true for \\( n = k + 1 \\) implies it is true for all \\( n \\in \\mathbb{N} \\).</p>
+                            </div>
                         </div>
                     </div>
                 `
@@ -750,7 +1028,8 @@
 
         let currentState = {
             subject: 'maths1',
-            activeTopicId: 'm1-c23',
+            activeTopicId: null,
+            savedOnly: false,
             fontSize: 100,
             isDark: true,
             filterText: ''
@@ -779,18 +1058,16 @@
         const sidebar = document.getElementById('sidebar');
 
         window.addEventListener('DOMContentLoaded', () => {
-            renderSidebar();
-            loadTopicContent(currentState.activeTopicId);
+            loadStore();
             setupEventListeners();
+            showHome();   // always start on the home page, never on a random chapter
         });
 
         function setupEventListeners() {
             subjectSelect.addEventListener('change', (e) => {
                 currentState.subject = e.target.value;
-                const firstTopic = getFirstTopicIdOfSubject(currentState.subject);
-                currentState.activeTopicId = firstTopic;
-                renderSidebar();
-                loadTopicContent(firstTopic);
+                showHome();
+                sidebar.classList.remove('-translate-x-full'); // open the menu so you can pick a chapter
             });
 
             topicSearch.addEventListener('input', (e) => {
@@ -836,6 +1113,25 @@
                 filterContentTerms(query);
             });
 
+            document.getElementById('home-link').addEventListener('click', showHome);
+            document.getElementById('sidebar-home-btn').addEventListener('click', () => { showHome(); sidebar.classList.add('-translate-x-full'); });
+            document.getElementById('breadcrumb-home').addEventListener('click', showHome);
+            document.getElementById('fav-btn').addEventListener('click', () => {
+                if (currentState.activeTopicId) toggleFav(currentState.activeTopicId);
+            });
+            document.getElementById('saved-only-btn').addEventListener('click', () => {
+                currentState.savedOnly = !currentState.savedOnly;
+                renderSidebar();
+            });
+            notesReader.addEventListener('click', (e) => {
+                const el = e.target.closest('[data-action]');
+                if (!el) return;
+                const id = el.dataset.id;
+                if (el.dataset.action === 'open') openChapter(id);
+                if (el.dataset.action === 'reviewed') markReviewed(id);
+                if (el.dataset.action === 'unfav') toggleFav(id);
+            });
+
             toggleSidebarMobile.addEventListener('click', () => {
                 sidebar.classList.toggle('-translate-x-full');
             });
@@ -857,12 +1153,13 @@
             topicListContainer.innerHTML = '';
 
             subData.sections.forEach(sec => {
-                const filteredChapters = sec.chapters.filter(ch => 
-                    ch.name.toLowerCase().includes(currentState.filterText)
+                const filteredChapters = sec.chapters.filter(ch =>
+                    ch.name.toLowerCase().includes(currentState.filterText) &&
+                    (!currentState.savedOnly || isFav(ch.id))
                 );
 
                 totalChapters += sec.chapters.length;
-                if (filteredChapters.length === 0 && currentState.filterText !== '') return;
+                if (filteredChapters.length === 0 && (currentState.filterText !== '' || currentState.savedOnly)) return;
 
                 const sectionGroup = document.createElement('div');
                 sectionGroup.className = 'mb-3';
@@ -876,27 +1173,40 @@
 
                 filteredChapters.forEach(ch => {
                     const isActive = ch.id === currentState.activeTopicId;
-                    const itemBtn = document.createElement('button');
-                    itemBtn.className = `w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-all ${
-                        isActive 
-                        ? 'bg-blue-600 text-white shadow-sm font-semibold' 
+                    const fav = isFav(ch.id);
+
+                    const row = document.createElement('div');
+                    row.className = `w-full rounded-lg flex items-center transition-all ${
+                        isActive
+                        ? 'bg-blue-600 text-white shadow-sm font-semibold'
                         : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-900'
                     }`;
 
-                    const statusBadge = ch.status === 'ready' 
-                        ? `<span class="w-2 h-2 rounded-full ${isActive ? 'bg-white' : 'bg-emerald-500'}" title="Notes Transcribed"></span>`
-                        : `<span class="text-[10px] opacity-60"><i class="fa-regular fa-clock"></i></span>`;
+                    const itemBtn = document.createElement('button');
+                    itemBtn.className = 'flex-1 min-w-0 text-left px-3 py-2 text-xs font-medium flex items-center justify-between';
+
+                    const statusBadge = ch.status === 'ready'
+                        ? `<span class="w-2 h-2 rounded-full shrink-0 ${isActive ? 'bg-white' : 'bg-emerald-500'}" title="Notes Transcribed"></span>`
+                        : `<span class="text-[10px] opacity-60 shrink-0"><i class="fa-regular fa-clock"></i></span>`;
 
                     itemBtn.innerHTML = `<span class="truncate pr-2">${ch.name}</span>${statusBadge}`;
+                    itemBtn.addEventListener('click', () => openChapter(ch.id));
 
-                    itemBtn.addEventListener('click', () => {
-                        currentState.activeTopicId = ch.id;
-                        renderSidebar();
-                        loadTopicContent(ch.id);
-                        sidebar.classList.add('-translate-x-full');
+                    const heartBtn = document.createElement('button');
+                    heartBtn.className = 'px-2.5 py-2 text-xs shrink-0';
+                    heartBtn.title = fav ? 'Remove from revision list' : 'Save to revision list';
+                    heartBtn.setAttribute('aria-label', heartBtn.title);
+                    heartBtn.innerHTML = fav
+                        ? `<i class="fa-solid fa-heart ${isActive ? 'text-rose-200' : 'text-rose-500'}"></i>`
+                        : `<i class="fa-regular fa-heart opacity-40 hover:opacity-100 hover:text-rose-500"></i>`;
+                    heartBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        toggleFav(ch.id);
                     });
 
-                    chapterList.appendChild(itemBtn);
+                    row.appendChild(itemBtn);
+                    row.appendChild(heartBtn);
+                    chapterList.appendChild(row);
                 });
 
                 sectionGroup.appendChild(sectionTitle);
@@ -904,7 +1214,23 @@
                 topicListContainer.appendChild(sectionGroup);
             });
 
+            if (topicListContainer.children.length === 0) {
+                const empty = document.createElement('p');
+                empty.className = 'text-xs text-gray-400 dark:text-slate-500 text-center px-4 py-8 leading-relaxed';
+                empty.textContent = currentState.savedOnly
+                    ? 'No saved chapters in this subject yet. Tap the heart next to a chapter to save it.'
+                    : 'No chapters match your filter.';
+                topicListContainer.appendChild(empty);
+            }
+
             sidebarTopicCount.textContent = `${totalChapters} Chapters`;
+
+            // Saved-only button state
+            const savedBtn = document.getElementById('saved-only-btn');
+            const subjectFavCount = subData.sections.reduce((n, sec) => n + sec.chapters.filter(c => isFav(c.id)).length, 0);
+            document.getElementById('saved-count').textContent = subjectFavCount;
+            ['bg-rose-50', 'dark:bg-rose-950/40', 'border-rose-300', 'dark:border-rose-900'].forEach(c =>
+                savedBtn.classList.toggle(c, currentState.savedOnly));
         }
 
         function loadTopicContent(topicId) {
@@ -927,6 +1253,7 @@
             breadcrumbChapter.textContent = activeChapterObj ? activeChapterObj.name : "Topic";
 
             contentSearch.value = '';
+            setHeaderMode('chapter');
 
             if (NOTES_DATABASE[topicId]) {
                 const note = NOTES_DATABASE[topicId];
@@ -968,6 +1295,193 @@
                     </div>
                 `;
             }
+        }
+
+        // ===== Saved topics (revision list) + Home page =====
+        const STORE_KEY = 'lcRevisionHub.v1';
+        let store = { favs: {}, last: null };
+
+        function loadStore() {
+            try {
+                const raw = localStorage.getItem(STORE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (parsed && typeof parsed === 'object') {
+                        store.favs = parsed.favs || {};
+                        store.last = parsed.last || null;
+                    }
+                }
+            } catch (e) { /* storage unavailable: fall back to in-memory only */ }
+        }
+
+        function saveStore() {
+            try { localStorage.setItem(STORE_KEY, JSON.stringify(store)); } catch (e) {}
+        }
+
+        function findChapter(id) {
+            for (const subKey of Object.keys(SYLLABUS_DATA)) {
+                for (const sec of SYLLABUS_DATA[subKey].sections) {
+                    for (const ch of sec.chapters) {
+                        if (ch.id === id) return { subKey, subTitle: SYLLABUS_DATA[subKey].title, secName: sec.name, ch };
+                    }
+                }
+            }
+            return null;
+        }
+
+        function isFav(id) { return !!store.favs[id]; }
+
+        function toggleFav(id) {
+            if (isFav(id)) {
+                delete store.favs[id];
+                showToast('Removed from revision list');
+            } else {
+                store.favs[id] = { added: Date.now(), reviewed: null };
+                showToast('Saved to revision list');
+            }
+            saveStore();
+            renderSidebar();
+            updateFavButton();
+            if (currentState.activeTopicId === null) renderHome();
+        }
+
+        function markReviewed(id) {
+            if (!store.favs[id]) return;
+            store.favs[id].reviewed = Date.now();
+            saveStore();
+            showToast('Marked as reviewed');
+            renderHome();
+        }
+
+        function daysSince(ts) {
+            const startOf = (d) => { const x = new Date(d); x.setHours(0, 0, 0, 0); return x.getTime(); };
+            return Math.round((startOf(Date.now()) - startOf(ts)) / 86400000);
+        }
+
+        function reviewInfo(entry) {
+            if (!entry.reviewed) return { due: true, text: 'Not reviewed yet' };
+            const d = daysSince(entry.reviewed);
+            const text = d === 0 ? 'Reviewed today' : d === 1 ? 'Reviewed yesterday' : `Reviewed ${d} days ago`;
+            return { due: d >= 3, text };
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        function openChapter(id) {
+            const found = findChapter(id);
+            if (!found) return;
+            currentState.subject = found.subKey;
+            subjectSelect.value = found.subKey;
+            currentState.activeTopicId = id;
+            store.last = id;
+            saveStore();
+            renderSidebar();
+            loadTopicContent(id);
+            document.getElementById('notes-scroll-container').scrollTop = 0;
+            sidebar.classList.add('-translate-x-full');
+        }
+
+        function updateFavButton() {
+            const id = currentState.activeTopicId;
+            const btn = document.getElementById('fav-btn');
+            if (!id) { btn.classList.add('hidden'); return; }
+            btn.classList.remove('hidden');
+            const fav = isFav(id);
+            document.getElementById('fav-icon').className = fav ? 'fa-solid fa-heart text-rose-500' : 'fa-regular fa-heart';
+            document.getElementById('fav-label').textContent = fav ? 'Saved' : 'Save';
+            btn.title = fav ? 'Remove from revision list' : 'Save to revision list';
+        }
+
+        function setHeaderMode(mode) {
+            const isChapter = mode === 'chapter';
+            [breadcrumbSection, breadcrumbChapter].forEach(el => {
+                el.classList.toggle('hidden', !isChapter);
+                if (el.previousElementSibling) el.previousElementSibling.classList.toggle('hidden', !isChapter);
+            });
+            copyNotesBtn.classList.toggle('hidden', !isChapter);
+            updateFavButton();
+        }
+
+        function showHome() {
+            currentState.activeTopicId = null;
+            renderSidebar();
+            breadcrumbSubject.textContent = 'Home';
+            contentSearch.value = '';
+            setHeaderMode('home');
+            renderHome();
+            document.getElementById('notes-scroll-container').scrollTop = 0;
+        }
+
+        function renderHome() {
+            const ids = Object.keys(store.favs).filter(id => findChapter(id));
+            // least recently reviewed first (never reviewed at the top)
+            ids.sort((a, b) => (store.favs[a].reviewed || 0) - (store.favs[b].reviewed || 0));
+            const dueCount = ids.filter(id => reviewInfo(store.favs[id]).due).length;
+
+            const hour = new Date().getHours();
+            const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+
+            let cards = '';
+            ids.forEach(id => {
+                const f = findChapter(id);
+                const info = reviewInfo(store.favs[id]);
+                const pending = f.ch.status !== 'ready';
+                cards += `
+                    <div class="p-4 rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 flex flex-col gap-3">
+                        <div class="flex items-start justify-between gap-2">
+                            <div class="min-w-0">
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-slate-500">${escapeHtml(f.subTitle)} &middot; ${escapeHtml(f.secName)}</span>
+                                <h3 class="font-bold text-sm mt-0.5 text-gray-900 dark:text-white">${escapeHtml(f.ch.name)}</h3>
+                            </div>
+                            <span class="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full ${info.due
+                                ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400'
+                                : 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400'}">${info.due ? 'Due' : 'Done'}</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-slate-400">${info.text}${pending ? ' &middot; notes still pending' : ''}</p>
+                        <div class="flex items-center gap-2">
+                            <button data-action="open" data-id="${id}" class="flex-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-colors">Open notes</button>
+                            <button data-action="reviewed" data-id="${id}" title="Mark as reviewed" aria-label="Mark as reviewed" class="px-3 py-1.5 rounded-lg text-xs border border-gray-200 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-slate-900 transition-colors"><i class="fa-solid fa-check"></i></button>
+                            <button data-action="unfav" data-id="${id}" title="Remove from revision list" aria-label="Remove from revision list" class="px-3 py-1.5 rounded-lg text-xs border border-gray-200 dark:border-slate-700 hover:bg-rose-50 dark:hover:bg-slate-900 transition-colors"><i class="fa-solid fa-heart text-rose-500"></i></button>
+                        </div>
+                    </div>`;
+            });
+
+            const empty = `
+                <div class="p-8 rounded-xl border border-dashed border-gray-300 dark:border-slate-700 text-center">
+                    <i class="fa-regular fa-heart text-3xl text-rose-400 mb-3"></i>
+                    <p class="text-sm font-semibold text-gray-800 dark:text-slate-200">Nothing saved yet</p>
+                    <p class="text-xs text-gray-500 dark:text-slate-400 mt-1 max-w-sm mx-auto leading-relaxed">Tap the heart next to any chapter in the menu (or the Save button at the top of a chapter) and it will show up here as a reminder to revise it again.</p>
+                </div>`;
+
+            const last = store.last ? findChapter(store.last) : null;
+            const continueCard = last ? `
+                <button data-action="open" data-id="${store.last}" class="w-full text-left p-4 rounded-xl border border-blue-200 dark:border-blue-900/60 bg-blue-50/60 dark:bg-slate-800/40 hover:bg-blue-50 dark:hover:bg-slate-800 transition-colors flex items-center justify-between gap-3">
+                    <span class="min-w-0">
+                        <span class="block text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">Pick up where you left off</span>
+                        <span class="block text-sm font-semibold mt-0.5 truncate text-gray-900 dark:text-white">${escapeHtml(last.ch.name)}</span>
+                        <span class="block text-xs text-gray-500 dark:text-slate-400 truncate">${escapeHtml(last.subTitle)} &middot; ${escapeHtml(last.secName)}</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right text-blue-500 shrink-0"></i>
+                </button>` : '';
+
+            notesReader.innerHTML = `
+                <div class="space-y-6">
+                    <div class="border-b border-gray-200 dark:border-slate-800 pb-4">
+                        <span class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">LC Revision Hub</span>
+                        <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white mt-1">${greeting} 👋</h1>
+                        <p class="text-sm text-gray-500 dark:text-slate-400 mt-1">${ids.length === 0
+                            ? 'Pick a chapter from the menu to start revising.'
+                            : `${ids.length} saved topic${ids.length === 1 ? '' : 's'} &middot; ${dueCount} due for a revisit`}</p>
+                    </div>
+                    ${continueCard}
+                    <div class="space-y-3">
+                        <h2 class="font-bold text-md text-gray-900 dark:text-white flex items-center gap-2"><i class="fa-solid fa-heart text-rose-500 text-sm"></i> Revise these</h2>
+                        ${ids.length ? `<div class="grid gap-3 md:grid-cols-2">${cards}</div>
+                        <p class="text-[11px] text-gray-400 dark:text-slate-500">Topics become "Due" if you haven't marked them reviewed (the tick) in 3 days.</p>` : empty}
+                    </div>
+                </div>`;
         }
 
         function switchTab(tabId, btn) {
