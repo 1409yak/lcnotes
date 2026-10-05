@@ -2,7 +2,7 @@
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'><path d='M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1zM6 4h12v2H6V4zm0 4h12v11H6V8z'/></svg>">
     <title>Leaving Certificate Revision Hub</title>
     <!-- Tailwind CSS -->
@@ -83,6 +83,22 @@
             border-color: #d97706;
         }
 
+
+        /* ---------- Full-height on phones (browser toolbar safe) ---------- */
+        html { height: 100%; }
+        body { height: 100vh; height: 100dvh; }
+        #notes-scroll-container { padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0px)); }
+        #topic-list-container { padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); }
+        #sidebar > div:last-child { padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px)); }
+
+        /* ---------- Formulas everywhere: big, clean, readable ---------- */
+        .math-block { font-family: 'Inter', sans-serif; border-radius: 0.9rem; border: 1px solid rgba(59, 130, 246, .25); border-left-width: 4px; }
+        .dark .math-block { border-color: rgba(96, 165, 250, .25); border-left-color: #60a5fa; }
+        #notes-body .math-block .katex { font-size: clamp(1.05rem, 4.6vw, 1.3rem); }
+        #notes-body .font-mono { font-family: 'Inter', sans-serif; }
+        #notes-body .font-mono .katex { font-size: clamp(1rem, 4.2vw, 1.2rem); }
+        #notes-body .int-math .katex { font-size: clamp(1.02rem, 4.4vw, 1.3rem); }
+
         /* ---------- Mobile safety ---------- */
         #notes-reader { min-width: 0; overflow-wrap: break-word; }
         #notes-reader svg, #notes-reader img { max-width: 100%; height: auto; }
@@ -104,7 +120,7 @@
         .sp-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 6rem; }
         .sp-chev { font-size: 0.6rem; opacity: 0.6; transition: transform .2s; flex-shrink: 0; }
         .sp-open .sp-chev { transform: rotate(180deg); }
-        .sp-panel { position: fixed; left: 0.75rem; right: 0.75rem; top: 4.25rem; z-index: 60; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; box-shadow: 0 24px 48px -12px rgba(15, 23, 42, .4); padding: 0.4rem; max-height: calc(100vh - 5.5rem); overflow-y: auto; }
+        .sp-panel { position: fixed; left: 0.75rem; right: 0.75rem; top: 4.25rem; z-index: 60; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; box-shadow: 0 24px 48px -12px rgba(15, 23, 42, .4); padding: 0.4rem; max-height: calc(100vh - 5.5rem); max-height: calc(100dvh - 5.5rem); overflow-y: auto; }
         .dark .sp-panel { background: #0f172a; border-color: #334155; }
         .sp-panel[hidden] { display: none; }
         .sp-head { font-size: 0.62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #9ca3af; padding: 0.4rem 0.6rem 0.25rem; }
@@ -165,7 +181,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-slate-100 font-sans h-screen flex flex-col overflow-hidden transition-colors duration-200">
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-slate-100 font-sans flex flex-col overflow-hidden transition-colors duration-200">
 
     <!-- TOP HEADER -->
     <header class="h-16 border-b border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 md:px-6 flex items-center justify-between gap-2 z-20 shrink-0">
@@ -840,7 +856,7 @@
                                 <i class="fa-solid fa-lightbulb text-amber-500 mt-0.5"></i>
                                 <div>
                                     <b>Golden rule:</b> if the inside is <i>px + q</i> instead of just <i>x</i>, do the normal integral, then <b>divide by the number in front of x</b>.
-                                    The <span style="color:#f43f5e;font-weight:700">red part</span> in each formula is exactly what changes. Don't forget <b>+ c</b>.
+                                    <br><span style="color:#f43f5e;font-weight:700">Red</span> = that number (<i>p</i>, or <i>a</i> in the power rule). Follow it: it sits <b>inside the bracket</b> and comes back again <b>as the divisor</b>. Don't forget <b>+ c</b>.
                                 </div>
                             </div>
 
@@ -854,7 +870,7 @@
                         </div>
                         <div class="int-grid">
                             <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int x^{p}\\,dx = \\frac{x^{p+1}}{p+1} + c \\]</div></div>
-                            <div class="int-cell"><span class="int-tag lin">With ax + b</span><div class="int-math">\\[ \\int (ax+b)^{p}\\,dx = \\textcolor{#f43f5e}{\\frac{1}{a}}\\cdot\\frac{(ax+b)^{p+1}}{p+1} + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With ax + b</span><div class="int-math">\\[ \\int (\\textcolor{#f43f5e}{a}x+b)^{p}\\,dx = \\textcolor{#f43f5e}{\\frac{1}{a}}\\cdot\\frac{(\\textcolor{#f43f5e}{a}x+b)^{p+1}}{p+1} + c \\]</div></div>
                         </div>
                     <div class="int-foot"><span class="int-chip">\\( p \\in \\mathbb{R} \\)</span><span class="int-chip">\\( p \\neq -1 \\)</span></div>
                     </div>
@@ -868,7 +884,7 @@
                         </div>
                         <div class="int-grid">
                             <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int e^{x}\\,dx = e^{x} + c \\]</div></div>
-                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int e^{px+q}\\,dx = \\textcolor{#f43f5e}{\\frac{1}{p}}\\,e^{px+q} + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int e^{\\textcolor{#f43f5e}{p}x+q}\\,dx = \\textcolor{#f43f5e}{\\frac{1}{p}}\\,e^{\\textcolor{#f43f5e}{p}x+q} + c \\]</div></div>
                         </div>
                     </div>
                     <div class="int-card">
@@ -881,7 +897,7 @@
                         </div>
                         <div class="int-grid">
                             <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int a^{x}\\,dx = \\frac{a^{x}}{\\ln a} + c \\]</div></div>
-                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int a^{px+q}\\,dx = \\frac{a^{px+q}}{\\textcolor{#f43f5e}{p}\\,\\ln a} + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int a^{\\textcolor{#f43f5e}{p}x+q}\\,dx = \\frac{a^{\\textcolor{#f43f5e}{p}x+q}}{\\textcolor{#f43f5e}{p}\\,\\ln a} + c \\]</div></div>
                         </div>
                     </div>
                     <div class="int-card">
@@ -894,7 +910,7 @@
                         </div>
                         <div class="int-grid">
                             <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int \\frac{1}{x}\\,dx = \\ln x + c \\]</div></div>
-                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int \\frac{1}{px+q}\\,dx = \\textcolor{#f43f5e}{\\frac{1}{p}}\\,\\ln(px+q) + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int \\frac{1}{\\textcolor{#f43f5e}{p}x+q}\\,dx = \\textcolor{#f43f5e}{\\frac{1}{p}}\\,\\ln(\\textcolor{#f43f5e}{p}x+q) + c \\]</div></div>
                         </div>
                     <div class="int-foot"><span class="int-chip">\\( x > 0 \\) for the basic one</span><span class="int-chip">\\( px+q > 0 \\) for the linear one</span></div>
                     </div>
@@ -908,7 +924,7 @@
                         </div>
                         <div class="int-grid">
                             <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int \\sin x\\,dx = -\\cos x + c \\]</div></div>
-                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int \\sin(px+q)\\,dx = -\\textcolor{#f43f5e}{\\frac{1}{p}}\\,\\cos(px+q) + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int \\sin(\\textcolor{#f43f5e}{p}x+q)\\,dx = -\\textcolor{#f43f5e}{\\frac{1}{p}}\\,\\cos(\\textcolor{#f43f5e}{p}x+q) + c \\]</div></div>
                         </div>
                     </div>
                     <div class="int-card">
@@ -921,7 +937,7 @@
                         </div>
                         <div class="int-grid">
                             <div class="int-cell"><span class="int-tag">Basic</span><div class="int-math">\\[ \\int \\cos x\\,dx = \\sin x + c \\]</div></div>
-                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int \\cos(px+q)\\,dx = \\textcolor{#f43f5e}{\\frac{1}{p}}\\,\\sin(px+q) + c \\]</div></div>
+                            <div class="int-cell"><span class="int-tag lin">With px + q</span><div class="int-math">\\[ \\int \\cos(\\textcolor{#f43f5e}{p}x+q)\\,dx = \\textcolor{#f43f5e}{\\frac{1}{p}}\\,\\sin(\\textcolor{#f43f5e}{p}x+q) + c \\]</div></div>
                         </div>
                     </div>
                         </div>
@@ -1412,6 +1428,9 @@
                     </div>
                 `;
 
+                // Make every formula render big ("display style"): full-size fractions, sums, integrals
+                enlargeFormulas(document.getElementById('notes-body'));
+
                 // Trigger KaTeX math rendering
                 if (window.renderMathInElement) {
                     try {
@@ -1730,6 +1749,20 @@
                         <p class="text-[11px] text-gray-400 dark:text-slate-500">Topics become "Due" if you haven't marked them reviewed (the tick) in 3 days.</p>` : empty}
                     </div>
                 </div>`;
+        }
+
+        function enlargeFormulas(root) {
+            if (!root) return;
+            root.querySelectorAll('.math-block, .font-mono').forEach(el => {
+                if (el.tagName === 'TD' || el.tagName === 'TH') return;
+                const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+                let node;
+                while ((node = walker.nextNode())) {
+                    if (node.nodeValue.indexOf('\\(') !== -1) {
+                        node.nodeValue = node.nodeValue.replace(/\\\((?!\s*\\displaystyle)/g, '\\(\\displaystyle ');
+                    }
+                }
+            });
         }
 
         function switchTab(tabId, btn) {
