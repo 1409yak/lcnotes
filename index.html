@@ -503,9 +503,9 @@
                             { id: "geo-p3", name: "Ch 3: Volcanic Activity", status: "pending" },
                             { id: "geo-p4", name: "Ch 4: Earthquakes", status: "pending" },
                             { id: "geo-p5", name: "Ch 5: Folding & Faulting", status: "pending" },
-                            { id: "geo-p6", name: "Ch 6: The Rock Cycle", status: "pending" },
-                            { id: "geo-p7", name: "Ch 7: Denudation & Karst Landscapes", status: "pending" },
-                            { id: "geo-p8", name: "Ch 8: Rivers", status: "pending" },
+                            { id: "geo-p6", name: "Ch 6: The Rock Cycle", status: "ready" },
+                            { id: "geo-p7", name: "Ch 7: Denudation & Karst Landscapes", status: "ready" },
+                            { id: "geo-p8", name: "Ch 8: Rivers", status: "ready" },
                             { id: "geo-p9", name: "Ch 9: Isostasy", status: "pending" },
                             { id: "geo-p10", name: "Ch 10: The Sea", status: "pending" },
                             { id: "geo-p11", name: "Ch 11: Glaciation", status: "pending" }
@@ -3202,6 +3202,865 @@
                     </div>
                 `
             },
+            "geo-p6": {
+                title: "Chapter 6: The Rock Cycle",
+                section: "Unit 1: Core Physical Geography",
+                content: `
+                    <div class="space-y-6">
+                        <!-- Top Tab Navigation Bar -->
+                        <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchTab('rock-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">Igneous Rocks</button>
+                            <button onclick="switchTab('rock-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Sedimentary Rocks</button>
+                            <button onclick="switchTab('rock-tab-3', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Metamorphic Rocks</button>
+                        </div>
+
+                        <!-- TAB 1: IGNEOUS ROCKS -->
+                        <div id="rock-tab-1" class="tab-content space-y-6">
+                            <div class="srp-box">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                                </div>
+                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                                    <b>Exam Question:</b> "Examine the formation of one rock type and its associated landscape, with reference to examples you have studied." [30m]
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                                    <div>• <b>Named Rock &amp; Landscape:</b> 2 + 2 marks</div>
+                                    <div>• <b>Explanation of Processes:</b> 11 SRPs (22 marks)</div>
+                                    <div>• <b>Diagram Credit:</b> Up to 2 SRPs for a valid, labelled sketch</div>
+                                    <div>• <b>Surplus Coverage:</b> 9 distinct SRPs provided per rock below</div>
+                                </div>
+                            </div>
+
+                            <!-- Rock 1: Granite -->
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#3b82f6">1</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Intrusive Igneous Rock: Granite</div>
+                                        <div class="int-tip">Plutonic · Slow cooling · Coarse-grained · Acidic (Felsic)</div>
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 1 · Definition &amp; Classification</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Granite is an intrusive (plutonic) igneous rock, meaning it forms from magma that solidifies deep within the Earth's crust.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 2 · Formation &amp; Cooling Rate</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It forms when molten magma intrudes into the crust and cools very slowly over millions of years, insulated by surrounding rock layers, which allows large, visible crystals to form.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 3 · Mineral Composition</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Granite consists of three main minerals: clear and glassy quartz, white to pink feldspar, and black mica.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 4 · Colour Variations &amp; Felsic Nature</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It normally has a dark grey colour, though variations occur depending on the mineral content; because feldspar and silica (quartz) dominate, the term "felsic" is applied to it.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 5 · Silica Content &amp; Tectonic Boundary</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Granite has a high silica content of about 70%, making it an acidic rock, typically formed at destructive plate boundaries where plates collide and subduction occurs.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 6 · Texture &amp; Economic Use</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It is a coarse-grained rock that is highly resistant to erosion, making it in demand as a durable building material, often polished for use in countertops and floor tiles.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 7 · Weathering By-products</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">When granite is eventually broken down by weathering processes, it produces Kaolin, also known as China clay, which is heavily used in the porcelain industry.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 8 · Irish Geological History &amp; Landscape Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Irish granite formed 400 million years ago during the Caledonian folding period when the North American and Eurasian plates converged. Magma intruded to form the massive Leinster Batholith, which was later exposed at the surface by the denudation of overlying rocks.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 9 · Named Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">An excellent example of a granite landscape in Ireland is the <b>Wicklow Mountains (e.g., Kippure), Co. Wicklow</b>.</p>
+                                </div>
+                            </div>
+
+                            <!-- Rock 2: Basalt -->
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#10b981">2</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Extrusive Igneous Rock: Basalt</div>
+                                        <div class="int-tip">Volcanic · Rapid cooling · Fine-grained · Basic (Mafic)</div>
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 1 · Definition &amp; Classification</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Basalt is the most common extrusive (volcanic) igneous rock, formed when magma flows onto the Earth’s surface, at which point it is termed lava.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 2 · Formation &amp; Cooling Rate</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">When the low-silica lava is exposed to the air or water, it cools and solidifies very rapidly, resulting in the formation of microscopic, fine-grained crystals.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 3 · Mineral Composition &amp; Mafic Nature</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It is composed of quartz and feldspar minerals but is characterized by a high magnesium and iron content, leading to the classification term "mafic."</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 4 · Colour &amp; Texture</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Basalt is typically a black or dark grey coloured rock with a hard, dense texture consisting of microscopic crystals.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 5 · Silica Content &amp; Tectonic Boundary</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It is a basic igneous rock containing less than 55% silica, commonly formed at constructive plate boundaries where tensional forces pull plates apart, creating fissures in the crust.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 6 · Physical Properties &amp; Economic Use</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Basalt is a very hard rock that is resistant to weathering and erosion, making it suitable as a building stone and extensively crushed for use as road chippings.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 7 · Weathering &amp; Soil Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">When basalt eventually weathers, it breaks down into a deep, highly fertile soil, such as that found in the coffee-growing regions of Brazil and cash crop regions of Italy.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 8 · Irish Geological History &amp; Landscape Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">In Ireland, highly fluid basic lava erupted through fissures 65 million years ago as the Eurasian and North American plates separated. Over 15 million years, repeated eruptions built up the Antrim-Derry Plateau, extending over 4,000 km² and reaching 350m in height. As the middle layer of this basalt cooled and contracted, it cracked to form nearly 60,000 hexagonal columns.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 9 · Named Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">The most famous example of a basalt landscape in Ireland is the <b>Giant's Causeway on the Antrim Plateau, County Antrim</b>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 2: SEDIMENTARY ROCKS -->
+                        <div id="rock-tab-2" class="tab-content hidden space-y-6">
+                            <div class="srp-box">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                                </div>
+                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                                    <b>Exam Question:</b> "Examine the formation of one rock type and its associated landscape, with reference to examples you have studied." [30m]
+                                </p>
+                            </div>
+
+                            <!-- Rock 1: Limestone -->
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#f59e0b">1</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Organically Formed Sedimentary Rock: Limestone</div>
+                                        <div class="int-tip">Organic origin · Calcite · Stratified · Permeable</div>
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 1 · Definition &amp; General Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Sedimentary rocks are formed from the compression and compaction of plant, animal, or rock sediment deposited by moving glaciers, water, and wind.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 2 · Organic Origin</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Limestone is an organically formed sedimentary rock, meaning it formed from the compacted remains of once-living marine organisms.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 3 · Mineral Composition</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It is composed primarily of calcium carbonate (CaCO₃) in the form of the mineral calcite, derived from the skeletal remains (teeth, bones, shells) of fish, sea urchins, and coral.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 4 · Stratification &amp; Accumulation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">These organic remains accumulated on the bed of a warm clear sea over millions of years and were compacted and cemented to form stratified (layered) rock.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 5 · Irish Geological History</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Irish limestone formed between 300 and 350 million years ago during the Carboniferous period when Ireland was located near the equator.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 6 · Colour &amp; Impurities</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Pure limestone is almost white; however, impurities such as clay, sand, and silt cause its colour to vary from grey to black.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 7 · Fossils</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Fossils of marine creatures can still be seen within the rock, as sedimentary rocks form at lower temperatures and pressures that do not destroy fossil remains.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 8 · Permeability &amp; Weathering</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It is a permeable, well-jointed rock (allowing water to pass through), making it particularly vulnerable to the chemical weathering process of carbonation.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 9 · Named Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Limestone is the most common rock type in Ireland, exposed prominently in <b>The Burren, Co. Clare</b>, but mostly covered by peat and boulder clay across the Central Plain.</p>
+                                </div>
+                            </div>
+
+                            <!-- Rock 2: Sandstone -->
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#ef4444">2</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Mechanically Formed Sedimentary Rock: Sandstone</div>
+                                        <div class="int-tip">Mechanical origin · Lithification · Quartz-rich · Porous</div>
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 1 · Mechanical Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Sandstone is a mechanically formed (inorganic) sedimentary rock formed from pre-existing rock sediments broken down by weathering and erosion.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 2 · Transport &amp; Deposition</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Sand particles eroded from igneous, metamorphic, and older sedimentary rocks were transported by rivers or seas and accumulated in layers on seabeds or lakes.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 3 · Lithification</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">These successive layers of sediment were converted into solid rock through compaction (weight of overlying layers) and cementation in a process known as lithification.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 4 · Mineral Composition &amp; Colour</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It is typically rich in quartz but may contain calcium carbonate and silica. Mineral impurities give sandstone a variety of colours including tan, yellow, red, brown, and grey.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 5 · Irish Geological History</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Irish sandstone formed 350 to 400 million years ago when Ireland lay about 30° south of the equator in an arid climate similar to present-day Southern Africa.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 6 · Old Red Sandstone Origins</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Old Red Sandstone, the most common type in Ireland, formed almost 400 million years ago from sediment eroded from the Caledonian Mountains and lithified in seas and lakes.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 7 · Colouring Agent</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Old Red Sandstone derives its distinctive brown-red colour from the presence of iron oxide, a characteristic of sandstone formed in arid or semi-arid conditions.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 8 · Physical Properties &amp; Use</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It is a very porous, permeable rock with a relatively soft texture, making it a popular building and carving material historically, while high-quartz sandstone is crushed for glass manufacturing.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 9 · Named Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">A notable example of a sandstone landscape is the <b>MacGillycuddy's Reeks, Co. Kerry</b>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 3: METAMORPHIC ROCKS -->
+                        <div id="rock-tab-3" class="tab-content hidden space-y-6">
+                            <div class="srp-box">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                                </div>
+                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                                    <b>Exam Question:</b> "Examine the formation of one rock type and its associated landscape, with reference to examples you have studied." [30m]
+                                </p>
+                            </div>
+
+                            <!-- Metamorphism Overview -->
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#8b5cf6">1</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Metamorphism Overview</div>
+                                        <div class="int-tip">Heat &amp; Pressure transformations</div>
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 1 · Definition</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Metamorphic rocks arise from the physical and chemical transformation of existing igneous, sedimentary, or older metamorphic rocks as a result of intense heat and/or pressure.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 2 · Factors Influencing Transformation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">The type of rock produced depends on the pressure, the amount of liquid within the changing rock, the duration it is subjected to high temperatures or pressure, and whether it is compressed or twisted.</p>
+                                </div>
+                                <div class="law-grid">
+                                    <div class="law">
+                                        <span class="int-tag">SRP 3 · Thermal Metamorphism</span>
+                                        <p class="text-xs mt-1">Occurs when the intense heat of a magma intrusion 'cooks' and chemically alters the surrounding original rock.</p>
+                                    </div>
+                                    <div class="law">
+                                        <span class="int-tag">SRP 4 · Regional Metamorphism</span>
+                                        <p class="text-xs mt-1">Occurs over large areas where rocks are changed by a combination of both intense heat and extreme pressure.</p>
+                                    </div>
+                                    <div class="law">
+                                        <span class="int-tag">SRP 5 · Dynamic Metamorphism</span>
+                                        <p class="text-xs mt-1">Occurs where rocks are altered primarily by great pressure, typically due to intense tectonic plate movement.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Rock 1: Marble -->
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#f43f5e">2</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Regional Metamorphism: Marble</div>
+                                        <div class="int-tip">Limestone parent · Recrystallization · Decorative</div>
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 6 · Parent Rock &amp; Process</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Marble is a hard crystalline rock formed when sedimentary limestone changes form due to regional metamorphism (a combination of heat and pressure over a large area).</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 7 · Tectonic Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It forms at destructive plate boundaries, where limestone is buckled and pushed down deep by converging plates, coming into direct contact with cooling magma.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 8 · Recrystallization</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">During metamorphism, the calcite crystals in the limestone are recrystallized, fusing to form a denser rock composed of interlocking calcite crystals; greater metamorphism produces larger crystals.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 9 · Pure Colouring</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">The colour of marble depends on the purity of the original limestone; pure white marble is formed from pure limestone (white) with no impurities, such as that found in Carrara, Italy.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 10 · Impurities &amp; Colouring</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Impurities heavily influence colour: iron oxide (rust) creates pink/red marble (Cork), serpentine (copper ore) creates green marble (Connemara, Galway), and carbon creates dark grey/black marble (Kilkenny).</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 11 · Irish Geological History</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Irish marble was formed approximately 450 million years ago during the Caledonian orogenic folding when the converging North American and Eurasian plates caused limestone to fold and magma to rise into the buckling rock.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 12 · Texture &amp; Use</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Marble is a coarse-grained, highly resistant decorative stone that can be polished for use in kitchen worktops, fireplaces, and gravestones.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 13 · Named Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">A prominent example is the green marble found in <b>Connemara, Co. Galway</b>.</p>
+                                </div>
+                            </div>
+
+                            <!-- Rock 2: Quartzite -->
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#14b8a6">3</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Thermal Metamorphism: Quartzite</div>
+                                        <div class="int-tip">Sandstone parent · Silica cementation · Resistant</div>
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 14 · Parent Rock &amp; Process</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Quartzite is a metamorphic rock formed from its parent rock, sandstone, due to thermal metamorphism (change as a result of great heat).</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 15 · Tectonic Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">It is formed during periods of mountain folding when layers of sandstone are buckled and pushed deep down by converging plates, coming into direct contact with cooling magma.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 16 · Chemical Change &amp; Cementation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">As the porous sandstone grains are superheated, they are chemically changed to quartz. The spaces between the grains are filled with silica, cementing the rock into a new non-porous, highly resistant pale or white quartzite.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 17 · Texture &amp; Economic Use</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Quartzite is a medium-grained resistant rock that is increasingly polished for use as an affordable countertop alternative to marble, while crushed quartzite is used for road surfacing and railway ballast.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 18 · Named Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Quartzite was revealed by weathering on the peaks of fold mountains, such as the Sugarloaf (Wicklow), Croagh Patrick (Mayo), and <b>Mount Errigal, Co. Donegal</b>.</p>
+                                </div>
+                            </div>
+
+                            <!-- Rock 3 & 4: Slate & Gneiss -->
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#3b82f6">4</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Dynamic Metamorphism: Slate &amp; Gneiss</div>
+                                        <div class="int-tip">Shale &amp; Granite parents · Intense pressure</div>
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 19 · Slate Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Slate forms from the sedimentary rock shale through dynamic metamorphism (intense pressure resulting from colliding plates), often forming at a further distance from magma than marble or quartzite.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 20 · Schist Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">When slate is subjected to even higher temperatures and pressure closer to the mantle, it metamorphoses further into schist, a coarser-grained rock.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 21 · Slate Properties &amp; Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Slate is a fine-grained rock, typically dark grey or black, heavily used for roofing (e.g., <b>Valentia, Co. Kerry</b>), while schist is found in <b>Ballycastle, Co. Antrim</b>.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 22 · Gneiss Formation &amp; Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Gneiss forms under high temperature and pressure conditions associated with the regional metamorphism of granite. It retains the parent minerals but rearranges them into distinct bands or layers (e.g., <b>Belmullet Peninsula, Co. Mayo</b>).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            "geo-p7": {
+                title: "Chapter 7: Denudation & Karst Landscapes",
+                section: "Unit 1: Core Physical Geography",
+                content: `
+                    <div class="space-y-6">
+                        <!-- Top Tab Navigation Bar -->
+                        <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchTab('karst-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">Surface Karst</button>
+                            <button onclick="switchTab('karst-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Subsurface Karst</button>
+                            <button onclick="switchTab('karst-tab-3', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Denudation Processes</button>
+                        </div>
+
+                        <!-- TAB 1: SURFACE KARST (LIMESTONE PAVEMENTS) -->
+                        <div id="karst-tab-1" class="tab-content space-y-6">
+                            <div class="srp-box">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                                </div>
+                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                                    <b>Exam Question:</b> "Examine the formation of a karst landscape, with reference to an example you have studied." [30m]
+                                </p>
+                            </div>
+
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#8b5cf6">1</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Karst Landscapes: Limestone Pavements</div>
+                                        <div class="int-tip">Carbonation · Grikes &amp; Clints · Solution</div>
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 1 · Definition &amp; Rock Type</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Carboniferous limestone, composed of at least 50% calcium carbonate (calcite), is uniquely associated with karst landscapes, an area of bare, exposed limestone rock.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 2 · Vulnerability to Weathering</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Because limestone is well-jointed and highly permeable, it is particularly vulnerable to the chemical weathering process known as carbonation.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 3 · Carbonation Process (The Acid)</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Carbonation occurs when rainwater mixes with carbon dioxide from the atmosphere or soil, forming a weak carbonic acid (H₂CO₃).</p>
+                                    <div class="math-block text-xs font-mono mt-2">
+                                        H₂O + CO₂ → H₂CO₃
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 4 · Carbonation Process (The Solution)</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">When this weak acid falls on exposed limestone, it reacts with the insoluble calcium carbonate, converting it into soluble calcium bicarbonate (Ca(HCO₃)₂).</p>
+                                    <div class="math-block text-xs font-mono mt-2">
+                                        H₂CO₃ + CaCO₃ → Ca(HCO₃)₂
+                                    </div>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 5 · Removal by Solution</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">This soluble calcium bicarbonate is then washed away by solution, a continuous process ensured by regular rainfall.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 6 · Grikes Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">As the acidic water percolates downward through the permeable rock, it chemically attacks and widens the vertical joints and horizontal bedding planes, forming deep trenches called grikes (up to 30cm wide and 2m deep).</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 7 · Clints &amp; Karrens</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">The raised, rectangular blocks of solid limestone left separating the grikes are called clints. When acid settles on clint surfaces, it dissolves small hollows called karrens.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 8 · Surface Features</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Other surface features include swallow holes where streams disappear underground; meanwhile, a thin layer of soil accumulating in the sheltered grikes supports unusual flora like the Spring Gentian.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 9 · Named Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">A world-renowned example of a karst limestone pavement is found in <b>The Burren, Co. Clare</b>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 2: SUBSURFACE KARST (CAVES & DRIPSTONE) -->
+                        <div id="karst-tab-2" class="tab-content hidden space-y-6">
+                            <div class="srp-box">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                                </div>
+                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                                    <b>Exam Question:</b> "Examine the formation of underground karst landforms, with reference to an example you have studied." [30m]
+                                </p>
+                            </div>
+
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#10b981">2</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Subsurface Features: Dripstone &amp; Caves</div>
+                                        <div class="int-tip">Carbonation reversed · Evaporation · Calcite deposition</div>
+                                    </div>
+                                </div>
+
+                                <!-- SVG Diagram for Karst Landscape -->
+                                <div class="int-cell border-b border-gray-100 dark:border-slate-800">
+                                    <span class="int-tag">Diagram: Karst Landscape Cross-Section</span>
+                                    <div class="flex justify-center my-4 overflow-x-auto">
+                                        <svg viewBox="0 0 600 350" class="w-full max-w-[500px] select-none" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- Sky & Background -->
+                                            <rect width="600" height="350" fill="#f8fafc" />
+
+                                            <!-- Base Limestone Block -->
+                                            <path d="M 50 150 L 550 150 L 550 320 L 50 320 Z" fill="#cbd5e1" stroke="#64748b" stroke-width="2" />
+
+                                            <!-- Horizontal Bedding Planes & Vertical Joints (Stylized) -->
+                                            <line x1="50" y1="200" x2="550" y2="200" stroke="#94a3b8" stroke-width="1.5" />
+                                            <line x1="50" y1="260" x2="550" y2="260" stroke="#94a3b8" stroke-width="1.5" />
+
+                                            <!-- Surface Layer (Grass & Soil on edges, Bare Pavement in middle) -->
+                                            <path d="M 50 150 L 220 150 L 220 160 L 50 160 Z" fill="#22c55e" /> <!-- Grass Left -->
+                                            <path d="M 380 150 L 550 150 L 550 160 L 380 160 Z" fill="#22c55e" /> <!-- Grass Right -->
+                                            <path d="M 220 150 L 380 150 L 380 155 L 220 155 Z" fill="#94a3b8" /> <!-- Bare Pavement -->
+
+                                            <!-- Pavement Details (Grikes) -->
+                                            <line x1="240" y1="150" x2="240" y2="175" stroke="#475569" stroke-width="2" />
+                                            <line x1="265" y1="150" x2="265" y2="165" stroke="#475569" stroke-width="2" />
+                                            <line x1="290" y1="150" x2="290" y2="185" stroke="#475569" stroke-width="3" />
+                                            <line x1="320" y1="150" x2="320" y2="170" stroke="#475569" stroke-width="2" />
+                                            <line x1="350" y1="150" x2="350" y2="190" stroke="#475569" stroke-width="2" />
+
+                                            <!-- Surface Doline/Sinkhole -->
+                                            <path d="M 420 150 C 450 150 460 220 480 230 C 500 220 510 150 540 150" fill="#22c55e" />
+                                            <path d="M 420 152 C 450 152 460 220 480 230 C 500 220 510 152 540 152" fill="none" stroke="#475569" stroke-width="1.5" />
+                                            <!-- Disappearing stream -->
+                                            <path d="M 550 145 C 520 145 500 160 480 220" fill="none" stroke="#3b82f6" stroke-width="3" />
+
+                                            <!-- Cave Systems (Cutouts in Limestone) -->
+                                            <path d="M 290 185 C 290 200 250 200 250 220 C 250 240 280 250 300 250 C 350 250 360 230 400 230 C 440 230 470 230 480 230 C 470 245 420 255 400 260 C 360 270 300 270 280 300 C 260 320 200 320 180 300 C 160 270 140 240 160 210 C 180 180 200 200 230 200 C 260 200 280 190 290 185 Z" fill="#64748b" />
+
+                                            <!-- Stalactites (Hanging from ceiling) -->
+                                            <path d="M 310 250 L 315 265 L 320 250 Z" fill="#f8fafc" />
+                                            <path d="M 330 250 L 333 260 L 336 250 Z" fill="#f8fafc" />
+                                            <path d="M 370 232 L 375 255 L 380 232 Z" fill="#f8fafc" />
+                                            <path d="M 180 210 L 185 240 L 190 210 Z" fill="#f8fafc" />
+
+                                            <!-- Stalagmites (Growing from floor) -->
+                                            <path d="M 312 270 L 315 260 L 318 270 Z" fill="#f8fafc" />
+                                            <path d="M 373 268 L 376 250 L 379 268 Z" fill="#f8fafc" />
+                                            <path d="M 183 295 L 185 270 L 187 295 Z" fill="#f8fafc" />
+
+                                            <!-- Pillar (Joined) -->
+                                            <path d="M 350 240 L 354 269 L 358 240 Z" fill="#f8fafc" />
+
+                                            <!-- Water Table & Underground River -->
+                                            <path d="M 50 305 C 100 310 150 300 200 315 C 300 310 400 315 550 305 L 550 320 L 50 320 Z" fill="#38bdf8" />
+
+                                            <!-- Tree for scale -->
+                                            <path d="M 130 150 L 130 130" stroke="#78350f" stroke-width="4" />
+                                            <circle cx="130" cy="120" r="15" fill="#15803d" />
+
+                                            <!-- Labels & Lines -->
+                                            <line x1="305" y1="150" x2="305" y2="120" stroke="#334155" stroke-width="1.5" />
+                                            <text x="305" y="115" font-size="12" fill="#0f172a" text-anchor="middle">Limestone Pavement</text>
+
+                                            <line x1="480" y1="180" x2="480" y2="120" stroke="#334155" stroke-width="1.5" />
+                                            <text x="480" y="115" font-size="12" fill="#0f172a" text-anchor="middle">Doline / Sinkhole</text>
+
+                                            <line x1="510" y1="180" x2="510" y2="140" stroke="#334155" stroke-width="1.5" />
+                                            <text x="540" y="135" font-size="12" fill="#0f172a" text-anchor="middle">Sinking stream</text>
+
+                                            <line x1="175" y1="230" x2="100" y2="230" stroke="#334155" stroke-width="1.5" />
+                                            <text x="95" y="235" font-size="12" fill="#0f172a" text-anchor="end">Cave</text>
+
+                                            <line x1="375" y1="240" x2="440" y2="200" stroke="#334155" stroke-width="1.5" />
+                                            <text x="445" y="195" font-size="12" fill="#0f172a" text-anchor="start">Stalactite</text>
+
+                                            <line x1="376" y1="260" x2="440" y2="260" stroke="#334155" stroke-width="1.5" />
+                                            <text x="445" y="265" font-size="12" fill="#0f172a" text-anchor="start">Stalagmite</text>
+
+                                            <line x1="500" y1="310" x2="520" y2="280" stroke="#334155" stroke-width="1.5" />
+                                            <text x="525" y="275" font-size="12" fill="#0f172a" text-anchor="start">Water Table</text>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 10 · Percolation &amp; Permeability</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Following surface carbonation, the weak carbonic acid percolates downwards through the permeable limestone, continuously exploiting and widening the vertical joints and horizontal bedding planes.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 11 · Cave Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Over thousands of years, this extensive underground solution carves out massive subterranean cave and cavern networks as the rock is dissolved and washed away by underground rivers.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 12 · Carbonation Reversal</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Eventually, acid-rich water carrying dissolved calcium bicarbonate reaches the roof of a cavern. Here, exposed to air, the process of carbonation is reversed.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 13 · Evaporation &amp; Deposition</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">As the water droplet hangs on the cavern roof, it begins to evaporate; the water and carbon dioxide are lost, leaving behind a tiny speck of insoluble calcite (calcium carbonate).</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 14 · Stalactite Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">This evaporation process is repeated over thousands of years, causing the calcite to grow downwards due to gravity, gradually forming an icicle-shaped feature hanging from the roof known as a stalactite.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 15 · Stalagmite Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Often, water drops containing calcium bicarbonate fall directly onto the cave floor before evaporating. As the water evaporates on the ground, it leaves behind a speck of calcite.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 16 · Stalagmite Growth &amp; Pillars</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Over time, this calcite builds upwards directly below the stalactite, gradually forming a thicker, dome-shaped feature known as a stalagmite. If the stalactite and stalagmite continue to grow until they meet, they join to form a continuous solid column called a pillar.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 17 · Named Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">These dripstone (speleothem) features are spectacularly visible in the <b>Aillwee Caves, Co. Clare</b>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 3 Placeholder -->
+                        <div id="karst-tab-3" class="tab-content hidden space-y-6">
+                            <div class="p-5 text-center text-sm text-gray-500">Denudation Processes content pending...</div>
+                        </div>
+                    </div>
+                `
+            },
+            "geo-p8": {
+                title: "Chapter 8: Rivers",
+                section: "Unit 1: Core Physical Geography",
+                content: `
+                    <div class="space-y-6">
+                        <!-- Top Tab Navigation Bar -->
+                        <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchTab('river-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">Erosion Landforms</button>
+                            <button onclick="switchTab('river-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Transportation</button>
+                            <button onclick="switchTab('river-tab-3', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Deposition Landforms</button>
+                        </div>
+
+                        <!-- TAB 1: EROSION LANDFORMS -->
+                        <div id="river-tab-1" class="tab-content space-y-6">
+                            <div class="srp-box">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                                </div>
+                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                                    <b>Exam Question:</b> "Examine the formation of one landform of river erosion, with reference to an example you have studied." [30m]
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                                    <div>• <b>Named Feature &amp; Example:</b> 1 SRP (2 marks)</div>
+                                    <div>• <b>Explanation of Processes:</b> 14 SRPs (28 marks)</div>
+                                    <div>• <b>Diagram Credit:</b> Up to 2 SRPs for a valid, labelled sketch</div>
+                                    <div>• <b>Surplus Coverage:</b> 17 distinct SRPs provided below</div>
+                                </div>
+                            </div>
+
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#3b82f6">1</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Landform of Erosion: Waterfall</div>
+                                        <div class="int-tip">Youthful stage · Differential erosion · Hydraulic action &amp; Abrasion</div>
+                                    </div>
+                                </div>
+
+                                <!-- SVG Diagram for Waterfall -->
+                                <div class="int-cell border-b border-gray-100 dark:border-slate-800">
+                                    <span class="int-tag">Diagram: Waterfall Formation</span>
+                                    <div class="flex justify-center my-4 overflow-x-auto">
+                                        <svg viewBox="0 0 600 320" class="w-full max-w-[500px] select-none" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- Soft Rock (Bottom Layer) -->
+                                            <path d="M 20 280 L 320 280 C 270 280 200 230 240 140 L 20 140 Z" fill="#d97706" stroke="#b45309" stroke-width="2"/>
+                                            <text x="140" y="190" font-size="16" fill="#fff" font-weight="600" text-anchor="middle">Soft rock</text>
+
+                                            <!-- Hard Rock (Top Layer) -->
+                                            <path d="M 20 70 L 250 70 C 270 70 285 85 285 105 L 285 140 L 20 140 Z" fill="#92400e" stroke="#78350f" stroke-width="2"/>
+                                            <text x="140" y="115" font-size="16" fill="#fff" font-weight="600" text-anchor="middle">Hard rock</text>
+
+                                            <!-- Water Flow (Top & Drop) -->
+                                            <path d="M 20 50 L 250 50 C 285 50 305 70 305 105 L 305 240 C 305 250 285 250 285 240 L 285 105 C 285 90 270 70 250 70 L 20 70 Z" fill="#38bdf8" opacity="0.85"/>
+                                            <!-- Water Plunge Pool & Downstream -->
+                                            <path d="M 220 280 C 210 240 280 230 330 230 L 580 230 C 580 250 560 270 540 270 L 520 260 C 500 250 480 280 460 280 Z" fill="#38bdf8" opacity="0.85"/>
+                                            <path d="M 220 280 C 240 295 460 295 460 280 Z" fill="#0284c7" opacity="0.5"/>
+
+                                            <!-- Churning Rocks/Bubbles in Plunge Pool -->
+                                            <circle cx="270" cy="245" r="7" fill="#fff" stroke="#0284c7" stroke-width="1.5"/>
+                                            <circle cx="285" cy="255" r="8" fill="#fff" stroke="#0284c7" stroke-width="1.5"/>
+                                            <circle cx="260" cy="260" r="6" fill="#fff" stroke="#0284c7" stroke-width="1.5"/>
+                                            <circle cx="300" cy="248" r="9" fill="#fff" stroke="#0284c7" stroke-width="1.5"/>
+                                            <circle cx="315" cy="258" r="7" fill="#fff" stroke="#0284c7" stroke-width="1.5"/>
+                                            <circle cx="295" cy="265" r="6" fill="#fff" stroke="#0284c7" stroke-width="1.5"/>
+
+                                            <!-- Labels and Arrows -->
+                                            <line x1="160" y1="225" x2="215" y2="200" stroke="currentColor" stroke-width="1.5"/>
+                                            <text x="155" y="235" font-size="12" fill="currentColor" text-anchor="end" font-weight="500">(1) Undercutting</text>
+                                            <line x1="390" y1="100" x2="285" y2="140" stroke="currentColor" stroke-width="2"/>
+                                            <text x="395" y="95" font-size="12" fill="currentColor" text-anchor="start" font-weight="500">(2) Overhang collapses</text>
+                                            <text x="360" y="255" font-size="12" fill="currentColor" text-anchor="start" font-weight="500">(3) Plungepool develops</text>
+                                            <path d="M 290 40 Q 240 25 170 30" fill="none" stroke="#60a5fa" stroke-width="4"/>
+                                            <polygon points="170,30 180,22 178,38" fill="#60a5fa"/>
+                                            <text x="240" y="20" font-size="12" fill="currentColor" text-anchor="start" font-weight="500">(4) Waterfall retreats upstream</text>
+                                            <text x="430" y="160" font-size="12" fill="currentColor" text-anchor="start" font-weight="500">(5) Steep, gorge-like valleys</text>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 1 · Definition &amp; Stage</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Waterfalls are vertical or near-vertical falls of water typically found in the youthful (upper) stage of a river, where vertical downcutting erosion is the dominant force.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 2 · Core Processes</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">The formation of a waterfall involves several key erosional processes, primarily hydraulic action, abrasion, and undermining.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 3 · Rock Arrangement</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">A waterfall typically forms when a layer of hard, resistant rock (such as granite) lies across or beside a layer of softer rock (such as chalk).</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 4 · Differential Erosion</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">This specific arrangement leads to differential erosion, where the softer rock on the downstream side is eroded at a significantly faster rate than the resistant rock.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 5 · Steepening of the Bed</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">As the soft rock erodes faster, the riverbed is steepened at the junction where the two rocks meet, eventually developing into a sharp vertical fall.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 6 · Hydraulic Action</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Hydraulic action plays a major role; this is the sheer physical force of the fast-moving water crashing against the riverbeds and banks.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 7 · Impact of Hydraulic Action</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">As the water hits the rock, it dislodges and breaks rock fragments, removing unconsolidated debris and causing bank caving, slumping, and cavitation.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 8 · Abrasion</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Abrasion also wears away the rock, which occurs when the river uses its transported load of sand, mud, and shingle to grind and erode further material from the riverbed.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 9 · Undercutting</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Because the soft rock is eroded away at the base of the vertical drop, the resistant cap rock above is gradually undercut.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 10 · Overhang Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">This continuous undercutting removes the foundational support for the hard rock above, creating a protruding, unsupported ledge known as an overhang.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 11 · Overhang Collapse</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Repeated undercutting makes this overhang structurally unstable, eventually causing it to collapse into the river below due to the force of gravity.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 12 · Eddying Action</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">The collapsed rock debris gets caught in the falling water and is swirled around at the base of the falls in a powerful, circular eddying action.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 13 · Plunge Pool</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">This swirling, abrasive action carves out and deepens a large hollow basin at the base of the waterfall, known as a plunge pool.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 14 · Headward Erosion</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">As the processes of undercutting and overhang collapse continue, the waterfall slowly retreats upstream toward the river's source in a process called headward erosion.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 15 · Gorge Formation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">When a waterfall formed on horizontal rock strata retreats upstream, it erodes and leaves behind a narrow, steep-sided channel downstream, which is called a gorge.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 16 · Mature Stage Causes</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">While usually youthful features, waterfalls may also form in the mature stage due to river rejuvenation (when land rises, renewing vertical erosion), tectonic faulting, or glaciation (streams falling from hanging valleys).</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 17 · Named Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">A classic Irish example of a waterfall is <b>Powerscourt Falls in Co. Wicklow</b>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 2 Placeholder -->
+                        <div id="river-tab-2" class="tab-content hidden space-y-6">
+                            <div class="p-5 text-center text-sm text-gray-500">Transportation content pending...</div>
+                        </div>
+
+                        <!-- TAB 3: DEPOSITION LANDFORMS -->
+                        <div id="river-tab-3" class="tab-content hidden space-y-6">
+                            <div class="srp-box">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                                </div>
+                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                                    <b>Exam Question:</b> "Examine the formation of one landform of river deposition, with reference to an example you have studied." [30m]
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                                    <div>• <b>Named Feature &amp; Example:</b> 1 SRP (2 marks)</div>
+                                    <div>• <b>Explanation of Processes:</b> 14 SRPs (28 marks)</div>
+                                    <div>• <b>Diagram Credit:</b> Up to 2 SRPs for a valid, labelled sketch</div>
+                                    <div>• <b>Surplus Coverage:</b> 17 distinct SRPs provided below</div>
+                                </div>
+                            </div>
+
+                            <div class="int-card">
+                                <div class="int-head">
+                                    <div class="int-badge" style="background:#f59e0b">1</div>
+                                    <div class="min-w-0">
+                                        <div class="int-title">Landform of Deposition: Deltas</div>
+                                        <div class="int-tip">Old stage · Loss of velocity · Flocculation &amp; Bed stratification</div>
+                                    </div>
+                                </div>
+
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 1 · Definition &amp; Stage</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">A delta is a flat, fan-shaped landform of deposition found primarily in the old-age stage of a river where the stream meets a static body of water such as an estuary, sea, or lake.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 2 · Core Processes</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">The formation of a delta involves key fluviomarine processes including deposition, suspension, solution, and aggradation.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 3 · Loss of Velocity</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">As the river enters the sea or a lake, it suddenly loses its velocity and energy, removing its capacity to carry its transported load.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 4 · Deposition &amp; Accumulation</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">This loss of energy forces the river to deposit the sediment it has been transporting; if ocean tides or sea currents are not active enough to wash this material away, it accumulates to form a delta.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 5 · Flocculation Trigger</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">When river freshwater meets marine saltwater at the coast, a chemical change known as flocculation occurs.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 6 · Flocculation Process</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Flocculation causes fine clay particles suspended in the water to clot together, increasing their weight and causing them to settle rapidly on the seabed.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 7 · Bed Stratification</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Upon entering the lake or sea, the river deposits its sediment load in distinct alternative layers based on particle size and weight.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 8 · Bottomset Beds</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">The finest particles are carried furthest out into the water body and are laid down first in advance of the main delta, forming horizontal layers known as bottomset beds.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 9 · Foreset Beds</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Coarser, heavier materials are deposited closer to the river mouth, forming steep, sloping layers over the bottomset beds known as foreset beds.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 10 · Topset Beds</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Finally, sediments of various grain sizes are deposited horizontally on top of the advancing delta, forming the uppermost topset beds.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 11 · Distributaries</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">As this sediment builds up and eventually blocks the main river channel, the river is forced to split into a network of smaller branching channels known as distributaries to reach the sea.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 12 · Delta Classifications</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Two main types of deltas can form depending on the receiving body of water: a lacustrine delta forms when a river enters a lake, while a marine delta forms when a river enters the sea.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 13 · Lacustrine Deltas &amp; Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Lacustrine deltas often form where mountain streams flow into glaciated ribbon lakes, gradually reducing the lake's size over time (e.g., <b>Lough Tay, Co. Wicklow</b>).</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 14 · Arcuate Marine Deltas</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">The most common type of marine delta is the arcuate delta, which has a classic triangular shape maintained by relatively strong sea currents keeping its outer edge straight.</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 15 · Arcuate Composition &amp; Example</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">Arcuate deltas are typically composed of coarser, more porous materials like sand and gravel (e.g., the <b>River Nile Delta, Egypt</b>).</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 16 · Estuarine Deltas</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">An estuarine delta forms at the mouth of a submerged river when it runs into an estuary, depositing its load as long narrow fillings along both sides (e.g., <b>Shannon Estuary, Co. Limerick</b>).</p>
+                                </div>
+                                <div class="int-cell">
+                                    <span class="int-tag">SRP 17 · Bird's Foot Deltas</span>
+                                    <p class="text-[13px] leading-snug mt-1.5">A bird's-foot delta is the least common type, forming when river currents are stronger than sea currents, pushing large quantities of fine sediment far out to sea along a few large distributaries edged by levees (e.g., <b>Mississippi Delta, USA</b>).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
             "geo-r1": {
                 title: "Chapter 1: Concept of a Region",
                 section: "Unit 2: Core Regional Geography",
@@ -4464,687 +5323,432 @@
                 section: "Unit 2: Core Regional Geography",
                 content: `
                     <div class="space-y-6">
-                        <!-- Top Tab Navigation Bar -->
-                        <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap mb-6">
-                            <button onclick="switchTab('gda-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">Physical</button>
-                            <button onclick="switchTab('gda-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Primary</button>
-                            <button onclick="switchTab('gda-tab-3', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Secondary</button>
-                            <button onclick="switchTab('gda-tab-4', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Tertiary</button>
-                            <button onclick="switchTab('gda-tab-5', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Human</button>
+                        <!-- Region Overview -->
+                        <div class="srp-box">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                                <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">GDA SRP Library</span>
+                                <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">Dublin · Meath · Kildare · Wicklow</span>
+                            </div>
+                            <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed">
+                                Reusable Significant Relevant Points (SRPs) for the Greater Dublin Area (GDA), organised by geographical factor so points covering climate, terrain, transport, markets, labour, industry, and tourism stay in one place.
+                            </p>
                         </div>
 
-                        <!-- TAB 1: Physical Processes -->
-                        <div id="gda-tab-1" class="tab-content space-y-6">
-                            <div class="srp-box">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
-                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
-                                </div>
-                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
-                                    <b>Exam Question:</b> "Examine the physical characteristics of an Irish region you have studied." [30m]
-                                </p>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
-                                    <div>• <b>Named Region:</b> The Greater Dublin Area (Dublin, Meath, Kildare, Wicklow)</div>
-                                    <div>• <b>Core Components:</b> Climate, Relief, Drainage &amp; Soils</div>
-                                    <div>• <b>Marking Formula:</b> 15 SRPs @ 2 marks each = 30 marks</div>
-                                    <div>• <b>Surplus Coverage:</b> 17 full SRPs detailed below</div>
+                        <!-- 1. CLIMATE -->
+                        <div class="int-card border border-gray-200 dark:border-slate-800">
+                            <div class="int-head">
+                                <div class="int-badge" style="background:#3b82f6">1</div>
+                                <div class="min-w-0">
+                                    <div class="int-title">Climate</div>
+                                    <div class="int-tip">Cool Temperate Oceanic · Rain shadow, temperatures, growing season &amp; farming impacts</div>
                                 </div>
                             </div>
-
-                            <!-- Climate -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#3b82f6">1</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Climate Characteristics</div>
-                                        <div class="int-tip">SRP 1 – SRP 7: Rain shadow, temperatures &amp; growing season</div>
+                            <div class="divide-y divide-gray-100 dark:divide-slate-800">
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Regional Climate Type</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The Greater Dublin Area (Dublin, Meath, Kildare, Wicklow) experiences a <b>Cool Temperate Oceanic climate</b> that is significantly warmer and drier than the Western region.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 1 &amp; 2 · Definition &amp; Rain Shadow</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The GDA comprises Dublin, Meath, Kildare, and Wicklow. It experiences a Cool Temperate Oceanic climate that is warmer and drier than the West because moisture-laden Atlantic depressions lose their water over western mountains, creating a rain shadow.
-                                    </p>
-                                </div>
-                                <div class="law-grid">
-                                    <div class="law">
-                                        <span class="int-tag">SRP 3 · Temperatures</span>
-                                        <p class="text-xs mt-1">Warm summer averages of <b>16°C</b> and mild winter averages of <b>5°C to 6°C</b>, regulated by low relief and the Irish Sea.</p>
-                                    </div>
-                                    <div class="law">
-                                        <span class="int-tag">SRP 4 &amp; 5 · Precipitation</span>
-                                        <p class="text-xs mt-1">Averages only <b>750 mm annually</b> (frontal rain). Annual rainfall distribution in the GDA is concentrated seasonally, with <b>December and January recorded as the wettest months</b>. Relief rainfall is confined locally to the Wicklow Mountains.</p>
-                                    </div>
-                                    <div class="law">
-                                        <span class="int-tag">SRP 6 · Sunshine &amp; Growth</span>
-                                        <p class="text-xs mt-1">Averages <b>4 hours of sunshine/day</b> and an extended <b>270-day growing season</b>, allowing crops to ripen early.</p>
-                                    </div>
-                                    <div class="law">
-                                        <span class="int-tag">SRP 7 · Low Frost</span>
-                                        <p class="text-xs mt-1">Proximity to the Irish Sea minimizes ground frost days, protecting sensitive early-spring horticultural crops.</p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Rain Shadow &amp; 750 mm Rainfall</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Lower relief and the rain shadow effect of western mountains mean Atlantic depressions shed most moisture before reaching the east, leaving the GDA with approximately <b>750 mm of precipitation annually</b>—less than half the total in western coastal counties, making it one of Ireland's driest regions.</p>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Relief and Drainage -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#f59e0b">2</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Relief, Coastline &amp; Drainage</div>
-                                        <div class="int-tip">SRP 8 – SRP 13: Lowlands, Wicklow barrier &amp; river corridors</div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Seasonal Rainfall Distribution</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Most precipitation falls as frontal rainfall evenly throughout the year, with <b>December and January</b> recorded as the wettest months.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 8 &amp; 9 · Lowland Plain &amp; Wicklow Upland Barrier</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The relief is predominantly a sheltered, undulating lowland plain across Dublin, Kildare, and Meath. In contrast, the granite <b>Wicklow Mountains</b> to the south rise over <b>1,000 metres</b>, forming a barrier to transport and urban sprawl.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 10 &amp; 11 · Land Use &amp; Low-Lying Coast</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Steep slopes and harsh upland climates restrict the Wicklow Mountains to sheep grazing and forestry. The GDA coastline is smooth and low-lying, featuring <b>consolidated boulder clay deposits</b> along coastal sections.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 12 &amp; 13 · Permeable Bedrock &amp; River Networks</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Lowlands are underlain by permeable Carboniferous limestone that facilitates excellent natural drainage. Three main river systems—the <b>River Liffey, River Dodder, and River Tolka</b>—drain the region and historically provided vital transport corridors.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Soils -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#10b981">3</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Soils of the GDA</div>
-                                        <div class="int-tip">SRP 14 – SRP 17: Brown earths, alluvium &amp; sandy loams</div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Warm Summers &amp; Mild Winters</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Summer temperatures are warm, averaging around <b>16°C</b> due to low cloud cover and stronger solar radiation, while winters are mild (<b>5°C to 6°C</b>), moderated by proximity to the Irish Sea.</p>
                                     </div>
                                 </div>
-                                <div class="law-grid">
-                                    <div class="law">
-                                        <span class="int-tag">SRP 14 · Brown Earths</span>
-                                        <p class="text-xs mt-1">Deep, fertile soils with high humus content formed under ancient deciduous forest cover across lowland Meath and Kildare.</p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Low Frost Frequency</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The moderating maritime influence of the Irish Sea keeps ground frost days much lower than in inland counties, protecting delicate early-season arable crops from frost damage.</p>
                                     </div>
-                                    <div class="law">
-                                        <span class="int-tag">SRP 15 · Alluvial Soils</span>
-                                        <p class="text-xs mt-1">Rich floodplain silt deposits along the Liffey, Tolka, and Dodder providing fertile pastoral and tillage land.</p>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Sunshine &amp; 270-Day Growing Season</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The region averages <b>4 hours of daily sunshine</b> and an extended growing season of approximately <b>270 days</b>, allowing crops to ripen significantly earlier than further inland.</p>
                                     </div>
-                                    <div class="law">
-                                        <span class="int-tag">SRP 16 · Sandy Loams</span>
-                                        <p class="text-xs mt-1">Marine sand mixed with brown earth in North Dublin (Rush/Lusk) produces warm, free-draining market gardening soils.</p>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Tillage Cropping &amp; Blight Control</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Warm, sunny, and dry conditions favour intensive cereal cultivation—producing <b>15% of Ireland's national wheat crop</b> alongside malting barley and protein-rich feed barley—and keep fungal potato blight rare, enabling Dublin and Meath to produce <b>20% of the national potato crop</b>.</p>
                                     </div>
-                                    <div class="law">
-                                        <span class="int-tag">SRP 17 · Upland Podzols/Peat</span>
-                                        <p class="text-xs mt-1">Heavily leached, acidic podzols and wet blanket bogs covering high elevations in the Dublin/Wicklow Mountains.</p>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Early Grass Growth &amp; Lower Fodder Costs</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The extended 270-day growing season promotes early spring grass growth, letting farmers turn dairy and beef cattle onto pasture earlier and substantially cutting expenditure on stored winter fodder and silage compared to western farms.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- TAB 2: Primary Economic Activities -->
-                        <div id="gda-tab-2" class="tab-content hidden space-y-6">
-                            <div class="srp-box">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
-                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Two Factors: 7/8 SRPs each)</span>
-                                </div>
-                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
-                                    <b>Exam Question:</b> "Explain how physical and human factors have influenced the development of primary economic activities in an Irish region you have studied." [30m]
-                                </p>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
-                                    <div>• <b>Primary Sectors:</b> Commercial Agriculture &amp; Marine Fishing</div>
-                                    <div>• <b>Key Factors:</b> Climate, Relief/Soils, Urban Market, Infrastructure</div>
-                                    <div>• <b>Marking Formula:</b> 2 Factors @ 7/8 SRPs = 15 SRPs (30m)</div>
-                                    <div>• <b>Surplus Coverage:</b> 17 full SRPs detailed below</div>
+                        <!-- 2. RELIEF AND DRAINAGE -->
+                        <div class="int-card border border-gray-200 dark:border-slate-800">
+                            <div class="int-head">
+                                <div class="int-badge" style="background:#f59e0b">2</div>
+                                <div class="min-w-0">
+                                    <div class="int-title">Relief and Drainage</div>
+                                    <div class="int-tip">Undulating lowlands, Wicklow upland barrier, coastline, bedrock &amp; rivers</div>
                                 </div>
                             </div>
-
-                            <!-- Agriculture -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#10b981">1</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Commercial Agriculture</div>
-                                        <div class="int-tip">SRP 1 – SRP 10: Tillage, pastoral, horticulture &amp; bloodstock</div>
+                            <div class="divide-y divide-gray-100 dark:divide-slate-800">
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Sheltered Lowland Plain</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The GDA is primarily a sheltered lowland area that undulates gently towards the north and west, providing ideal topography for settlement and agriculture.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 1 &amp; 2 · Commercial Nature &amp; Tillage Success</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Agriculture in the GDA is highly intensive, modernized, and profitable. Warm summer temperatures (16°C) and low rainfall (750 mm) support intensive arable cropping, producing <b>15% of Ireland's national wheat crop</b>.
-                                    </p>
-                                </div>
-                                <div class="law-grid">
-                                    <div class="law">
-                                        <span class="int-tag">SRP 3 · Barley Cropping</span>
-                                        <p class="text-xs mt-1">Grows high-grade malting barley for Dublin breweries/distilleries (Guinness) and feed barley for livestock.</p>
-                                    </div>
-                                    <div class="law">
-                                        <span class="int-tag">SRP 4 · Potato Production</span>
-                                        <p class="text-xs mt-1">Dry conditions prevent fungal potato blight; Dublin and Meath produce <b>20% of the national potato crop</b>.</p>
-                                    </div>
-                                    <div class="law">
-                                        <span class="int-tag">SRP 5 · Early Grazing</span>
-                                        <p class="text-xs mt-1">A 270-day growing season enables early spring grass growth, cutting winter fodder costs substantially.</p>
-                                    </div>
-                                    <div class="law">
-                                        <span class="int-tag">SRP 6 · Mechanisation</span>
-                                        <p class="text-xs mt-1">Flat, undulating lowland relief allows full machinery access for large modern combine harvesters.</p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">High Farm Mechanisation</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Flat, undulating lowland relief allows full machinery access across large fields, enabling high mechanisation with modern combine harvesters.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 7 · Market Gardening (Horticulture)</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Light sandy loam soils in North County Dublin (Rush and Lusk) support intensive market gardening. Over <b>50% of Ireland's commercial glasshouses</b> are located here, producing high-value salad crops (lettuce, tomatoes, spring onions).
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 8, 9 &amp; 10 · Pastoral, Bloodstock &amp; Western Links</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Rich pastures in Meath support beef fattening, while Kildare specializes in liquid milk dairying. Limestone-rich pastures in Kildare support an elite <b>bloodstock equine industry</b> (The Curragh). Store cattle from the West are transported here for fattening before slaughter.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Markets, Farm Structure & Fishing -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#3b82f6">2</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Markets, Infrastructure &amp; Fishing</div>
-                                        <div class="int-tip">SRP 11 – SRP 17: Dublin market, farm viability &amp; fishing ports</div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Wicklow Mountains Upland Barrier</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">To the south, the granite <b>Wicklow Mountains rise over 1,000 metres</b>; their steep slopes and high altitude form a barrier to road networks and urban settlement and prevent crop cultivation, restricting upland use to rough hill sheep grazing.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 11 &amp; 12 · Urban Market &amp; Transport Links</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        An affluent local metropolitan market of <b>2.1 million consumers</b> drives constant demand for fresh produce. Dense motorways allow rapid transit of perishable milk and vegetables, extending retail shelf life.
-                                    </p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Smooth, Low-Lying Coastline</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The GDA coastline is low-lying, featuring boulder clay deposits, and is far less indented or jagged than the heavily eroded Atlantic west.</p>
+                                    </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 13 &amp; 14 · Export Gateways &amp; Viable Farm Size</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Dublin Port and Airport facilitate exports to the UK and EU. GDA farms are large and commercially viable, averaging <b>46 hectares</b> (vs 25 ha in the West). <b>Farm holdings in County Dublin represent only 0.5% (680 farms)</b> of the total national farm count, but achieve farm incomes <b>40% higher than the national average</b> due to high-value commercial specialization.
-                                    </p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Natural Bedrock Drainage</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The region benefits from good natural drainage because it is underlain by <b>Carboniferous limestone and granite</b>, permeable rocks that allow water to drain freely.</p>
+                                    </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 15, 16 &amp; 17 · Fishing Sector &amp; Modern Constraints</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        <b>Howth</b> is the GDA's premier fishing port, recording landings over <b>€12.9 million (2021)</b>, supported by Balbriggan and Skerries; fishing landings at <b>Skerries harbour, Co. Dublin, generated over €2.3 million</b> in landed catch value in 2011. However, GDA fishing declined from 35% of national landings in 1960 to 3% in 2004 due to strict EU Common Fisheries Policy quotas, urban coastal pollution, and western port competition.
-                                    </p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Major River Routeways</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The GDA is drained by three major rivers—the <b>Liffey, Dodder, and Tolka</b>—which historically provided natural routeways around which key urban centres developed.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        
-                        <!-- TAB 3: Secondary Economic Activities -->
-                        <div id="gda-tab-3" class="tab-content hidden space-y-6">
-                            <div class="srp-box">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
-                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Two Factors: 7/8 SRPs each)</span>
-                                </div>
-                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
-                                    <b>Exam Question:</b> "Account for the development of secondary economic activity (manufacturing) in an Irish region you have studied." [30m]
-                                </p>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
-                                    <div>• <b>Named Region:</b> Greater Dublin Area (Core Manufacturing Region)</div>
-                                    <div>• <b>Key Themes:</b> Shift to Modern High-Tech, FDI Policy, Transport &amp; Agglomeration</div>
-                                    <div>• <b>Marking Formula:</b> 2 Factors @ 7/8 SRPs each = 15 SRPs (30m)</div>
-                                    <div>• <b>Surplus Coverage:</b> 17 distinct, numbered SRPs detailed below</div>
+                        <!-- 3. SOILS -->
+                        <div class="int-card border border-gray-200 dark:border-slate-800">
+                            <div class="int-head">
+                                <div class="int-badge" style="background:#10b981">3</div>
+                                <div class="min-w-0">
+                                    <div class="int-title">Soils</div>
+                                    <div class="int-tip">Brown earths, alluvium, sandy loams, limestone pastures &amp; upland podzols/peat</div>
                                 </div>
                             </div>
-
-                            <!-- Card 1: Core Manufacturing Hub & ICT / Pharma Clusters -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#8b5cf6">1</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Core Manufacturing Status, FDI &amp; High-Tech Clusters</div>
-                                        <div class="int-tip">SRP 1 – SRP 7: Core region status, policy, Intel, Pfizer &amp; skilled young labour</div>
+                            <div class="divide-y divide-gray-100 dark:divide-slate-800">
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Fertile Brown Earths (Tillage Base)</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Lowland areas across <b>Kildare and Meath</b> are covered by deep, fertile <b>brown earth soils</b> with high humus content formed under ancient deciduous forests; nutrient-rich and easily tilled, they provide ideal soil for commercial arable farming.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 1 · Core Region Status</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The Greater Dublin Area (GDA) is Ireland’s premier core economic manufacturing region, generating roughly <b>40% of national GDP</b> and hosting over <b>1,300 industrial plants</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 2 · Shift from Traditional to Modern</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Traditional manufacturing was located near Dublin docks (brewing, textiles, ship repair), but modern manufacturing has decentralized to <b>planned suburban industrial estates</b> along major arterial corridors.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 3 · FDI Government Policy</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Industrial development has been driven by <b>IDA Ireland</b>, utilizing a low <b>12.5% corporation tax rate</b> and capital grants to attract multinational corporations (MNCs).
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 4 · ICT &amp; Microelectronics Cluster</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The GDA developed a globally significant high-tech hardware and microchip cluster, notably anchored by <b>Intel’s massive fabrication campus in Leixlip, Co. Kildare</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 5 · Biopharmaceutical Sector</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The region serves as a biopharma hub, with major global facilities such as <b>Pfizer at Grange Castle (Clondalkin)</b> manufacturing vaccines and biotherapeutics for worldwide export.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 6 · Educated Labour Supply</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Access to top-tier third-level institutions (<b>Trinity College Dublin, UCD, DCU, TU Dublin</b>) supplies a steady stream of highly skilled science, engineering, and tech graduates.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 7 · Young Demographics</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        <b>Over 40% of the GDA population is under 25</b>, providing a dynamic, adaptable, and technologically literate workforce for advanced manufacturing.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Card 2: Transport Infrastructure & Freight Access -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#3b82f6">2</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Strategic Transport Infrastructure &amp; Freight Gateways</div>
-                                        <div class="int-tip">SRP 8 – SRP 12: Motorway convergence, M50, Dublin Port, Airport cargo &amp; Port Tunnel</div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Alluvial Floodplain Soils</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Rich <b>alluvial soils</b> lie along river floodplains across the GDA, adding further fertile agricultural land.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 8 · Nodal Transport Hub</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Dublin acts as the national focal point where all major national motorways (<b>M1, M3, M4, M7, M11</b>) converge, streamlining the supply chain for raw materials and component delivery.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 9 · Role of the M50</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The <b>M50 orbital ring-road</b> enables freight to bypass inner-city bottlenecks and connects factories directly to key distribution centres.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 10 · Dublin Port Freight Access</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        <b>Dublin Port handles around 50% of national sea freight</b>; roll-on/roll-off (Ro-Ro) ferry links allow industrial goods to reach Britain and mainland European markets within 24 hours.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 11 · Dublin Airport Air Cargo</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        <b>Dublin Airport</b> provides rapid international air-freight logistics, essential for lightweight, high-value exports like microchips and temperature-controlled pharmaceuticals.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 12 · Dublin Port Tunnel</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Opened to remove heavy goods vehicles (HGVs) from city streets, the <b>Dublin Port Tunnel</b> connects freight from the docks directly to the M50 in <b>6 minutes</b>.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Card 3: Food Processing, Agglomeration, Markets & Decentralisation -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#10b981">3</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Agri-Food Processing, Agglomeration &amp; Regional Dynamics</div>
-                                        <div class="int-tip">SRP 13 – SRP 17: Guinness processing, agglomeration, 2.1m market &amp; decentralisation</div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Sandy Loams &amp; North Dublin Horticulture</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Marine sand in North Dublin (<b>Rush and Lusk</b>) produces warm, free-draining <b>sandy loam soils</b> that heat up quickly in spring, making North Dublin the national centre for intensive market gardening and home to <b>over half of Ireland's commercial glasshouses</b> producing salad crops.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 13 · Traditional Agri-Food Processing</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The surrounding rich farming hinterland supplies agricultural raw materials for large-scale food and beverage plants, such as <b>Guinness (St. James's Gate)</b> processing <b>100,000+ tonnes of barley annually</b>.
-                                    </p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Limestone Pastures (Beef, Dairy &amp; Bloodstock)</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Lush grasslands support intensive pastoral beef fattening in <b>County Meath</b> and commercial liquid-milk dairying on the sheltered plains of <b>County Kildare</b>, while mineral-rich limestone lowlands in Kildare and Meath build strong bone in horses, supporting elite bloodstock stud farms and racecourses like <b>The Curragh</b>.</p>
+                                    </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 14 · Agglomeration Economy</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Clustering of manufacturing firms creates strong shared networks of <b>specialist couriers, legal advisers, engineering contractors, and component suppliers</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 15 · Affluent Consumer Market</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        <b>Over 2.1 million consumers</b> living within the GDA create huge immediate domestic demand for processed foods, packaging, and building products.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 16 · Urban Land Pressures &amp; Congestion</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Skyrocketing industrial rents, commercial land shortages, and rush-hour traffic congestion on the M50 are raising operating costs for manufacturers.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 17 · Decentralisation to Ring Towns</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        High costs in Dublin City have driven secondary manufacturing outwards into satellite towns like <b>Leixlip, Naas, Drogheda, and Navan</b>.
-                                    </p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Upland Podzols &amp; Blanket Bogs</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">High elevations in the Wicklow Mountains feature heavily leached <b>podzols</b> and wet <b>blanket bogs</b>, restricting upland land use strictly to pastoral hill sheep farming.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-
-                        <!-- TAB 4: Tertiary Economic Activities -->
-                        <div id="gda-tab-4" class="tab-content hidden space-y-6">
-                            <div class="srp-box">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
-                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Tourism OR Transport: 7/8 SRPs each)</span>
-                                </div>
-                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
-                                    <b>Exam Question:</b> "Examine how physical and human factors have influenced the development of tertiary economic activity (transport OR tourism) in an Irish region you have studied." [30m]
-                                </p>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
-                                    <div>• <b>Named Region:</b> The Greater Dublin Area (National Tertiary &amp; Service Hub)</div>
-                                    <div>• <b>Sectors Covered:</b> International Tourism, Urban Transit Networks, Financial Services</div>
-                                    <div>• <b>Marking Formula:</b> 15 SRPs @ 2 marks each = 30 marks</div>
-                                    <div>• <b>Surplus Coverage:</b> 17 distinct, numbered SRPs detailed below</div>
+                        <!-- 4. TRANSPORT -->
+                        <div class="int-card border border-gray-200 dark:border-slate-800">
+                            <div class="int-head">
+                                <div class="int-badge" style="background:#06b6d4">4</div>
+                                <div class="min-w-0">
+                                    <div class="int-title">Transport</div>
+                                    <div class="int-tip">Nodal rail &amp; road hub, M50, M1 corridor, Dublin Port &amp; Dublin Airport</div>
                                 </div>
                             </div>
-
-                            <!-- Card 1: Cultural, Heritage & Scenic Tourism Industry -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#ec4899">1</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Cultural, Heritage &amp; Scenic Tourism Industry</div>
-                                        <div class="int-tip">SRP 1 – SRP 7: Core service economy, airport gateway, heritage, Guinness, Glendalough &amp; events</div>
+                            <div class="divide-y divide-gray-100 dark:divide-slate-800">
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">National Nodal Transport Hub</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Dublin serves as Ireland's nodal focal point where national radial road and rail routes converge, streamlining distribution to the <b>5 million national market</b> and encouraging over <b>1.7 million domestic Irish tourists (2019)</b> to visit the GDA.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 1 · Core Service Economy</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Tertiary economic activities dominate the GDA, with services employing <b>over 80% of the regional workforce</b> across tourism, finance, retail, and logistics.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 2 · International Tourism Gateway</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        <b>Dublin Airport</b> acts as the primary international gateway, handling over <b>90% of all scheduled flights</b> into Ireland and more than <b>30 million passengers annually</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 3 · Urban Heritage &amp; Cultural Attractions</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The GDA attracts <b>over 6 million overseas visitors annually</b>, drawn to historic landmarks like <b>Dublin Castle, Trinity College (Book of Kells), Kilmainham Gaol, and Temple Bar</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 4 · Industrial &amp; Commercial Tourism</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The <b>Guinness Storehouse at St. James's Gate</b> is Ireland’s most visited fee-paying attraction, drawing over <b>1.5 million tourists per year</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 5 · Physical Attractions – Dublin Bay &amp; Wicklow Mountains</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Proximity to natural scenic attractions like the <b>Wicklow Mountains National Park (Glendalough)</b>, <b>Howth Head</b>, and coastal beaches expands the tourist offer beyond city breaks.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 6 · Conference &amp; Event Tourism</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Purpose-built infrastructure such as the <b>Convention Centre Dublin (CCD), the 3Arena, and Croke Park</b> hosts international corporate conferences, matches, and stadium concerts.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 7 · Lack of Seasonality</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Unlike the Western Region, tourism in the GDA <b>operates year-round</b> due to business tourism, weekend city breaks, and retail travel, keeping hotel occupancy rates high.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Card 2: Transport Infrastructure & Urban Mobility Networks -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#3b82f6">2</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Transport Infrastructure &amp; Urban Mobility Networks</div>
-                                        <div class="int-tip">SRP 8 – SRP 14: Radial network, M50, Port Tunnel, DART, Luas, BusConnects &amp; integrated ticketing</div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Urban Road Network &amp; M50 Motorway</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Dense motorway networks and a well-developed urban road system—including the <b>M50 motorway</b>—connect the rural hinterland to urban retailers, reducing transit costs, preserving the shelf life of perishable milk and produce, and speeding up factory deliveries across Dublin.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 8 · Transport Node – The Radial Network</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Dublin serves as the national transport hub where radial road (<b>M1 to M11</b>) and rail routes converge, linking the capital to every major city in Ireland.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 9 · M50 Orbital Highway</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Upgraded to six lanes with barrier-free tolling, the <b>M50 ring road carries over 145,000 vehicles daily</b>, distributing traffic around Dublin’s outer suburbs.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 10 · Dublin Port Tunnel</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        A key transport engineering asset that directs thousands of heavy freight trucks directly from Dublin Port into the motorway network, removing HGV gridlock from the city centre.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 11 · Commuter Rail &amp; DART</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The electrified <b>DART line</b> runs along the coastline from <b>Howth/Malahide to Greystones</b>, carrying tens of millions of suburban commuters annually.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 12 · Luas Light Rail</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The <b>Luas tram network</b> (Red and Green Lines, linked via Cross-City) connects outer suburbs (Tallaght, Sandyford, Broombridge) directly into central commercial districts.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 13 · BusConnects &amp; QBCs</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        <b>Quality Bus Corridors (QBCs)</b> provide dedicated bus lanes; the <b>BusConnects program</b> is redesigning the network with continuous bus spines and orbital routes.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 14 · Integrated Ticketing &amp; Sustainable Micro-Mobility</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The <b>TFI Leap Card</b> enables multimodal transfers across buses, trams, and trains, complemented by the <b>Dublin Bikes scheme</b>.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Card 3: Congestion, IFSC Finance Hub & Future Transit Expansion -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#10b981">3</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Commuter Congestion, IFSC &amp; Future Transit Expansion</div>
-                                        <div class="int-tip">SRP 15 – SRP 17: Rush-hour bottlenecks, IFSC finance cluster, MetroLink &amp; DART+</div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">M1 Northern Ireland Corridor</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Direct road and rail links along the <b>M1 transport corridor</b> give GDA factories fast access to an additional market of <b>1.9 million people in Northern Ireland</b>.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 15 · Commuter Congestion</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Population growth in surrounding commuter counties (Meath, Kildare, Wicklow) generates <b>severe rush-hour bottlenecks</b> on major approaches like the N7 and M4.
-                                    </p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Dublin Port — Freight Trade Gateway</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5"><b>Dublin Port handles over 50% of national foreign trade</b>, providing essential shipping lanes for exported food produce, electronics, and pharmaceuticals.</p>
+                                    </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 16 · IFSC &amp; Financial Services</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The <b>International Financial Services Centre (IFSC)</b> in the Dublin Docklands employs <b>over 35,000 people</b>, generating over <b>€2 billion in tax revenue annually</b>.
-                                    </p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Dublin Port — Passenger Ferries &amp; Cruises</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Dublin Port operates direct passenger ferry links to the UK (<b>Holyhead</b>) and France, carrying over <b>1.7 million tourist passengers in 2022</b>, while Dublin Port and <b>Dún Laoghaire</b> received <b>95 cruise ships</b> between May and September 2022.</p>
+                                    </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 17 · Future Transport Plans – MetroLink &amp; DART+</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The multi-billion-euro National Development Plan includes <b>MetroLink</b> (linking Dublin Airport and Swords to the city) and <b>DART+</b> to expand electrified rail capacity.
-                                    </p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Dublin Airport — Air Gateway &amp; Short Breaks</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5"><b>Dublin Airport</b> is Ireland's largest airport, handling <b>28 million passengers in 2022</b> and bringing in <b>almost 70% of overseas visitors</b>; low-cost airlines like <b>Ryanair</b> make Dublin a premier European 'short breaks' destination alongside supporting rapid international exports.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-
-                        <!-- TAB 5: Human Processes: Population Dynamics & Urban Growth -->
-                        <div id="gda-tab-5" class="tab-content hidden space-y-6">
-                            <div class="srp-box">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
-                                    <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Distribution, Density, Urban Sprawl)</span>
-                                </div>
-                                <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
-                                    <b>Exam Question:</b> "Account for the distribution and density of population in an Irish region that you have studied." [30m]
-                                </p>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
-                                    <div>• <b>Named Region:</b> The Greater Dublin Area (Dublin, Meath, Kildare, Wicklow)</div>
-                                    <div>• <b>Themes Covered:</b> Core Demographic Dominance, Commuter Belt Expansion, Docklands Regeneration</div>
-                                    <div>• <b>Marking Formula:</b> 15 SRPs @ 2 marks each = 30 marks</div>
-                                    <div>• <b>Surplus Coverage:</b> 17 distinct, numbered SRPs detailed below</div>
+                        <!-- 5. MARKETS AND ACCESSIBILITY -->
+                        <div class="int-card border border-gray-200 dark:border-slate-800">
+                            <div class="int-head">
+                                <div class="int-badge" style="background:#8b5cf6">5</div>
+                                <div class="min-w-0">
+                                    <div class="int-title">Markets and Accessibility</div>
+                                    <div class="int-tip">2.1m local consumers, farm structure, EU Single Market &amp; Brexit barriers</div>
                                 </div>
                             </div>
-
-                            <!-- Card 1: Core Demographics & Settlement Influences -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#f59e0b">1</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Core Demographics &amp; Settlement Influences</div>
-                                        <div class="int-tip">SRP 1 – SRP 8: 2.1m population, 300/km² density, lowland pull, upland repulsion &amp; migration</div>
+                            <div class="divide-y divide-gray-100 dark:divide-slate-800">
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">2.1 Million Affluent Metropolitan Market</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Producers have immediate access to an affluent domestic consumer market of <b>2.1 million people</b> in the Dublin metropolitan area, sustaining strong demand for fresh vegetables, fruit, potatoes, daily liquid milk, finished goods, and Meath beef (often store cattle bought from the West and finished for capital meat outlets and butchers).</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 1 · Core Demographic Dominance</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The GDA contains <b>approximately 2.1 million people (2022 Census)</b>, accounting for <b>over 40% of the Republic of Ireland’s total population</b> living on less than 10% of the land area.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 2 · High Population Density</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The average population density of the GDA is <b>approximately 300 persons per km²</b>, with Dublin City and inner suburbs reaching <b>over 4,500 persons per km²</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 3 · Physical Influences on Settlement</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        <b>Flat, well-drained lowland relief and sheltered coastal bays</b> historically encouraged dense human settlement, building, and trade.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 4 · Upland Repulsion</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The granite relief of the <b>Wicklow Mountains</b> to the south acts as a physical barrier, keeping upland densities low due to <b>steep slopes and blanket peat soils</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 5 · Internal Rural-to-Urban Migration</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Decades of inward migration from peripheral western and border counties pulled young job-seekers to Dublin in search of <b>higher education and employment</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 6 · International Immigration</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        As Ireland’s globalized tech hub, Dublin has attracted thousands of international workers, giving it a <b>culturally diverse and cosmopolitan demographic structure</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 7 · Young Age Profile</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        <b>Over 40% of the GDA population is under 25 years old</b>, resulting in a low dependency ratio and a high natural increase rate (births exceeding deaths).
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 8 · Centripetal Economic Pull</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        High concentrations of multinational firms in software, pharma, and finance act as a strong magnet for skilled graduates, <b>reinforcing core population dominance</b>.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Card 2: Suburbanisation, Commuter Towns & Sprawl -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#3b82f6">2</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Suburbanisation, Commuter Belt Expansion &amp; Social Pressures</div>
-                                        <div class="int-tip">SRP 9 – SRP 14: Planned suburbs (Tallaght, Lucan), commuter belt, loss of farmland &amp; gridlock</div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">High Land Values &amp; Commercial Farm Scale</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">High farmland values near Dublin necessitate intensive, productive farming; GDA farms average <b>46 hectares</b> (versus 25 ha in the West) and are run by younger, market-oriented farmers earning incomes <b>40% above the national average</b>.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 9 · Suburbanisation &amp; Sprawl</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        During the late 20th century, rapid population growth led to widespread suburban sprawl outwards into planned suburbs such as <b>Tallaght, Blanchardstown, and Lucan</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 10 · The Commuter Belt</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Escalating housing prices in Dublin City forced families to buy homes in neighboring counties, creating an expansive commuter belt across <b>Meath, Kildare, and Wicklow</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 11 · Rapid Growth of Satellite Towns</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Outer commuter towns like <b>Navan (Meath)</b>, <b>Naas and Maynooth (Kildare)</b>, and <b>Bray and Greystones (Wicklow)</b> have seen rapid population expansions.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 12 · Urban Sprawl &amp; Loss of Agricultural Land</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Low-density suburban housing developments encroached upon fertile market-gardening land in <b>North County Dublin</b> and displaced commercial farms.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 13 · Traffic Gridlock &amp; Commuter Stress</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Heavy dependency on private cars creates <b>long daily commutes along the M1, M4, and M7 corridors</b>, lowering quality of life for workers.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 14 · Social &amp; Educational Pressures</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Fast-growing commuter towns frequently face <b>shortages of school places, childcare facilities, GPs, and community sports infrastructure</b>.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Card 3: Inner-City Regeneration, Gentrification & Strategic Planning -->
-                            <div class="int-card">
-                                <div class="int-head">
-                                    <div class="int-badge" style="background:#10b981">3</div>
-                                    <div class="min-w-0">
-                                        <div class="int-title">Inner-City Regeneration, Gentrification &amp; Strategic Planning</div>
-                                        <div class="int-tip">SRP 15 – SRP 17: Docklands renewal, Silicon Docks, gentrification &amp; RSES compact growth</div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Primary International Entry Point</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The GDA receives more tourists than any other Irish region because it acts as the country's primary international point of entry, welcoming <b>6.6 million overseas visitors in 2019</b>.</p>
                                     </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 15 · Inner-City Regeneration</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        To combat urban decay, urban renewal schemes regenerated neglected districts, converting the disused Docklands into the modern <b>IFSC and tech quarter (Grand Canal Dock)</b>.
-                                    </p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">EU Single Market &amp; Visa-Free Travel</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Ireland's EU membership gives agricultural exporters and multinational manufacturers <b>tariff-free access to 450 million consumers</b>, while visa-free travel for European citizens helped mainland Europe account for <b>37% of all GDA tourists in 2019</b>.</p>
+                                    </div>
                                 </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 16 · Gentrification &amp; Housing Pressures</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        Docklands regeneration brought thousands of jobs but also fueled steep increases in residential rents, <b>displacing older working-class communities</b>.
-                                    </p>
-                                </div>
-                                <div class="int-cell">
-                                    <span class="int-tag">SRP 17 · Strategic Regional Planning</span>
-                                    <p class="text-[13px] leading-snug mt-1.5">
-                                        The Eastern and Midland Regional Assembly implements the <b>Regional Spatial and Economic Strategy (RSES)</b> to promote compact, transit-oriented development and prevent unmanaged sprawl.
-                                    </p>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Post-Brexit UK Market Friction</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The UK's withdrawal from the EU (<b>68 million market</b>) reintroduced border checks and paperwork, increasing export costs and delivery times, while sterling depreciation has made Irish food and tourism less competitive in Britain.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- 6. POPULATION AND LABOUR -->
+                        <div class="int-card border border-gray-200 dark:border-slate-800">
+                            <div class="int-head">
+                                <div class="int-badge" style="background:#ec4899">6</div>
+                                <div class="min-w-0">
+                                    <div class="int-title">Population and Labour</div>
+                                    <div class="int-tip">Population density, workforce scale, universities, R&amp;D &amp; inward migration</div>
+                                </div>
+                            </div>
+                            <div class="divide-y divide-gray-100 dark:divide-slate-800">
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">High Population Concentration</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">High local population density across the 2.1 million metropolitan area concentrates a deep regional labour pool alongside strong domestic purchasing power.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Large Industrial &amp; Service Workforce</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The GDA provides a substantial workforce, with <b>over 60,000 people employed directly in manufacturing in 2023</b> and <b>170,000 jobs supported across the tourism sector (2019)</b>.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Young, English-Speaking &amp; Educated Workforce</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Foreign direct investment (FDI) is strongly attracted to the GDA by its young, English-speaking, and highly educated labour force.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">80% of National Third-Level Places</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">As Ireland's education hub, the GDA provides <b>80% of national college places</b> across leading universities (<b>TCD, UCD, DCU, and TU Dublin</b>), producing specialised graduates required by modern manufacturing multinationals.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">University–Industry R&amp;D &amp; ICT Strategy</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Close research partnerships between universities and global tech firms (<b>Google, Microsoft</b>) foster high-value innovation, supported by government strategies like the <b>National ICT Skills Strategy</b> aligning course capacity with hardware and software demand.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Skilled Inward Migration</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">A high standard of living and strong career prospects attract thousands of skilled inward migrants from other Irish counties and EU states to work in regional industries.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. INDUSTRY, RAW MATERIALS AND POLICY -->
+                        <div class="int-card border border-gray-200 dark:border-slate-800">
+                            <div class="int-head">
+                                <div class="int-badge" style="background:#ef4444">7</div>
+                                <div class="min-w-0">
+                                    <div class="int-title">Industry, Raw Materials and Policy</div>
+                                    <div class="int-tip">Manufacturing concentration, agri-food &amp; marine inputs, MNCs &amp; 12.5% tax policy</div>
+                                </div>
+                            </div>
+                            <div class="divide-y divide-gray-100 dark:divide-slate-800">
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">National Manufacturing Dominance</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The GDA is the largest manufacturing centre in Ireland, containing <b>25% of all manufacturing plants</b> and employing <b>40% of the state's industrial workforce</b>.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Rich Agricultural Raw Material Base</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Low-lying relief, fertile soils, and a mild climate generate an abundant agricultural output that feeds an extensive regional agri-food processing industry.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Horticultural &amp; Bakery Processing</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">North Dublin market gardens supply fresh produce directly to major food manufacturers such as <b>Batchelors in Cabra</b> and <b>Green Isle in Naas</b>, while regional wheat supplies flour to commercial bakeries like <b>Pat the Baker in Dublin</b> for bread and confectionery.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Malting Barley for Brewing &amp; Distilling</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">High-quality malting barley grown in County Meath supplies historic Dublin brewing and distilling icons, including <b>Guinness at St. James's Gate</b> and <b>Jameson</b>.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Dairy &amp; Meat Processing Plants</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Fresh milk from local dairy farms supplies the <b>Cadbury chocolate factory in Coolock</b> and <b>Baileys Irish Cream manufacturing in Clondalkin</b>, while cattle fattened on Meath pastures supply leading meat processors such as <b>Kepak in County Meath</b> for domestic and export packaging.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Marine Seafood Processing</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Fish such as cod and mackerel landed at <b>Howth and Skerries harbours</b> supply seafood processing and smoking plants like <b>Oceanpath in Howth</b>.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Consumer-Goods Manufacturing</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Dense local urban population supports major print and publishing plants (<b>Irish Independent</b>) as well as consumer snack manufacturers (<b>Tayto Crisp</b>).</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">High-Tech FDI &amp; 12.5% Corporation Tax</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">State industrial policy offers a low <b>12.5% corporation tax rate</b>, which <b>IDA Ireland</b> uses to incentivise global manufacturing multinationals—such as <b>Pfizer in Newbridge</b> and <b>Intel in Leixlip</b>—to establish operations in the GDA.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8. TOURISM -->
+                        <div class="int-card border border-gray-200 dark:border-slate-800">
+                            <div class="int-head">
+                                <div class="int-badge" style="background:#14b8a6">8</div>
+                                <div class="min-w-0">
+                                    <div class="int-title">Tourism</div>
+                                    <div class="int-tip">Visitor revenue, flagship attractions, heritage, arenas &amp; industry constraints</div>
+                                </div>
+                            </div>
+                            <div class="divide-y divide-gray-100 dark:divide-slate-800">
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Economic Scale of GDA Tourism</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Tourism is vital to the regional economy; in <b>2019, 8.3 million visitors</b> generated over <b>€2.4 billion</b> in revenue.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Guinness Storehouse Primacy</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">The <b>Guinness Storehouse at St. James's Gate</b> is Ireland's most visited fee-paying attraction, drawing <b>1.7 million visitors in 2019</b>.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Historic &amp; Academic Landmarks</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Cultural tourists visit iconic heritage sites including <b>Trinity College</b> (<b>Book of Kells</b>, 1.1 million visitors in 2019), <b>Dublin Castle</b>, and <b>St. Patrick's Cathedral</b>.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Temple Bar Cultural Quarter</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5"><b>Temple Bar</b> serves as Dublin's premier cultural quarter, renowned among international visitors for historic pubs, dining, and traditional live music.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Regional Heritage &amp; Natural Scenery</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Visitors travel into the wider GDA for the 6th-century monastic city at <b>Glendalough</b>, forest hillwalking at <b>Ticknock</b>, and <b>Powerscourt Waterfall in Wicklow</b> (<b>487,876 visitors in 2019</b>), alongside the prehistoric passage tomb at <b>Newgrange in Meath</b>.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Major Sporting Arenas</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">World-class venues draw major sporting events and fans: <b>Croke Park</b> (GAA Finals), <b>Aviva Stadium</b> (Six Nations rugby and soccer), and the <b>K Club</b> (championship golf).</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Year-Round Retail &amp; Entertainment</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">High-end shopping at <b>Kildare Village</b>, concerts at the <b>3Arena</b>, and live theatre at the <b>Gaiety Theatre</b> make Dublin a year-round destination that avoids seasonal slumps.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="int-cell pb-3">
+                                        <span class="int-tag">Accommodation &amp; Cost Constraints</span>
+                                        <p class="text-[13px] leading-snug text-gray-700 dark:text-slate-300 mt-1.5">Tourism growth faces constraints from a <b>shortage of hotel rooms</b> inflating accommodation prices and a high <b>13.5% VAT rate</b>, alongside weaker post-Brexit sterling deterring UK visitors.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `
             }
