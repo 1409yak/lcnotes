@@ -500,7 +500,7 @@
                         chapters: [
                             { id: "geo-p1", name: "Ch 1: Earth's Internal Structure", status: "ready" },
                             { id: "geo-p2", name: "Ch 2: Plate Tectonics & Continental Drift", status: "ready" },
-                            { id: "geo-p3", name: "Ch 3: Volcanic Activity", status: "pending" },
+                            { id: "geo-p3", name: "Ch 3: Volcanic Activity", status: "ready" },
                             { id: "geo-p4", name: "Ch 4: Earthquakes", status: "pending" },
                             { id: "geo-p5", name: "Ch 5: Folding & Faulting", status: "pending" },
                             { id: "geo-p6", name: "Ch 6: The Rock Cycle", status: "ready" },
@@ -518,7 +518,7 @@
                             { id: "geo-r2", name: "Ch 2: The Western Region", status: "ready" },
                             { id: "geo-r3", name: "Ch 3: The Greater Dublin Area (GDA)", status: "ready" },
                             { id: "geo-r4", name: "Ch 4: The Mezzogiorno", status: "pending" },
-                            { id: "geo-r5", name: "Ch 5: The Paris Basin", status: "pending" },
+                            { id: "geo-r5", name: "Ch 5: The Paris Basin", status: "ready" },
                             { id: "geo-r7", name: "Ch 6: Complexities of a Region", status: "pending" }
                         ]
                     }
@@ -3202,6 +3202,770 @@
                     </div>
                 `
             },
+            "geo-p3": {
+                title: "Chapter 3: Volcanic Activity",
+                section: "Unit 1: Core Physical Geography",
+                content: `
+        <div class="space-y-6">
+            <!-- Top Tab Navigation Bar -->
+            <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                <button onclick="switchTab('volc-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">Global Distribution</button>
+                <button onclick="switchTab('volc-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Intrusive &amp; Extrusive</button>
+                <button onclick="switchTab('volc-tab-3', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Volcanic Cones</button>
+                <button onclick="switchTab('volc-tab-4', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Prediction</button>
+                <button onclick="switchTab('volc-tab-5', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Mt St Helens</button>
+                <button onclick="switchTab('volc-tab-6', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Positive Effects</button>
+                <button onclick="switchTab('volc-tab-7', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Negative Effects</button>
+            </div>
+
+            <!-- TAB 1: GLOBAL DISTRIBUTION OF VOLCANOES -->
+            <div id="volc-tab-1" class="tab-content space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Examples 2+2m &amp; 13 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2023 3B / 2017 2C):</b> "Explain how the study of plate tectonics has helped us to understand the global distribution of Volcanoes." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Examples Credit:</b> 2 + 2 marks for global distribution examples</div>
+                        <div>• <b>Explanation:</b> 13 SRPs @ 2 marks each (must link to plate tectonics)</div>
+                        <div>• <b>Diagram Credit:</b> 1 SRP (+2 SRPs for new labelled info)</div>
+                        <div>• <b>Surplus Coverage:</b> 3 Intro SRPs + 19 Body SRPs below</div>
+                    </div>
+                </div>
+
+                <!-- INTRODUCTION (3 SRPs) -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#6366f1">Intro</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Essay Introduction: Plate Tectonics &amp; Volcanoes</div>
+                            <div class="int-tip">3 Opening SRPs · Formation, tectonic link &amp; 3 global zones</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 1 · Volcano Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A volcano forms when molten magma, gases, and dust force their way to the Earth's surface through a narrow tube called a <b>vent</b> and exit through a <b>crater</b>, hardening to form a conical volcanic mountain.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 2 · Link to Plate Tectonics</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Plate tectonics</b> and the global distribution of volcanoes are closely related because plate movement creates the geological conditions that allow volcanoes to form.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 3 · Three Global Zones</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Volcanoes occur in three main global areas: <b>constructive plate boundaries</b>, <b>destructive plate boundaries</b>, and mantle <b>hotspots</b>.</p>
+                    </div>
+                </div>
+
+                <!-- ZONE 1: CONSTRUCTIVE BOUNDARIES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Zone 1: Constructive Plate Boundaries</div>
+                            <div class="int-tip">7 Reusable SRPs · Separating plates, fissure eruptions, basic lava &amp; Mid-Atlantic Ridge</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Crust Creation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At constructive plate boundaries, tectonic plates <b>separate</b>, allowing magma to rise from the Earth's interior so that <b>new crust is created</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Fissure Eruptions</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Fissure eruptions</b> occur along this boundary, where large volumes of lava pour out from long gaps (fissures) a few metres wide that extend for kilometres.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Basic Lava &amp; Gentle Eruptions</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Volcanoes here are less dangerous than at subduction zones because they emit <b>basic lava</b> (less than <b>55% silica</b>), allowing gases to escape easily and preventing explosive pressure build-up.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Shield Volcanoes</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Basic lava is runny and travels long distances before cooling, spreading over wide areas to build low, broad <b>shield volcanoes</b> such as <b>Mt Hekla, Iceland</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Rift Valleys</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Long, narrow <b>rift valleys</b>—such as the <b>East African Rift Valley</b>—also form where plates diverge on land.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Mid-Oceanic Ridges</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Where two oceanic plates pull apart beneath the sea, rising magma builds underwater volcanic mountain ranges known as <b>mid-oceanic ridges</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Named Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Mid-Atlantic Ridge</b> forms where the Eurasian and North American plates diverge at <b>3 cm per year</b>, producing volcanic islands including <b>Iceland</b>.</p>
+                    </div>
+                </div>
+
+                <!-- ZONE 2: DESTRUCTIVE BOUNDARIES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#ef4444">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Zone 2: Destructive Plate Boundaries</div>
+                            <div class="int-tip">7 Reusable SRPs · Subduction, acidic lava, composite cones &amp; Pacific Ring of Fire</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Crust Destruction</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At destructive plate boundaries, crustal plates <b>collide</b> and crust is <b>destroyed</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Subduction &amp; Magma Rise</span>
+                        <p class="text-[13px] leading-snug mt-1.5">During <b>subduction</b>, the heavier plate sinks into the mantle and melts; magma then rises through cracks and weaknesses in the lighter overlying crust to build explosive volcanic mountain ranges.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Acidic Lava &amp; Explosions</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Subduction volcanoes are extremely violent because they emit <b>acidic lava</b> (over <b>75% silica</b>), which traps gases and causes intense pressure to build up before exploding.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Steep-Sloping Cones</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Acidic lava is thick and flows very slowly; because it cannot travel far, it cools and hardens close to the vent, producing steep-sloping cones.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Composite Volcanoes</span>
+                        <p class="text-[13px] leading-snug mt-1.5">These explosive eruptions build narrow, steep-sloping <b>composite volcanoes</b> such as <b>Mt St Helens, USA</b> (formed where the Juan de Fuca and North American plates collide).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Pacific Ring of Fire</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Pacific Ring of Fire</b> is a volcanic chain encircling the Pacific Ocean that hosts approximately <b>80%</b> of the world's active and dormant volcanoes.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Andes Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">This zone includes the <b>Andes Mountains</b> in South America, formed where the oceanic <b>Nazca plate</b> subducts beneath the continental <b>South American plate</b>.</p>
+                    </div>
+                </div>
+
+                <!-- ZONE 3: HOTSPOTS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">3</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Zone 3: Mantle Hotspots</div>
+                            <div class="int-tip">5 Reusable SRPs · Magma plumes, island chains, Iceland &amp; Hawaii</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Rising Magma Plumes</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Not all volcanoes occur at plate boundaries; <b>hotspots</b> are areas of intense heat deep in the mantle that create rising currents of magma (<b>plumes</b>), breaking through the crust to trigger eruptions.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Volcanic Island Chains</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Because hotspots remain <b>stationary</b> while the overlying tectonic plate moves, new volcanoes are created repeatedly, forming a series of volcanic mountains over millions of years.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Global Distribution &amp; Geysers</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Only <b>20 of the world's 120 hotspots</b> are believed to lie near plate boundaries, and hotspot heat can also generate geothermal features such as <b>geysers</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Plate-Boundary Hotspot</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Iceland</b> is an example of a hotspot formed directly along a plate boundary.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Intra-Plate Hotspot</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Hawaii</b> is a classic example of a hotspot formed away from any plate boundary.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: INTRUSIVE & EXTRUSIVE FEATURES (IRISH LANDSCAPE) -->
+            <div id="volc-tab-2" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Intrusive 8/7 SRPs + Extrusive 7/8 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2024 2C / 2017 1B):</b> "Examine the influence of volcanic activity on the development of the Irish landscape with reference to Intrusive features and Extrusive features." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Question Tied to Ireland:</b> Must examine Irish examples for full marks</div>
+                        <div>• <b>Marking Split:</b> 8/7 SRPs Intrusive + 7/8 SRPs Extrusive (max 8 SRPs for one)</div>
+                        <div>• <b>Feature &amp; Example Credits:</b> 1 SRP each for named feature &amp; Irish landscape</div>
+                        <div>• <b>Surplus Coverage:</b> 9 distinct SRPs provided per feature below</div>
+                    </div>
+                </div>
+
+                <!-- EXTRUSIVE FEATURE: BASALT PLATEAU -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Extrusive Feature: Basalt Plateau (Antrim-Derry Plateau)</div>
+                            <div class="int-tip">9 Reusable SRPs · Constructive boundary, fissure flows &amp; Giant's Causeway</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Definition &amp; Plate Boundary</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>basalt plateau</b> is a large, flat-topped upland area made of basalt rock that typically forms at constructive plate boundaries due to volcanic activity.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Tensional Forces &amp; Rift Valley</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Convection currents in the mantle pull plates apart via <b>tensional forces</b>, splitting the crust to form normal faults and steep-sided <b>rift valleys</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Basic Magma &amp; Fissure Flows</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Reduced pressure on the mantle allows highly fluid, low-silica <b>basic magma</b> to rise through fissures on the rift valley floor and spread evenly over large areas before cooling.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Repeated Eruptions</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Over millions of years, repeated fissure eruptions build up successive layers of basalt rock, gradually forming a basalt plateau.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Irish Geological Timing</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Approximately <b>65 million years ago</b>, Ireland experienced intense volcanic activity as the Eurasian and North American plates pulled apart, eventually forming the Atlantic Ocean.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Chalk Fissure &amp; Flow Thickness</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Plate separation opened a large fissure on the chalk rift-valley floor; fluid basic lava poured out in successive flows (each <b>5 to 6 metres thick</b>) over roughly <b>15 million years</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Scale &amp; Three Basalt Layers</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Antrim-Derry Plateau</b> reaches <b>350 m in height</b> and covers over <b>4,000 km²</b> across Antrim and Derry across three volcanic periods: the lower, middle, and upper basalts.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Giant's Causeway Columns</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Variations in cooling rates within the <b>middle basalt</b> layer created nearly <b>60,000 polygonal columns</b>—mostly hexagonal, though some have up to eight sides—forming the <b>Giant's Causeway</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Named Irish Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Antrim-Derry Plateau</b> (and the <b>Giant's Causeway, Co. Antrim</b>) is Ireland's signature extrusive volcanic landform.</p>
+                    </div>
+                </div>
+
+                <!-- INTRUSIVE FEATURE: BATHOLITH -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#8b5cf6">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Intrusive Feature: Batholith (Leinster Batholith)</div>
+                            <div class="int-tip">9 Reusable SRPs · Slow cooling granite, metamorphism &amp; denudation</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>batholith</b> is a large dome-shaped mass of plutonic igneous rock (<b>granite</b>) that forms deep within the Earth's crust.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Slow Insulated Cooling</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Magma pushed upward from the mantle into the crust is insulated by surrounding rock layers, cooling and solidifying very slowly over millions of years to form a massive granite dome.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Contact Metamorphism</span>
+                        <p class="text-[13px] leading-snug mt-1.5">As the magma cools, it heats and melts surrounding sedimentary rocks into metamorphic rock—turning <b>limestone into marble</b> and <b>sandstone into quartzite</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Irish Geological Timing</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Leinster Batholith</b> formed approximately <b>400 million years ago</b> during the <b>Caledonian folding period</b> when the North American and Eurasian plates converged.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Compressional Folding</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Compressional forces caused layers of sedimentary rock to buckle and fold upward, creating the Leinster fold mountains.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Local Quartzite Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Intense heat and pressure from the intruding magma caused surrounding sandstone to undergo metamorphism into <b>quartzite</b>, found today in the Wicklow Mountains.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Exposure by Denudation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Over millions of years, <b>denudation</b> (weathering and erosion) removed the overlying rock layers, exposing the granite batholith at the surface (visible at <b>Kippure, Co. Wicklow</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Scale &amp; Mountain Ranges</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Leinster Batholith</b> is the largest in Ireland and the UK, stretching <b>120 km</b> from Dublin to Kilkenny across <b>1,500 km²</b> and spanning the Dublin, Wicklow, and Blackstairs mountains.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Other Intrusive Features</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Smaller plutonic features include <b>sills</b> (horizontal intrusion into bedding planes, e.g., <b>Fair Head, Co. Antrim</b>), <b>dykes</b> (vertical intrusion, e.g., <b>Newry, Co. Down</b>), <b>laccoliths</b> (upward dome, e.g., Black Mountain, South Dakota), and <b>lopoliths</b> (inverted dome, e.g., Montana, USA).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: VOLCANIC CONES (EXTRUSIVE LANDFORMS) -->
+            <div id="volc-tab-3" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Pair with Basalt Plateau from Tab 2)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2006 3C):</b> "Examine the processes that have led to the formation of any <b>two</b> volcanic landforms." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Recommended Pair:</b> Basalt Plateau (Tab 2) + Volcanic Cones (below)</div>
+                        <div>• <b>Surplus Coverage:</b> 9 distinct SRPs covering Shield, Composite, Dome &amp; Cinder cones</div>
+                    </div>
+                </div>
+
+                <!-- VOLCANIC CONES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f97316">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Extrusive Landforms: Volcanic Cones</div>
+                            <div class="int-tip">9 Reusable SRPs · Shield volcanoes, composite cones, domes &amp; volcanic materials</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Volcanic Mountain Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Volcanic mountains are extrusive landforms created when magma rises from the mantle through a crust weakness (<b>vent</b>), erupts as lava upon pressure release, and builds a volcanic cone over time.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Shield Volcano Origin</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Shield volcanoes</b> are generally created at constructive plate boundaries, although <b>Mauna Loa in Hawaii</b> is a shield volcano formed over a mantle <b>hotspot</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Shield Lava &amp; Eruptions</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Successive flows of runny, fast-flowing <b>basic lava</b> (less than <b>55% silica</b>) produce gentle eruptions and travel long distances before cooling and solidifying.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Shield Shape &amp; Scale</span>
+                        <p class="text-[13px] leading-snug mt-1.5">As a result, shield volcanic cones develop a very wide base with gentle, concave sloping sides, making them the largest volcanoes on Earth (e.g., <b>Mauna Loa, Hawaii</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Composite Volcano Origin</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Composite volcanoes</b> are created at destructive plate boundaries where plates converge and subduct.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Composite Lava &amp; Eruptions</span>
+                        <p class="text-[13px] leading-snug mt-1.5">They erupt slow-flowing, very viscous (sticky) <b>acidic lava</b> (over <b>70–75% silica</b>), causing violent eruptions where lava cools quickly without travelling far.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Stratovolcano Structure</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Composite cones have a narrow base and steeply sloping sides built of alternating layers of ash and lava (<b>stratovolcanoes</b>), often with parasitic cones; they are the most common volcano type (e.g., <b>Mount Pinatubo, Philippines</b>; <b>Mount St Helens, Washington</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Dome &amp; Ash/Cinder Cones</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Dome volcanoes</b> form steep-sided cones from quickly cooling viscous acidic lava (e.g., <b>Mount Pelée, Martinique</b>), while steep <b>ash/cinder cones</b> form from violent ejections of rock, ash, and cinder (e.g., <b>Paricutin, Mexico</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Ejected Materials &amp; Life Cycle</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Eruptions eject pyroclastic material, tephra (ash, bombs, pumice, dust), and gases (CO₂, SO₂); volcanoes are classified as <b>active</b> (Mount St Helens), <b>dormant</b> (Mount Vesuvius, Italy), or <b>extinct</b> (Slemish Mountain, Co. Antrim).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: MONITORING & PREDICTING VOLCANIC ACTIVITY -->
+            <div id="volc-tab-4" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2013 3C / Sample):</b> "Examine the methods of monitoring and predicting volcanic activity." [30m] (Note: If asked jointly with earthquakes, max 8 SRPs for volcanoes alone.)
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>4 Key Methods:</b> Seismic, Deformation, Gas Emissions, Historical Records</div>
+                        <div>• <b>Surplus Coverage:</b> 15 distinct SRPs provided below</div>
+                    </div>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Monitoring &amp; Predicting Volcanic Activity</div>
+                            <div class="int-tip">15 Reusable SRPs · Seismographs, Tiltmeters/EDMs, Gas Sensors &amp; Records</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Advances &amp; Successful Predictions</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Although the study of volcanic activity is relatively new and challenging, volcanologists have made major advances and successfully predicted the eruptions of <b>Mount St. Helens (1980)</b> and <b>Mount Pinatubo (1991)</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Vital Signs &amp; Background Knowledge</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Accurate prediction requires monitoring a volcano's vital signs alongside background knowledge of how volcanoes form, their composition, and the type and age of their deposits.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Deposit Analysis</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The type of material on a volcano's slopes reveals the explosiveness of past eruptions; dating deposits determines eruption frequency, and mapping their distribution identifies areas most likely to be affected in future.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Seismic Activity</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Seismic activity</b> usually increases beneath a volcano before an eruption as rising magma and volcanic gases force their way upward through the vent.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Seismograph Placement</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Seismographs</b> measure the magnitude of these tremors; typically <b>5 to 8 seismographs</b> are positioned within a <b>20 km radius</b> of the vent, with one placed directly on the volcano itself.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Seismic Activity Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Prior to the eruption of <b>Mount St. Helens (1980)</b>, heightened seismic activity was continuously recorded for <b>3 months</b> leading up to the blast.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Ground Deformation</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Ground deformation</b> is one of the clearest signs of an impending eruption, as rising pressure from magma and gases causes the peaks and flanks of volcanic mountains to swell.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · EDMs &amp; Tiltmeters</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>EDMs (Electronic Distance Measures)</b> and <b>tiltmeters</b> monitor physical changes or tilts in the volcano's slope; accelerating swelling—especially alongside rising sulphur dioxide—signals a potential eruption.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Satellite Radar &amp; Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Satellite radar images detect ground deformation across larger areas than tiltmeters; at <b>Mount St. Helens (1980)</b>, a bulge appeared on the north flank signifying magma forcing its way upward.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Gas Emissions Surge</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Gas emissions</b> can increase dramatically prior to an eruption, rising <b>5 to 10 times</b> above their normal levels.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Sulphur Dioxide &amp; Argon</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Sulphur dioxide (SO₂)</b> is a key monitored gas because increasing levels indicate magma nearing the surface; elevated concentrations of <b>argon</b> (a magma gas) may also appear in groundwater.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Chemical Sensors &amp; Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Chemical sensors</b> monitor gas levels near the crater; in the two weeks leading up to the <b>Mount Pinatubo (1991)</b> eruption, sulphur dioxide emissions rose <b>ten times</b> their previous levels.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Historical Records</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Historical records</b> help volcanologists identify recurring patterns of volcanic behaviour over centuries.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Frequency &amp; Intervals</span>
+                        <p class="text-[13px] leading-snug mt-1.5">By studying past eruption frequencies and intervals, scientists can better forecast when a volcano is overdue to erupt.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Historical Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">For example, <b>Mount Katla in Iceland</b> erupts approximately every <b>40 to 80 years</b>, with its last major eruption occurring in <b>1918</b>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: CASE STUDY - MOUNT ST. HELENS (CAUSES & EFFECTS) -->
+            <div id="volc-tab-5" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Causes 8 SRPs + Effects 8 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Sample Exam Question:</b> "Examine the causes and effects of a volcanic eruption which you have studied." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Case Study:</b> Mount St. Helens, Washington State, USA (18th May 1980)</div>
+                        <div>• <b>Surplus Coverage:</b> 8 Cause SRPs + 8 Effect SRPs = 16 SRPs</div>
+                    </div>
+                </div>
+
+                <!-- CAUSES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#ef4444">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Mount St. Helens: Causes &amp; Eruption Sequence</div>
+                            <div class="int-tip">8 SRPs · Destructive boundary, 5.1 quake, landslide &amp; lateral blast</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Location &amp; Type</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Mount St. Helens</b> is an active stratovolcano located in the <b>Cascade Mountain Range</b>, Washington State, USA.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Subduction Zone</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Located along the Pacific Ring of Fire at a <b>destructive plate boundary</b>, the oceanic <b>Juan de Fuca plate</b> subducts beneath the continental <b>North American plate</b>, destroying oceanic crust and forcing magma upward.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · March 1980 Precursor</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>March 1980</b>, a magnitude <b>4.0</b> earthquake on the Richter scale signalled the start of activity, followed by three months of seismic swarms totalling roughly <b>1,000 mini earthquakes</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · North Flank Bulge</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Rising magma caused a prominent <b>bulge</b> to form on the north flank of the mountain, indicating an impending eruption.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Trigger Earthquake</span>
+                        <p class="text-[13px] leading-snug mt-1.5">On the morning of <b>18th May 1980 at 8:32 am</b>, a magnitude <b>5.1</b> earthquake struck directly below the northern slope of Mount St. Helens.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Record Landslide</span>
+                        <p class="text-[13px] leading-snug mt-1.5">This quake triggered the <b>largest landslide in recorded history</b> down the north flank, travelling at speeds of up to <b>250 km/h</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Lateral Blast &amp; Pyroclastic Flow</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The landslide uncorked the vent, unleashing a massive northward lateral blast at up to <b>500 km/h</b>, while a <b>pyroclastic flow</b> of gas, steam, and ash surged <b>10 km</b> northward.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Ash Plume &amp; Global Drift</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A plume of ash and steam rose <b>25 km</b> into the air; some fell back in rain, while the rest drifted across America in <b>3 days</b> and around the world in <b>15 days</b>.</p>
+                    </div>
+                </div>
+
+                <!-- EFFECTS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Mount St. Helens: Negative &amp; Positive Effects</div>
+                            <div class="int-tip">8 SRPs · Human toll, ecological devastation, $1bn cost &amp; recovery</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Loss of Life</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>57 people</b> were killed—including scientists, journalists, and disaster tourists—mainly due to poisonous gases.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Forest &amp; Wildlife Loss</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>nuée ardente</b> destroyed <b>600 km²</b> of surrounding forest, killing an estimated <b>7,000 deer, elk, and bears</b> alongside birds and small mammals.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Rivers &amp; Fisheries</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Ash blocked rivers and lakes such as <b>Spirit Lake</b>, destroying fishing sites and causing flooding; fisheries estimated that <b>12 million salmon</b> were killed.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Infrastructure Damage</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>300 km of roads</b>, <b>27 bridges</b>, and <b>24 km of rail</b> were destroyed, while mudflows and flooding disrupted sewage and water treatment facilities.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Economic Cost</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The total estimated cost of economic damage reached <b>$1 billion</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Structural Collapse of Volcano</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The blast dramatically altered the mountain itself, removing <b>400 m</b> off the south side and <b>900 m</b> off the north side.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Positive: Science &amp; Tourism</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Positively, Mount St. Helens now hosts a <b>scientific laboratory</b> studying volcanic activity and is a <b>National Monument</b> attracting many tourists each year.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 16 · Positive: Fertile Soils</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Volcanic ash and cinder deposited during the eruption enriched the surrounding soil over time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 6: POSITIVE EFFECTS OF VOLCANIC ACTIVITY -->
+            <div id="volc-tab-6" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Impacts 2+2m &amp; 13 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2018 1C / 2011 1B):</b> "Discuss the positive impacts of volcanic activity." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>3 Core Impacts:</b> Geothermal Energy, Fertile Soils, Tourism</div>
+                        <div>• <b>Marking Scheme (2018):</b> 2 impacts named (2+2m) + 13 SRPs (3rd impact = 1 SRP; named volcano/area = 1 SRP)</div>
+                    </div>
+                </div>
+
+                <!-- FACTOR 1: GEOTHERMAL ENERGY -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Positive Impact 1: Geothermal Energy Production (Iceland)</div>
+                            <div class="int-tip">8 SRPs · Nesjavellir plant, 27% electricity, Alcoa, Reykjavik heating &amp; Blue Lagoon</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Clean, Sustainable Resource</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Geothermal energy</b> is natural heat from inside the Earth, providing a clean, sustainable resource that can be harvested for human use.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Iceland's Tectonic Setting</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Iceland</b> is a pioneer in geothermal heat and power; formed on the Mid-Atlantic Ridge where the North American and Eurasian plates diverge at <b>3 cm/yr</b>, shallow magma heats water to create geysers, black smokers, and native energy.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Nesjavellir Power Plant</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At the <b>Nesjavellir power plant</b> near the <b>Hengill volcano</b>, cold water is pumped down deep wells into hot igneous rock (<b>200°C</b>); kept liquid under pressure, it decompresses into steam at the surface to spin electricity turbines.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · National Electricity Generation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Currently, <b>six major geothermal power plants</b> operate in Iceland, generating <b>27%</b> of the country's total electricity production.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Aluminium Smelting</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Approximately <b>four-fifths</b> of Iceland's electricity is used to smelt aluminium, attracting large multinationals such as <b>Alcoa</b> to locate plants there for cheap power and export the metal.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Reykjavik Central Heating</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Heated water is piped to <b>Reykjavik</b> for central heating in homes, offices, and industries; <b>9 out of 10</b> Icelandic households are heated geothermally, making Reykjavik one of the cleanest cities in the world.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Snow-Melting &amp; Horticulture</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Downtown Reykjavik uses an under-footpath <b>snow-melting system</b> to keep pavements ice-free in winter, while geothermal heat warms greenhouses for <b>market gardening</b> (potatoes and vegetables), lengthening the growing season.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Blue Lagoon Spa</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Geothermal water output from a nearby power plant feeds Iceland's man-made <b>Blue Lagoon</b> geothermal spa—a top tourist attraction whose waters are rich in sulphur and silica, reputed to help skin diseases.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 2: FERTILE SOILS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Positive Impact 2: Fertile Volcanic Soils</div>
+                            <div class="int-tip">5 SRPs · Weathered basalt/laterite, Brazil, Mt Vesuvius, Java &amp; Hawaii</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Nutrient-Rich Weathered Basalt</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Volcanic lava, ash, and cinder break down into rich, fertile soils; weathered <b>basalt</b> produces mineral-rich soils—often reddish from iron oxide—known as <b>laterite</b> or <b>terra rossa</b> in some regions.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Brazil Coffee Production</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Brazil</b>, the world's largest coffee exporter, relies heavily on fertile volcanic soils to grow high-quality coffee beans.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Southern Italy Horticulture</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In Southern Italy, fertile soils surrounding <b>Mount Vesuvius</b> are intensively cultivated for fruit and vegetables supplying nearby urban markets in <b>Naples</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Java Rice Cultivation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Fertile soils around <b>Mount Merapi</b> in Java support intensive rice cultivation, providing sustenance to over <b>1 million people</b> living within 30 km of the volcano.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Hawaii Plantations</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The nutrient-rich volcanic soils of <b>Hawaii</b> are integral to productive commercial pineapple and sugar plantations.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 3: TOURISM -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">3</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Positive Impact 3: Volcanic Tourism</div>
+                            <div class="int-tip">4 SRPs · Crater tours, Pompeii &amp; Herculaneum, Yellowstone National Park</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Major Tourist Attractions</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Volcanoes and the dramatic impacts of their historic eruptions serve as major international tourist attractions.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Italian Crater Tours</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Volcanoes such as <b>Mount Vesuvius</b> and <b>Mount Etna</b> in Italy attract hundreds of thousands of tourists annually who pay for guided tours to climb and view the craters.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 16 · Archaeological Sites &amp; Regional Economy</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Historical sites like <b>Pompeii</b> and <b>Herculaneum</b> (devastated by Vesuvius in <b>79 AD</b>) draw vast crowds, generating vital tourism income and jobs that reduce outward migration in the <b>Mezzogiorno</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 17 · Yellowstone National Park</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In the USA, <b>Yellowstone National Park</b> attracts vast numbers of tourists each year to hydrothermal features such as the <b>Old Faithful</b> geyser.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 7: NEGATIVE EFFECTS OF VOLCANIC ACTIVITY -->
+            <div id="volc-tab-7" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Sample Exam Question:</b> "Discuss the negative effects of volcanoes." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Key Hazards:</b> Lahars, Nuée Ardente, Toxic Gases, Loss of Life &amp; Infrastructure</div>
+                        <div>• <b>Surplus Coverage:</b> 15 distinct SRPs provided across 3 factor cards below</div>
+                    </div>
+                </div>
+
+                <!-- HAZARD 1: LAHARS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#ef4444">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Negative Impact 1: Lahars (Nevado del Ruiz, 1985)</div>
+                            <div class="int-tip">5 SRPs · Boiling mudflows, 80 km/h speed &amp; Armero tragedy</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Formation of Lahars</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>lahar</b> is a volcanic mudflow formed when erupted ash and lava melt snow and ice on mountain slopes, mixing into a river of boiling mud.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Speed &amp; Destructive Impact</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Lahars surge down volcanic cones into surrounding valleys at speeds of up to <b>80 km/h</b>, devastating nearby towns and villages.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Nevado del Ruiz Case Study</span>
+                        <p class="text-[13px] leading-snug mt-1.5">On <b>13th November 1985</b>, a massive lahar descended the <b>5,389 m</b> slope of <b>Nevado del Ruiz</b> in Colombia.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Destruction of Armero</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Measuring <b>15 m high</b> and travelling at <b>70 km/h</b>, the lahar devastated the town of <b>Armero</b>, located just over <b>100 km</b> from the volcano.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Human &amp; Economic Toll</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Approximately <b>23,000 people</b> were killed, <b>4,500</b> were injured, and damage was estimated at <b>US$1 billion</b>.</p>
+                    </div>
+                </div>
+
+                <!-- HAZARD 2: NUÉE ARDENTE -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f97316">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Negative Impact 2: Nuée Ardente (Mount Pelée, 1902)</div>
+                            <div class="int-tip">4 SRPs · Glowing avalanche, 200 km/h flows &amp; Saint Pierre destruction</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>nuée ardente</b> (sometimes called a "glowing avalanche") is a devastating cloud of hot ash, poisonous gases, and pyroclastic material ejected from a volcano.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Speed &amp; Movement</span>
+                        <p class="text-[13px] leading-snug mt-1.5">These ground-hugging pyroclastic flows carry rock particles, glide over land like a hovercraft over water, and travel at speeds of up to <b>200 km/h</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Mount Pelée Eruption</span>
+                        <p class="text-[13px] leading-snug mt-1.5">On <b>8th May 1902</b>, <b>Mount Pelée</b> on the Caribbean island of Martinique erupted, sending a nuée ardente directly into the port of <b>Saint Pierre</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Devastating Casualties</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The blast destroyed Saint Pierre and killed <b>28,000 people</b>—representing <b>15%</b> of the island's entire population.</p>
+                    </div>
+                </div>
+
+                <!-- HAZARD 3: LOSS OF LIFE, GASES & INFRASTRUCTURE -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#8b5cf6">3</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Negative Impact 3: Loss of Life, Toxic Gases &amp; Infrastructure</div>
+                            <div class="int-tip">6 SRPs · Vesuvius 79 AD, Lake Nyos 1986 &amp; Mount St. Helens 1980</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Direct &amp; Indirect Fatalities</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Loss of life can be caused both directly (blasts and pyroclastic flows) and indirectly (toxic gas leaks and ash-induced flooding) by volcanic activity.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Mount Vesuvius (79 AD)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The eruption of <b>Mount Vesuvius</b> in <b>79 AD</b> killed more than <b>20,000 people</b> and completely destroyed the towns of <b>Pompeii</b> and <b>Herculaneum</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Toxic Gases (Lake Nyos, 1986)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Leaking volcanic gases—mainly <b>carbon dioxide</b>—escaping from a volcanic crater at <b>Lake Nyos, Cameroon (1986)</b> caused nearly <b>2,000 people</b> and <b>10,000 animals</b> to die.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Mt St Helens: Fatalities &amp; Forest Loss</span>
+                        <p class="text-[13px] leading-snug mt-1.5">During the <b>Mount St. Helens (1980)</b> eruption, poisonous gases killed <b>57 people</b>, while a nuée ardente destroyed <b>600 km²</b> of forest and roughly <b>7,000 deer, elk, and bears</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Mt St Helens: Rivers &amp; Fisheries</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Ash blocked rivers and lakes such as <b>Spirit Lake</b>, causing flooding and killing an estimated <b>12 million salmon</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Mt St Helens: Infrastructure &amp; Cost</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The blast and mudflows destroyed <b>300 km of roads</b>, <b>27 bridges</b>, and <b>24 km of rail</b>, disrupted water and sewage treatment plants, and caused <b>$1 billion</b> in damage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+            },
             "geo-p6": {
                 title: "Chapter 6: The Rock Cycle",
                 section: "Unit 1: Core Physical Geography",
@@ -5765,6 +6529,745 @@
                         </div>
                     </div>
                 `
+            },
+            "geo-r5": {
+                title: "Chapter 5: The Paris Basin",
+                section: "Unit 2: Core Regional Geography",
+                content: `
+        <div class="space-y-6">
+            <!-- Top Tab Navigation Bar -->
+            <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                <button onclick="switchTab('paris-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">Primary</button>
+                <button onclick="switchTab('paris-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Secondary</button>
+                <button onclick="switchTab('paris-tab-3', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Tertiary</button>
+                <button onclick="switchTab('paris-tab-4', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Human</button>
+            </div>
+
+            <!-- TAB 1: PRIMARY ECONOMIC ACTIVITY (AGRICULTURE) -->
+            <div id="paris-tab-1" class="tab-content space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (2 Factors x 7/8 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2021 / 2012):</b> "Account for the development of agriculture in a European region (not Ireland) that you have studied, with reference to any <b>two</b> of the following factors: Relief, Climate, Markets." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Named Region:</b> The Paris Basin (France)</div>
+                        <div>• <b>Marking Formula:</b> Factor 1 (8/7 SRPs) + Factor 2 (8/7 SRPs)</div>
+                        <div>• <b>Examples Credit:</b> 2 SRPs for specific agricultural examples</div>
+                        <div>• <b>Surplus Coverage:</b> 9 distinct SRPs provided per factor below</div>
+                    </div>
+                </div>
+
+                <!-- INTRODUCTION (3 SRPs) -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#6366f1">Intro</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Essay Introduction: Agriculture in the Paris Basin</div>
+                            <div class="int-tip">3 Opening SRPs · Sets up region, activity &amp; core factors</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 1 · Region &amp; Agricultural Status</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Paris Basin</b> in France is the most productive farming region in the country, where agriculture is both <b>intensive</b> and <b>commercial</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 2 · Specialised Pays</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Because the basin consists of nested sedimentary rock saucers that produce varied soils and distinct local landscapes called <b>pays</b>, farming across the region is highly specialised.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 3 · Commercial Profile &amp; Key Factors</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Its agricultural success is driven by young, educated, business-orientated farmers managing large holdings (often over 400 hectares), supported by favourable <b>relief</b>, <b>climate</b>, and access to a large, affluent <b>market</b>.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 1: RELIEF -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Primary Factor 1: Relief &amp; Soils (Pays)</div>
+                            <div class="int-tip">9 Reusable SRPs · Lowland syncline, limon soils &amp; specialised pays</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Lowland Syncline</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The Paris Basin is the largest lowland region in France and part of the North European Plain; it is a great downwarp (syncline) in the Earth's crust with most of the land lying under 200 metres in height, making it highly suitable for agriculture.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · High Mechanisation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Because the land is low-lying and almost flat, it facilitates high levels of farm mechanisation, allowing the widespread use of large tractors and combine harvesters across open fields.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Sedimentary 'Saucers' &amp; Pays</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The basin is composed of different 'saucers' of sedimentary rock (limestone, sandstone, and chalk) laid down inside each other, creating distinct landscapes called <b>pays</b> with varied soils that drive agricultural specialisation.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Île-de-France &amp; Limon Soils</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At the centre of the basin lies the flat, low-lying <b>Île-de-France</b>, where chalk and limestone plains are covered by a thick blanket of <b>limon (loess)</b>—a fertile, stoneless deposit blown south after the Ice Age.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Arable Cereal Dominance</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Because limon soils are extremely fertile and easily worked by machinery, they support intensive, large-scale arable cereal farming across the central basin and the limon-covered limestone upland of <b>Beauce</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Dry Champagne Chalk Ridges</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>Dry Champagne</b> (Reims and Épernay), relief dictates agriculture: infertile, well-drained chalk ridges with southerly-facing slopes provide ideal conditions for viniculture (growing vines for Champagne).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Wet Champagne Impermeable Lowlands</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In contrast, <b>Wet Champagne</b> is a low-lying, clay-covered area underlain by impermeable shale, making it ideally suited to pastoral dairy and beef farming, renowned for Charolais and Simmental cattle.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Brie &amp; Valois Clay Lowlands</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The low-lying pays of <b>Brie and Valois</b> are covered in heavy clay soils that produce lush pastureland, supporting modern, intensive dairy farming of up to four cows per hectare.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Large Commercial Farm Scale</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The expansive, flat lowland relief has enabled exceptionally large commercial farm sizes—often over <b>400 hectares</b>—compared to the EU average of approximately 50 hectares.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 2: CLIMATE -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Primary Factor 2: Climate</div>
+                            <div class="int-tip">9 Reusable SRPs · Maritime west, transitional continental east &amp; crop ripening</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Varied, Moderate Climate</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The Paris Basin has a moderate, varied climate with no climatic extremes, enabling a wide range of arable crops and pastoral farming systems to thrive.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Seasonal Rainfall &amp; Ripening</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Spring and early summer rainfall provide vital moisture for crop growth, while long hours of summer sunshine are ideal for ripening high-yielding cereals such as wheat, barley, and maize.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Cool Temperate Oceanic Zone</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Coastal and western areas experience a <b>Cool Temperate Oceanic</b> climate with warm summers averaging 16°C, mild winters of 5°C, and roughly 800 mm of evenly distributed annual rainfall from prevailing south-westerly winds.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Normandy Maritime Dairying</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>Normandy</b>, the damp maritime climate and calcium-rich soils favour intensive dairy production (world-famous Camembert cheese and butter), as well as Golden Delicious apples and bloodstock horse breeding.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Brie Damper Pastures</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>Brie</b>, the damper climate encourages rich grass growth, making intensive dairy production—especially Brie cheese and butter—the dominant agricultural activity.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Beauce ('The Granary of France')</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>Beauce</b> to the south, greater sunshine and a longer growing season focus farming on wheat, barley, and sugar beet; known as <b>'The Granary of France'</b>, it has the highest cereal yield in the EU.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Transitional / Continental Zone</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Further inland, the climate becomes <b>Transitional (Cool Temperate Continental)</b> with a larger temperature range, featuring warmer summers averaging 19°C and colder winters averaging 2°C.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Lower Inland Precipitation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Inland continental zones receive slightly lower rainfall at approximately 600 mm per year, creating drier growing conditions ideal for heat-dependent crops.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Champagne Viniculture</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Dry Champagne</b> experiences this cool temperate continental climate; warm summers and south-facing slopes ripen vines for sparkling wine, where expertise in fermentation ensures only regional wines can be legally named 'Champagne'.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 3: MARKETS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">3</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Primary Factor 3: Markets &amp; Infrastructure</div>
+                            <div class="int-tip">9 Reusable SRPs · 21m local market, Paris tourism, A86/TGV &amp; EU access</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Large Regional Consumer Market</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The Paris Basin has a large, affluent local consumer market of over <b>21 million people</b>, directly driving intensive commercial pastoral farming, tillage, and market gardening.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Paris Metropolitan &amp; Tourist Demand</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris city alone is home to almost 2.1 million people (Paris Metro: 12 million), boosted further by <b>30 to 40 million annual visitors</b> who expand demand for agricultural produce.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Peri-Urban Market Gardening</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Immediate proximity to the wealthy Parisian market sustains intensive <b>market gardening</b> of high-value fruit, vegetables, and flowers on agricultural land directly surrounding the city.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Agri-Food Processing Demand</span>
+                        <p class="text-[13px] leading-snug mt-1.5">High demand from food processing industries—including bread making, brewing, winemaking, and dairy processors like <b>Danone</b>—encourages young, educated, business-orientated farmers to produce wheat, barley, grapes, and milk.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Radial Communication Network</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The Paris Basin possesses an excellent transport and communication network built in a radial format, linking outlying farming pays directly to urban consumers.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Autoroute 86 Delivery Efficiency</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Autoroute 86 (A86)</b> outer ring road allows quick and efficient daily delivery of farm produce to urban market centres across the region.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Freshness of Perishable Goods</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Rapid transport ensures perishable produce—such as fresh milk, Brie cheese, and vegetables—arrives fresh daily, enhancing the commercial value and reputation of Paris Basin agriculture.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Core European Single Market</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The northern location of the Paris Basin, paired with high-speed <b>TGV trains</b> and modern motorways, gives farmers easy access to the wealthy core European market of almost <b>450 million people</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · EU CAP Subsidies</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Farms in the Paris Basin are supported by EU <b>Common Agricultural Policy (CAP)</b> subsidies; because regional farms are exceptionally large (over 400 hectares), they gain major financial benefits from these payments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: SECONDARY ECONOMIC ACTIVITY (MANUFACTURING) -->
+            <div id="paris-tab-2" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (2 Factors: 2+2m &amp; 13 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2025 Scheme):</b> "Examine any <b>two</b> factors that have influenced the development of secondary economic activity (manufacturing) in a European region (not Ireland) that you have studied." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Named Region:</b> The Paris Basin (France)</div>
+                        <div>• <b>Marking Formula:</b> 2 Factors Identified (2+2m) + Factor 1 (7/6 SRPs) + Factor 2 (6/7 SRPs)</div>
+                        <div>• <b>Examples Credit:</b> 2 SRPs for specific secondary activity examples</div>
+                        <div>• <b>Surplus Coverage:</b> 3 Intro SRPs + 9 distinct SRPs per factor below</div>
+                    </div>
+                </div>
+
+                <!-- INTRODUCTION (3 SRPs) -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#6366f1">Intro</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Essay Introduction: Manufacturing in the Paris Basin</div>
+                            <div class="int-tip">3 Opening SRPs · Sets up region, secondary activity &amp; core factors</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 1 · Dominant Industrial Hub</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Paris Basin</b> has a well-developed manufacturing sector and contains more manufacturing industries than any other region in France.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 2 · Variety of Industries</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The region is home to a wide variety of secondary economic activities, including car manufacturing (e.g., <b>Citroën</b>), food processing (e.g., <b>Danone</b>), and luxury clothing (e.g., <b>Chanel</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 3 · Core Location Factors</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The Paris Basin is attractive to industry due to key physical and human factors, notably its abundant local <b>raw materials</b>, a large, well-educated <b>labour force</b>, and an affluent <b>market</b> served by an advanced <b>transport network</b>.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 1: RAW MATERIALS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#ef4444">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Secondary Factor 1: Raw Materials</div>
+                            <div class="int-tip">9 Reusable SRPs · Agri-food processing, Champagne, textiles &amp; car manufacturing</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Proximity to Inputs</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Many manufacturing industries prefer to locate in close proximity to essential raw materials, making the rich supply of locally produced resources in the Paris Basin ideal for manufacturers.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Productive Agricultural Base</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Low-lying relief, fertile <b>limon</b> soils, and a moderate climate make agriculture highly productive across the basin's <b>7 distinct pays</b>, providing a wide range of raw materials for the food processing industry.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Dairy Processing</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Milk produced in <b>Brie and Valois</b> supplies raw materials for regional cheese production (Brie and Camembert) and yogurt manufacturers such as <b>Danone</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Flour Milling &amp; Baking</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Wheat grown in <b>Beauce</b> ('The Granary of France', with the highest cereal yield in the EU) is processed into flour for the baking and confectionery industry (e.g., <b>Grands Moulins de Paris</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Brewing Industry</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Barley grown in Beauce supplies the brewing industry as an essential component in beer manufacturing, notably at companies like <b>Malteries Soufflet</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Cider Production</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Apples grown in <b>Normandy and Picardy</b> provide local raw materials for the regional cider manufacturing industry (e.g., <b>Cidrerie Daufresne</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Champagne Winemaking</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Vine-grapes grown in <b>Dry Champagne</b> supply an internationally renowned sparkling wine industry built on fermentation expertise (e.g., <b>Moët &amp; Chandon</b>), where only regional wines can be named 'Champagne'.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Textile Industry &amp; Decline</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The regional <b>textile industry</b> developed due to the availability of wool from sheep reared in the Île-de-France, though competition from cheaper Asian producers has forced many textile plants to close.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Heavy Industry &amp; Car Manufacturing</span>
+                        <p class="text-[13px] leading-snug mt-1.5">During the 20th century, heavy industries such as <b>car manufacturers</b> (e.g., <b>Citroën and Renault</b>) flocked to the region due to the availability of steel, though Asian competition has caused many heavy industries to cease production.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 2: LABOUR FORCE -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#8b5cf6">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Secondary Factor 2: Labour Force</div>
+                            <div class="int-tip">9 Reusable SRPs · 21m population, 17 universities, 85% French R&amp;D &amp; fashion hub</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Large Active Workforce</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The Paris Basin contains over <b>21 million people</b>, with over <b>30%</b> in the economically active sector, giving manufacturers a large, young, and vibrant workforce to choose from.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · World-Class Universities</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Industries are drawn to a large, well-educated, highly skilled workforce trained across <b>17 world-class universities</b>, including <b>Sorbonne University</b> and <b>Université Paris Cité</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Specialised Graduates</span>
+                        <p class="text-[13px] leading-snug mt-1.5">These universities provide thousands of high-quality graduates to manufacturing annually, specialised in science, business, marketing, engineering, and electronics.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Research &amp; Development Hub</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>85% of all research and development (R&amp;D)</b> in France is carried out in the Paris Basin, fuelling the growth of advanced, knowledge-based manufacturing.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Modern High-Tech Industries</span>
+                        <p class="text-[13px] leading-snug mt-1.5">This R&amp;D base supports major modern industries including <b>pharmaceuticals</b> (e.g., <b>Sanofi</b>), <b>aerospace</b> (e.g., <b>Safran</b>), and <b>cosmetics</b> (e.g., <b>L'Oréal</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Decentralised Tech Parks</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Modern high-tech manufacturers typically locate in <b>technological parks</b> (e.g., <b>Évry</b> or <b>Cosmetics Valley</b>) outside urban centres (decentralisation), where a skilled workforce is readily available.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Skilled Inward Migration</span>
+                        <p class="text-[13px] leading-snug mt-1.5">This dense concentration of high-value manufacturing industries also attracts <b>skilled migrants</b> from outside the Paris Basin to fill specialist roles.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Global Fashion &amp; Apprenticeships</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris has one of the biggest <b>fashion industries</b> in the world, attracting skilled tailors globally while employing locally skilled apprentices over several years to fill vacancies.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Lower-Skilled Labour Pool</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The large local population also supplies an extensive pool of <b>lower-skilled workers</b> for manufacturing plants requiring minimal skills and in-house training.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 3: MARKET & TRANSPORT NETWORK -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">3</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Secondary Factor 3: Market &amp; Transport Network</div>
+                            <div class="int-tip">9 Reusable SRPs · 21m market, A86, TGV, Eurostar, River Seine &amp; Le Havre Port</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Affluent Domestic Market</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The Paris Basin has a large domestic market of <b>21 million people</b> with high consumer spending levels, directly driving the development of manufacturing industries.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · National Nodal Point</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris city is a <b>nodal point</b> of France's transport infrastructure, with road, rail, and waterway networks radiating outwards to connect the region to the rest of France and the EU.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Road Network &amp; Autoroute 86</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Excellent roads anchored by the <b>Autoroute 86</b> outer ring road allow fast delivery of raw materials and goods—for example, moving milk quickly from Normandy dairy farms to food processors to protect quality.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · High-Speed TGV Rail</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The basin has one of the most advanced rail networks in the world; high-speed <b>TGV</b> trains link Paris to French cities (Marseille in the south, Lille in the north) and European countries including Switzerland and Germany.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Eurostar Connection</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Eurostar</b> connects Paris and London via an underwater tunnel beneath the English Channel, making European markets easily accessible for passengers and freight.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Navigable River Network</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Several large, easily navigable rivers drain the basin—including the <b>River Seine</b> and its tributaries (<b>Marne, Oise, and Yonne</b>), along with the <b>Meuse, Loire, and Somme</b> flowing into the English Channel.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Barges &amp; Canal Saint-Denis</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Easy navigability enables large barges to transport heavy raw materials and manufactured products cheaply to and from Paris, entering the <b>Canal Saint-Denis</b> for access to world markets.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Le Havre Port Gateway</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The Seine flows north-west into the sea at <b>Le Havre</b>, France's second-largest port and one of Europe's busiest on the English Channel, linking inland river ports directly to global shipping.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Deep-Water Bulk Imports</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Modern docking facilities and deep waters at Le Havre cater for large-scale heavy industries—such as oil refining, car manufacturing, and textiles—enabling cheap imports of bulk raw materials including <b>coal and iron ore</b>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: TERTIARY ECONOMIC ACTIVITY (TOURISM) -->
+            <div id="paris-tab-3" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2017 / 2010):</b> "Account for the development of <b>one</b> tertiary economic activity in a European region (not Ireland) that you have studied." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Named Region &amp; Activity:</b> The Paris Basin (France) — Tourism</div>
+                        <div>• <b>Marking Formula (2022 Scheme):</b> 15 SRPs @ 2 marks each = 30 marks</div>
+                        <div>• <b>Key Credits:</b> Factors named (2 SRPs) + Specific example (1 SRP)</div>
+                        <div>• <b>Surplus Coverage:</b> 3 Intro SRPs + 9 distinct SRPs per factor below</div>
+                    </div>
+                </div>
+
+                <!-- INTRODUCTION (3 SRPs) -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#6366f1">Intro</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Essay Introduction: Tourism in the Paris Basin</div>
+                            <div class="int-tip">3 Opening SRPs · Economic value, visitor scale &amp; core growth factors</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 1 · Economic Significance</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Tourism is a well-developed, year-round tertiary economic activity in the <b>Paris Basin</b>; in 2022, it contributed over <b>€30 billion</b> to the local economy and provided over <b>2.5 million jobs</b> in tourism-related activities.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 2 · Global Status &amp; Visitor Numbers</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris, known as <b>'The City of Lights'</b>, is the tourist capital of France and one of the most visited cities in the world, with approximately <b>44 million tourists</b> visiting Paris and the Île-de-France region in 2022.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 3 · Core Growth Factors</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Tourism thrives due to easy <b>accessibility</b> via world-class transport links, iconic <b>cultural, historical, and recreational attractions</b>, and high-value niche tourism in <b>fashion</b>, <b>sporting events</b>, and <b>Champagne wine tours</b>.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 1: ACCESSIBILITY & TRANSPORT -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Tertiary Factor 1: Accessibility &amp; Transport</div>
+                            <div class="int-tip">9 Reusable SRPs · TGV, Eurostar, Metro/RER, 95m airport passengers &amp; ferry ports</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Nodal Point &amp; Flat Relief</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris city is a <b>nodal point</b> of France's transport infrastructure, with networks radiating across France and the EU; the basin's flat, undulating land allows motorways and railways to be built more easily and cheaply.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · High-Speed TGV Rail</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Launched in 1981, the high-speed <b>TGV</b> travels at up to <b>300 km/hr</b>, linking Paris to Marseille in the south, Lille in the north, Lyon in two hours (462 km), western France (TGV Atlantique, 1989), and Brussels (TGV Nord, 1993).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Eurostar Connection</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Eurostar</b> connects Paris and London directly via an underwater tunnel beneath the English Channel, making Paris highly accessible for international tourists.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Internal Urban Transit</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Within Paris, an excellent internal transport network—including the <b>RER</b> (commuter trains), <b>SNCF</b> (suburban trains), <b>Metro</b> (underground), buses, and trams—allows tourists to travel efficiently between multiple sites.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Major International Airports</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris is served by two major international airports, <b>Charles de Gaulle (CDG)</b> and <b>Orly</b>, which handle the majority of international tourist arrivals.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Budget Air Access (Beauvais)</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Beauvais Airport</b>, located about 80 km from Paris, caters specifically to budget travellers, mainly through low-cost airlines such as <b>Ryanair</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Combined Air Passenger Volume</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Together, CDG, Orly, and Beauvais welcome over <b>95 million passengers annually</b>, many of whom are tourists visiting the Paris Basin.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Maritime Access (Le Havre)</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Le Havre</b>, France's second-largest port, uses deep waters and modern docking facilities to host cruise ships and large ferries carrying tourists with cars and caravans from Great Britain and Rosslare in Ireland.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Maritime Access (Cherbourg)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Nearby <b>Cherbourg</b> is another key port facilitating passenger and car ferry services from Great Britain and Ireland (e.g., Rosslare).</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 2: CULTURAL, HISTORICAL & RECREATIONAL ATTRACTIONS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Tertiary Factor 2: Cultural, Historical &amp; Recreational Attractions</div>
+                            <div class="int-tip">9 Reusable SRPs · Eiffel Tower, Louvre, Versailles, Notre-Dame &amp; Disneyland Paris</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · The Eiffel Tower</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris's most famous landmark, the <b>Eiffel Tower</b> (<i>La Tour Eiffel</i>), attracts approximately <b>6 million visitors annually</b>, offering daily tours to the top and a summit restaurant.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · The Louvre Museum</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>The Louvre</b> is the world's largest museum, attracting <b>7.8 million tourists</b> in 2022 to view iconic masterpieces including the <i>Mona Lisa</i> by Leonardo da Vinci.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Centre Pompidou</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Centre Pompidou</b>, named after French President Georges Pompidou, is a modern art museum and cultural centre and one of the most visited sites in France.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Palace of Versailles</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Located just west of Paris, the <b>Palace of Versailles</b> is a UNESCO World Heritage Site and former royal residence that draws large numbers of heritage visitors.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Notre-Dame Cathedral</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Notre-Dame Cathedral</b>, though undergoing restoration following the 2019 fire, remains an iconic symbol of French Gothic architecture.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Historic Monuments</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Other major historic landmarks drawing cultural tourists across Paris include the <b>Arc de Triomphe</b> and the historic <b>Place de la Bastille</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Disneyland Paris Location</span>
+                        <p class="text-[13px] leading-snug mt-1.5">For recreational tourism, the <b>Disneyland Paris</b> resort was developed approximately <b>30 km east of the city</b> at <b>Marne-la-Vallée</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Disneyland Site Advantages</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Marne-la-Vallée was strategically chosen due to its proximity to international airports, excellent communication services, and access to large, affluent consumer markets.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Youth &amp; School Tour Market</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Disneyland Paris serves a major recreational niche, attracting huge numbers of young visitors, families, and international school tours.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 3: FASHION, EVENTS & PHYSICAL LANDSCAPE -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#ec4899">3</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Tertiary Factor 3: Fashion, Events &amp; Physical Landscape</div>
+                            <div class="int-tip">9 Reusable SRPs · Fashion Week, Stade de France, Tour de France &amp; Champagne wine tours</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Global Capital of Fashion</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris is widely regarded as the <b>global capital of fashion</b>, making luxury retail and style tourism a major contributor to visitor spending.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Luxury Fashion Houses</span>
+                        <p class="text-[13px] leading-snug mt-1.5">High-end French fashion houses such as <b>Chanel</b>, <b>Yves Saint Laurent (YSL)</b>, and <b>Dior</b> make Paris a premier destination for luxury shopping and fashion tourism.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Paris Fashion Week</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Paris Fashion Week</b>, held twice annually (typically in February/March and September/October), attracts global attention and significantly boosts tourism revenue.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Stade de France</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Event-based sports tourism is anchored by the <b>Stade de France</b>, which hosts major rugby and football matches including the <b>Six Nations</b> rugby tournament.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Roland Garros</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Roland Garros</b> in Paris is home to the prestigious <b>French Open</b> tennis tournament, drawing thousands of international tennis fans each year.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Tour de France</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Tour de France</b>, the world's most famous cycling race, finishes every year in central Paris, attracting massive crowds of spectators.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Physical Landscape &amp; Wine Tours</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Outside the capital, the Paris Basin's physical climate and relief support profitable niche tourism in the form of <b>wine tours</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Champagne Climate Conditions</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Located in the north-eastern Paris Basin, the <b>Champagne</b> region benefits from a continental climate with under <b>600 mm of rainfall</b>, warm summers (avg. <b>19°C</b>), and cold winters (avg. <b>2°C</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Champagne Vineyards &amp; Tastings</span>
+                        <p class="text-[13px] leading-snug mt-1.5">These conditions support world-renowned sparkling wine production—where only regional wines can legally be named <b>'Champagne'</b>—with vineyard tours and tastings attracting thousands of visitors annually.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: HUMAN PROCESSES (URBAN GROWTH & POPULATION) -->
+            <div id="paris-tab-4" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (2 Factors: 2+2m &amp; 13 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2023 / 2021):</b> "Examine how <b>two</b> factors (e.g., Location, Transport, Migration) have influenced the development of one urban area in a European region (not Ireland) that you have studied." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Named Urban Area:</b> Paris City, The Paris Basin (2 marks)</div>
+                        <div>• <b>Marking Formula (2023 Scheme):</b> Influence Identified (2m) + Factor 1 (7/6 SRPs) + Factor 2 (6/7 SRPs)</div>
+                        <div>• <b>Sketch Map Credit:</b> 1 SRP (+1 SRP for additional new info)</div>
+                        <div>• <b>Surplus Coverage:</b> 3 Intro SRPs + 8–9 distinct SRPs per factor below</div>
+                    </div>
+                </div>
+
+                <!-- INTRODUCTION (3 SRPs) -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#6366f1">Intro</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Essay Introduction: Urban Growth of Paris City</div>
+                            <div class="int-tip">3 Opening SRPs · Primate city, metro population &amp; 2050 growth projection</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 1 · Primate City &amp; Economic Core</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Paris</b> is the capital and <b>primate city</b> of France, located in the Paris Basin core economic region, and has grown into the largest urban economy across all of mainland Europe.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 2 · Population &amp; Workforce Dominance</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris city has a population of over <b>2.1 million people</b>, while the wider Paris metropolitan area holds around <b>12 million inhabitants</b>—representing roughly <b>18%</b> of France's population and <b>20%</b> of the national workforce.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 3 · Young Demographics &amp; Growth Drivers</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris has a relatively younger population than other French regions, generating higher birth rates and natural increase; the metro population is projected to reach <b>14 million by 2050</b>, driven mainly by <b>location</b> and <b>migration</b>.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 1: LOCATION & TRANSPORT -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Urban Factor 1: Location &amp; Transport</div>
+                            <div class="int-tip">9 Reusable SRPs · Île de la Cité, synclinal basin, nodal hub, airports &amp; River Seine</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Medieval Island Origins</span>
+                        <p class="text-[13px] leading-snug mt-1.5">During medieval times, Paris originally developed on an island called <b>Île de la Cité</b> on the River Seine.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Defensive &amp; Bridging Point</span>
+                        <p class="text-[13px] leading-snug mt-1.5">This site offered a <b>defensive settlement</b> and strategic <b>bridging point</b> where the River Marne and River Seine meet, encouraging expansion as people moved there for trade and protection.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Sheltered Synclinal Basin</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris lies in a sheltered, <b>synclinal basin</b> with gently rolling slopes, allowing the city to expand outward without physical barriers and facilitating an excellent transport network.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Nodal Transport Hub</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris is the <b>nodal point</b> of France's transport network, where undulating lowland terrain allows motorways and railway lines to be constructed more easily and cheaply.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Major International Airports</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The city's global connectivity is anchored by two major international airports: <b>Charles de Gaulle</b> and <b>Orly</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Sectoral Employment Growth</span>
+                        <p class="text-[13px] leading-snug mt-1.5">An effective transport system allowed primary, secondary, and tertiary economic sectors to flourish, creating large-scale employment that continuously encourages urban development.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · EU Economic Core Location</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Located in the economic core of the EU where major transport routes converge, Paris's central position and transport links to Europe's industrial core give manufacturers direct access to a vast market.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Fertile Limon Soil</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Paris lies on rich, fertile <b>limon soil</b> that is easily worked, which encouraged productive agriculture and a high regional standard of living.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · River Seine Trade Corridor</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Its position along the <b>River Seine</b> links Paris directly with the coastal port of <b>Le Havre</b>, contributing heavily to the city's growth as a major manufacturing centre.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 2: MIGRATION -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Urban Factor 2: Migration</div>
+                            <div class="int-tip">8 Reusable SRPs · 19th-century boom, North African &amp; post-2004 EU inflows</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · 19th-Century Population Boom</span>
+                        <p class="text-[13px] leading-snug mt-1.5">During the <b>nineteenth century</b>, Paris grew rapidly from approximately <b>600,000 in 1801</b> to over <b>1 million by 1850</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Internal French Migration</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Most of this nineteenth-century urban expansion came from the arrival of young male workers migrating from the <b>north and east of France</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · 20th-Century North African Immigration</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In the <b>twentieth century</b>, immigrants from <b>Northern Africa</b> moved to Paris city, attracted by employment opportunities and high wages.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Early 2000s EU Immigration</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Throughout the early <b>2000s</b>, immigration from across the <b>European Union</b> had a major impact on the population and economic growth of the region.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Visa-Free Work &amp; Polish Inflow</span>
+                        <p class="text-[13px] leading-snug mt-1.5">EU citizens do not require a visa to work in France; when <b>Poland joined the EU in 2004</b>, large numbers of workers moved to Paris.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Filling Economic Vacancies</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Inward migrants filled essential job vacancies across both the <b>secondary</b> and <b>tertiary</b> sectors of the Parisian economy.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Revenue for Urban Renewal</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The economic output of this expanding workforce generated greater tax revenue, enabling Paris to invest in <b>urban renewal and redevelopment</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Suburban Settlement &amp; Sprawl</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Traditionally, migrants settled in the outer <b>city suburbs</b>, and the widespread construction of these suburbs directly drove <b>urban sprawl</b>.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 3: URBAN PROBLEMS, RENEWAL & NEW TOWNS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">3</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Urban Factor 3: Problems, Renewal &amp; New Towns</div>
+                            <div class="int-tip">8 Reusable SRPs · Congestion, inner-city decay, regeneration &amp; Évry new town</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Severe Traffic Congestion</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Traffic congestion</b> is a major issue hindering further economic development, with as many as <b>2.5 million commuters</b> travelling on the roads each day.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Inner-City Urban Decay</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Certain inner-city areas suffer from <b>urban decay</b> due to a historical lack of investment and urban renewal.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Inner-City Social Challenges</span>
+                        <p class="text-[13px] leading-snug mt-1.5">These decayed inner-city zones are often occupied by <b>poorer migrants</b> who face high crime rates, poor housing, and a lack of social services.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Urban Sprawl &amp; Farmland Loss</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Continued inward migration increases demand for housing; consequently, Paris suffers heavily from <b>urban sprawl</b>, consuming surrounding farmlands and villages as the city spreads outwards.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Local Government Regeneration</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Urban regeneration</b> projects funded by local government aim to improve recreational green areas, social services, and transport in the inner city.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Housing Upgrades &amp; Youth Retention</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Poor inner-city housing has been replaced with newer, improved homes to encourage young people to remain living in the inner city.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Five New Towns (Évry)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">To combat urban sprawl, <b>five new towns</b>—including <b>Évry</b>—were built on the outer edges of Paris, housing up to <b>100,000 people</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Self-Contained New Town Services</span>
+                        <p class="text-[13px] leading-snug mt-1.5">These new towns feature industrial estates, office blocks, and shopping centres to attract new businesses so that fewer residents need to commute into Paris city.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
             }
         };
 
