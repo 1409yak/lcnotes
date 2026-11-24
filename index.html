@@ -179,8 +179,8 @@
         .dark .int-chip { border-color: #334155; color: #cbd5e1; }
         @media (min-width: 640px) {
             .int-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .int-cell + .int-cell { border-top: 0; border-left: 1px solid #eef2f7; }
-            .dark .int-cell + .int-cell { border-left-color: #1e293b; }
+            .int-grid > .int-cell + .int-cell { border-top: 0; border-left: 1px solid #eef2f7; }
+            .dark .int-grid > .int-cell + .int-cell { border-left-color: #1e293b; }
         }
         .tab-btn.active {
             border-bottom: 2px solid #3b82f6;
@@ -501,13 +501,13 @@
                             { id: "geo-p1", name: "Ch 1: Earth's Internal Structure", status: "ready" },
                             { id: "geo-p2", name: "Ch 2: Plate Tectonics & Continental Drift", status: "ready" },
                             { id: "geo-p3", name: "Ch 3: Volcanic Activity", status: "ready" },
-                            { id: "geo-p4", name: "Ch 4: Earthquakes", status: "pending" },
-                            { id: "geo-p5", name: "Ch 5: Folding & Faulting", status: "pending" },
+                            { id: "geo-p4", name: "Ch 4: Earthquakes", status: "ready" },
+                            { id: "geo-p5", name: "Ch 5: Folding & Faulting", status: "ready" },
                             { id: "geo-p6", name: "Ch 6: The Rock Cycle", status: "ready" },
                             { id: "geo-p7", name: "Ch 7: Denudation & Karst Landscapes", status: "ready" },
                             { id: "geo-p8", name: "Ch 8: Rivers", status: "ready" },
-                            { id: "geo-p9", name: "Ch 9: Isostasy", status: "pending" },
-                            { id: "geo-p10", name: "Ch 10: The Sea", status: "pending" },
+                            { id: "geo-p9", name: "Ch 9: Isostasy", status: "ready" },
+                            { id: "geo-p10", name: "Ch 10: The Sea", status: "ready" },
                             { id: "geo-p11", name: "Ch 11: Glaciation", status: "pending" }
                         ]
                     },
@@ -3966,6 +3966,954 @@
         </div>
     `
             },
+            "geo-p4": {
+                title: "Chapter 4: Earthquakes",
+                section: "Unit 1: Core Physical Geography",
+                content: `
+        <div class="space-y-6">
+            <!-- Top Tab Navigation Bar -->
+            <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                <button onclick="switchTab('eq-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">Global Distribution</button>
+                <button onclick="switchTab('eq-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Predicting &amp; Reducing</button>
+                <button onclick="switchTab('eq-tab-3', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Measurement &amp; Effects</button>
+                <button onclick="switchTab('eq-tab-4', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Haiti Case Study</button>
+            </div>
+
+            <!-- TAB 1: GLOBAL DISTRIBUTION OF EARTHQUAKES -->
+            <div id="eq-tab-1" class="tab-content space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Examples 2+2m &amp; 13 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2023 3B / 2017 2C / 2012 1B):</b> "Explain how the study of plate tectonics has helped us to understand the global distribution of Earthquakes." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Examples Credit:</b> 2 + 2 marks for global distribution examples</div>
+                        <div>• <b>Explanation:</b> 13 SRPs @ 2 marks each (must link to plate tectonics)</div>
+                        <div>• <b>Diagram Credit:</b> 1 SRP (+2 SRPs for new labelled info)</div>
+                        <div>• <b>Surplus Coverage:</b> 4 Intro/Basics SRPs + 17 Boundary SRPs below</div>
+                    </div>
+                </div>
+
+                <!-- INTRODUCTION & KEY TERMS (4 SRPs) -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#6366f1">Intro</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Introduction: Earthquake Mechanics &amp; Depth Categories</div>
+                            <div class="int-tip">4 Opening SRPs · Cause, focus/epicentre, foreshocks &amp; depth zones</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 1 · Definition &amp; Friction</span>
+                        <p class="text-[13px] leading-snug mt-1.5">An <b>earthquake</b> is a sudden tremor or vibration of the Earth's crust caused by a sudden release of energy when constantly moving tectonic plates become stuck due to friction, build up pressure, and suddenly snap free.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 2 · Focus, Epicentre &amp; Fault</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Earthquakes originate at the <b>focus</b> inside the crust along a fracture called a <b>fault</b>; the point directly above on the surface where shaking is strongest is the <b>epicentre</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 3 · Seismic Waves, Foreshocks &amp; Aftershocks</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Tremors radiating from the focus are called <b>seismic waves</b>; smaller tremors occurring before the main shock are <b>foreshocks</b>, while tremors following it are <b>aftershocks</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">Intro SRP 4 · Depth Categories &amp; Three Boundaries</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Earthquakes occur along <b>convergent</b>, <b>transform</b>, and <b>divergent</b> boundaries at three depths: <b>shallow</b> (&lt;70 km, all boundaries), <b>intermediate</b> (70–300 km, oceanic-continental), and <b>deep</b> (&gt;300 km, oceanic-oceanic collision).</p>
+                    </div>
+                </div>
+
+                <!-- ZONE 1: CONVERGENT BOUNDARIES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#ef4444">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Zone 1: Convergent Plate Boundaries</div>
+                            <div class="int-tip">6 Reusable SRPs · Subduction zones, Japan 2011 (9.0) &amp; Nepal 2015 (7.8)</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Collision &amp; Power</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The deepest and most powerful earthquakes occur at <b>convergent plate boundaries</b> where crustal plates collide.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Subduction Zones &amp; Deep Foci</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At <b>subduction zones</b> (e.g., Pacific and Eurasian plates), denser oceanic crust slides beneath lighter crust and melts into the mantle, producing quakes with foci as deep as <b>300 km</b> below the surface.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Japan Subduction Zone</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The subduction zone off the <b>coast of Japan</b>—where the <b>Pacific Plate</b> subducts beneath the <b>Eurasian and Philippine Plates</b>—is the most earthquake-prone area in the world.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Japan 2011 Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>March 2011</b>, a magnitude <b>9.0</b> earthquake on the Richter scale struck off Japan's coast, triggering devastating tsunamis that resulted in almost <b>20,000 deaths</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Continental-Continental Collision</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Earthquakes also occur where two <b>continental plates collide</b>, causing crust to buckle and fold upwards into fold mountains such as the <b>Himalayas</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Nepal 2015 Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>April 2015</b>, a magnitude <b>7.8</b> earthquake struck <b>Nepal</b> where the <b>India Plate</b> converged with the <b>Eurasian Plate</b>, triggering landslides and killing almost <b>9,000 people</b>.</p>
+                    </div>
+                </div>
+
+                <!-- ZONE 2: TRANSFORM BOUNDARIES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Zone 2: Transform Plate Boundaries</div>
+                            <div class="int-tip">6 Reusable SRPs · Sliding plates, San Andreas Fault &amp; Haiti 2010 (7.0)</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Sliding Plates</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Many earthquakes occur at <b>transform boundaries</b>, where plates slide parallel past each other in opposite directions or in the same direction at different speeds.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · San Andreas Fault</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The best-known example is California's <b>San Andreas Fault</b>, where the <b>Pacific Plate</b> (moving north-west at <b>5 cm/year</b>) slides laterally past the <b>North American Plate</b> (<b>1 cm/year</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Shallow Foci &amp; High Energy</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Earthquakes produced along transform boundaries tend to be highly powerful and destructive due to the huge energy released and the <b>shallow depth</b> of their foci.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · 'The Big One' Forecast</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Since <b>2014</b>, seismologists have recorded increased seismic activity along the San Andreas Fault and expect a major quake (<b>'The Big One'</b>) to strike by <b>2032</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Haiti 2010 Boundary</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>January 2010</b>, an earthquake measuring <b>7.0</b> on the Richter scale struck <b>Haiti</b> along the transform boundary between the <b>North American and Caribbean Plates</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Haiti 2010 Toll</span>
+                        <p class="text-[13px] leading-snug mt-1.5">This catastrophic shallow earthquake killed an estimated <b>230,000 people</b>.</p>
+                    </div>
+                </div>
+
+                <!-- ZONE 3: DIVERGENT BOUNDARIES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">3</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Zone 3: Divergent Plate Boundaries</div>
+                            <div class="int-tip">5 Reusable SRPs · Shallow quakes, Mid-Atlantic Ridge, Rift Valleys &amp; Mozambique 2006</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Lower Frequency &amp; Shallow Depths</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Earthquakes at <b>divergent plate boundaries</b> (where plates separate) are far less frequent than at other boundaries and occur at <b>shallow depths</b> along mid-oceanic ridges and rift valleys.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Mid-Atlantic Ridge</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Earthquakes occur along mid-oceanic ridges such as the <b>Mid-Atlantic Ridge</b> between the North American and Eurasian Plates.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Magma Vibrations</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Along mid-oceanic ridges, vibrations of rising magma and gases within the magma chamber generate shallow quakes that are generally weak and rarely cause damage.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · East African Rift Valley</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At continental <b>rift valleys</b> such as the <b>East African Rift Valley</b>, tensional forces pull crust apart, bending and breaking rock to trigger stronger earthquakes than at mid-oceanic ridges.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Mozambique 2006 Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>February 2006</b>, a magnitude <b>7.0</b> earthquake struck <b>Mozambique</b> where the <b>African Plate</b> is breaking apart into smaller plates.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: PREDICTING EARTHQUAKES & REDUCING THEIR EFFECTS -->
+            <div id="eq-tab-2" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (2m + 2m + 13 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2025 1B / 2024 3C / 2021 1C):</b> "Explain how the occurrence of earthquakes can be predicted and its effects reduced." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>2024 Marking Split:</b> Max 7 SRPs if only prediction OR only reduction explained</div>
+                        <div>• <b>2013 Joint Question:</b> Pair Factor 1 below (max 8 SRPs) with Volcano Prediction</div>
+                        <div>• <b>Diagram Credit:</b> 1 SRP (+2 SRPs for additional new labelled info)</div>
+                        <div>• <b>Surplus Coverage:</b> 9 Prediction SRPs + 9 Reduction SRPs below</div>
+                    </div>
+                </div>
+
+                <!-- FACTOR 1: PREDICTING SEISMIC ACTIVITY -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#8b5cf6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Factor 1: Predicting Seismic Activity</div>
+                            <div class="int-tip">9 Reusable SRPs · Rock stress instruments, seismic gaps &amp; animal behaviour</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Measuring Rock Stress</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Monitoring <b>rock stress</b> along fault lines is the most reliable prediction method; as pressure builds along a fault, the likelihood of a strong earthquake rises (e.g., <b>San Andreas Fault</b> predicted by <b>2032</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Seismographs (Foreshocks)</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Seismographs</b> detect minor movements or vibrations in the Earth's crust known as <b>foreshocks</b>, which frequently precede a larger earthquake.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Strainmeters</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Strainmeters</b> are installed along fault zones to directly measure the build-up of mechanical stress and strain in rocks.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Tiltmeters</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Tiltmeters</b> detect slight changes in land slope levels; surface bulging indicates increased pressure building in the rock underneath.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Satellite &amp; GPS Monitoring</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Satellites and GPS</b> are used to track minute ground deformation and plate movement taking place across wide fault zones.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Historical Records &amp; Patterns</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Seismologists study <b>historical records</b> of previous earthquakes along fault lines—analysing past patterns and time intervals—to forecast future probability, magnitude, and intensity.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Seismic Gaps</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The longer the interval since the last quake, the more imminent the next one; quiet stretches along active faults—called <b>seismic gaps</b>—are heavily monitored as the most likely sites for future quakes.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Unusual Animal Behaviour</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Although lacking scientific proof, unusual <b>animal behaviour</b> has been observed prior to quakes, including animals emerging early from hibernation, rats and snakes leaving homes, and livestock refusing to enter pens.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · China 1975 Prediction</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>China</b> monitors animal behaviour as part of its forecasting methods and successfully predicted an earthquake in <b>1975</b> three months before it struck.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 2: REDUCING THE EFFECTS OF EARTHQUAKES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Factor 2: Reducing the Effects of Earthquakes</div>
+                            <div class="int-tip">9 Reusable SRPs · ShakeAlert, PTWC, drills &amp; earthquake-proof buildings</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Early Warning Systems (ShakeAlert)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">While earthquakes cannot be prevented, early warning technology detects tremors rapidly before strong shaking arrives; California's <b>ShakeAlert</b> sends alerts to citizens' mobile phones before or just as shaking begins.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Pacific Tsunami Warning Centre (PTWC)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Pacific Tsunami Warning Centre (PTWC)</b> links <b>28 Pacific countries</b> (including Japan and China), detecting and locating earthquakes to determine whether they can generate a tsunami.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Awareness Programmes &amp; Drills</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Families and schools conduct regular <b>earthquake drills</b> to practise safe actions—for example, schoolchildren in <b>Japan</b> are trained to shelter under desks during tremors.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Home Preparedness &amp; Kits</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Residents store <b>emergency kits</b> (food and medical supplies), secure household items that could fall or break, and establish communication plans with neighbours and family.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Planning Restrictions &amp; Retrofitting</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In developed countries like <b>Japan</b>, planning permission is denied in fault zones or <b>liquefaction</b> areas, while older buildings are <b>retrofitted</b> with wall and foundation reinforcements.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Rubber Shock Absorbers</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Earthquake-proof buildings incorporate <b>layers of rubber</b> in their foundations that act as <b>shock absorbers</b> to cushion seismic tremors.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Counterbalance Roof Weights</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Computer-controlled <b>weights on the roof</b> shift in the opposite direction whenever a skyscraper sways, acting as a counterbalance to keep the building steady.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Symmetrical Building Design</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Structures are built with a <b>symmetrical design</b> (and reinforced steel bracing) so that seismic forces are distributed evenly throughout the building.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Developing Countries' Regulations</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Less developed countries such as <b>Nepal and Haiti</b> lack the financial resources for high-tech engineering, so they instead impose <b>basic building regulations</b> to prevent catastrophic collapse.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: MEASUREMENT & EFFECTS OF EARTHQUAKES -->
+            <div id="eq-tab-3" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Measurement &amp; Effects)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2008 3C):</b> "Examine, with reference to actual examples, the measurement and effects of earthquakes." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>2008 Marking Scheme:</b> Measurement (2m) + Effects (2+2m) + Examples (2+2m) + 10 SRPs (5 per aspect)</div>
+                        <div>• <b>Surplus Coverage:</b> 9 Measurement SRPs + 12 Effects SRPs below</div>
+                        <div class="sm:col-span-2">• <b>Joint Question Tip:</b> Pair Factor 2 below with Tab 2 Factor 2 (Reducing Effects) to answer <i>"Examine the effects of earthquakes and how these effects can be reduced"</i> [30m].</div>
+                    </div>
+                </div>
+
+                <!-- FACTOR 1: MEASUREMENT & SEISMIC WAVES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Factor 1: Measurement of Earthquakes &amp; Seismic Waves</div>
+                            <div class="int-tip">9 Reusable SRPs · Seismographs, P/S/Surface waves, Richter, MMS &amp; Mercalli</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Seismograph / Seismometer</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Seismologists</b> use an instrument called a <b>seismograph</b> (seismometer) to detect, measure, and record seismic waves and earthquake energy (magnitude).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Primary Waves (P-Waves)</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>P-waves</b> (body waves) are the fastest seismic waves and arrive first; they travel through molten material, compressing and expanding rock so it vibrates back and forth.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Secondary Waves (S-Waves)</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>S-waves</b> (body waves) follow P-waves at a medium speed; they travel only through solid rock and cause material to vibrate at right angles to the wave direction.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Surface Waves (Rayleigh Waves)</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Surface waves</b> travel slowest and arrive last close to the Earth's surface; shaking the ground side to side and up and down, they generate strong vibrations and are extremely destructive.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · The Richter Scale (Magnitude)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Developed by <b>Charles F. Richter (1935)</b>, the <b>Richter scale</b> measures earthquake <b>magnitude</b> (energy released); it is open-ended, with the highest recorded being the <b>Great Chilean Quake (1960)</b> at <b>9.5</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Logarithmic Scale</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The Richter scale is <b>logarithmic</b>: each whole number represents seismic waves <b>10 times greater</b> in amplitude than the unit before it (e.g., magnitude 5 has 10× the wave amplitude of magnitude 4).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Moment Magnitude Scale (MMS)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Because the Richter scale is not very accurate for very large earthquakes, modern scientists use the <b>Moment Magnitude Scale (MMS)</b>, which uses a logarithmic scale to measure large quakes more accurately.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Modified Mercalli Scale (Intensity)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Developed by <b>Giuseppe Mercalli (1912)</b>, the <b>Modified Mercalli Scale</b> records earthquake <b>intensity</b>—the observed effect on people, infrastructure, and the natural environment—ranging from <b>I</b> (felt by very few) to <b>XII</b> (total destruction).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Subjective Scale</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Unlike the Richter and MMS scales, the Modified Mercalli Scale is a <b>subjective scale</b> based on human observations and opinions rather than strictly instrumental facts.</p>
+                    </div>
+                </div>
+
+                <!-- FACTOR 2: EFFECTS OF EARTHQUAKES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#ef4444">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Factor 2: Effects of Earthquakes</div>
+                            <div class="int-tip">12 Reusable SRPs · Loss of life, homelessness, infrastructure, liquefaction &amp; tsunamis</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Loss of Life — Haiti (2010)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>January 2010</b>, a magnitude <b>7.0</b> earthquake on the North American–Caribbean transform boundary struck <b>Haiti</b>, killing an estimated <b>230,000 people</b> and injuring <b>300,000</b>, mostly from falling debris.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Loss of Life — Nepal (2015)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>April 2015</b>, a magnitude <b>7.8</b> earthquake where the India and Eurasian Plates converge hit <b>Nepal</b>, triggering landslides that killed almost <b>9,000 people</b>, injured over <b>10,000</b>, and killed over 100 in neighbouring India and China.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Causes of Homelessness</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Homelessness</b> is a major aftermath of earthquakes caused by structural damage to homes, fires, or liquefaction, forcing displaced survivors into tents and temporary shelters.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Homelessness Scale (Haiti &amp; Nepal)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In the <b>Haiti (2010)</b> earthquake, approximately <b>1.5 million people</b> were left homeless, while in <b>Nepal (2015)</b> almost <b>3 million people</b> lost their homes.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Utility &amp; Infrastructure Destruction</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Earthquakes destroy buildings and rupture essential utilities including power grids, water supply pipes, sewage systems, and gas lines.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Secondary Hazards: Fires &amp; Disease</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Severed gas pipes frequently spark widespread urban <b>fires</b>, while damaged sewage networks contaminate drinking water supplies and trigger outbreaks of waterborne diseases such as <b>cholera</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Port-au-Prince Structural Collapse</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The 2010 Haitian earthquake devastated the capital, <b>Port-au-Prince</b>; because buildings were poorly constructed, vast numbers collapsed, including the <b>Presidential Palace</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Liquefaction Process</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Liquefaction</b> occurs when unconsolidated sediment such as sand and gravel mixed with groundwater is shaken vigorously, turning into liquid mud unable to support overlying structures, causing them to sink or topple.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Christchurch Liquefaction Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Liquefaction caused extensive structural and road damage across <b>Christchurch, New Zealand</b> during its <b>2010</b> earthquake.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Tsunami Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>tsunami</b> occurs when an earthquake or landslide happens under the ocean, sending a 'wall of water' onto land that destroys everything in its path.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Indian Ocean Tsunami (2004)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>December 2004</b>, an earthquake measuring <b>9.1</b> on the Richter scale occurred in the <b>Indian Ocean</b>, generating a tsunami that killed nearly a <b>quarter of a million people</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Japan Tsunami (2011)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In <b>March 2011</b>, an earthquake measuring <b>9.0</b> on the Richter scale struck off the <b>coast of Japan</b>, triggering major tsunamis that devastated surrounding regions and resulted in almost <b>20,000 deaths</b>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: CASE STUDY - HAITI EARTHQUAKE (2010) -->
+            <div id="eq-tab-4" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Causes 8 SRPs + Effects 8 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Sample Exam Question:</b> "Examine the cause and effects of an earthquake you have studied." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Case Study:</b> Haiti Earthquake — Tuesday 12 January 2010 (Magnitude 7.0)</div>
+                        <div>• <b>Surplus Coverage:</b> 8 Cause SRPs + 8 Effect SRPs = 16 distinct SRPs below</div>
+                    </div>
+                </div>
+
+                <!-- CAUSES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#ef4444">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Haiti Earthquake (2010): Causes &amp; Tectonic Setting</div>
+                            <div class="int-tip">8 SRPs · Passive boundary, 13 km shallow focus, 25 km from Port-au-Prince</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Seismically Active Island</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The island shared by <b>Haiti</b> and the Dominican Republic is seismically active and has a history of destructive earthquakes.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Poverty &amp; Vulnerability</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Haiti is the <b>poorest country in the Western Hemisphere</b>, making it less able to cope with disasters; over <b>70%</b> of its <b>10 million</b> population live under the poverty line.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Date, Time &amp; Magnitude</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At <b>4:53 pm</b> local time on <b>Tuesday 12 January 2010</b>, a <b>7.0 magnitude</b> earthquake struck Haiti.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Passive Plate Boundary</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The earthquake occurred along a <b>passive plate boundary</b> between the <b>Caribbean</b> and <b>North American</b> plates.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Sudden Stress Release</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Stress</b> that had built up at points along the fault line was suddenly released, causing abrupt movement on both sides of the fault.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Shallow Focus (13 km)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Despite tremors lasting only one minute, the <b>focus</b> was very shallow at only <b>13 km deep</b>, releasing energy close to the Earth's surface and making it far more destructive.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Proximity of Epicentre</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>epicentre</b> was located just <b>25 km south-west</b> of the densely populated capital city, <b>Port-au-Prince</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Aftershocks</span>
+                        <p class="text-[13px] leading-snug mt-1.5">By <b>January 24th</b>, there had been over <b>52 aftershocks</b>, with the strongest measuring <b>5.9</b> on the Richter scale.</p>
+                    </div>
+                </div>
+
+                <!-- EFFECTS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Haiti Earthquake (2010): Devastating Effects</div>
+                            <div class="int-tip">8 SRPs · Casualties, homelessness, cholera, infrastructure &amp; social breakdown</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Total Affected &amp; Fatalities</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Over <b>3.5 million people</b> were affected by the earthquake, with an estimated <b>230,000 dead</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Injuries</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A further <b>300,000 people</b> were <b>injured</b> as a direct result of the disaster.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Housing Destruction &amp; Homelessness</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Approximately <b>250,000 houses</b> were destroyed or severely damaged, leaving roughly <b>1.3 million people</b> (<b>20%</b> of the population) <b>homeless</b> in tent camps surrounding the city.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Water Shortage &amp; Cholera Outbreak</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Rivers were contaminated by decaying matter, creating a severe <b>shortage of clean water</b> and triggering a <b>cholera</b> outbreak that killed a reported <b>6,000 people</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Infrastructure &amp; Port Damage</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Transport infrastructure suffered severe damage: roads were blocked and broken, and the <b>main port</b> was badly damaged.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Hospital Collapse</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Eight hospitals</b> collapsed, leading to extreme overcrowding in those still standing.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Rising Crime &amp; Violence</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Crime</b> increased sharply as looting became widespread and sexual violence escalated across the disaster zone.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 16 · National Penitentiary Destruction</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>4,000 inmates</b> escaped after the <b>National Penitentiary</b> in Port-au-Prince was destroyed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+            },
+            "geo-p5": {
+                title: "Chapter 5: Folding & Faulting",
+                section: "Unit 1: Core Physical Geography",
+                content: `
+        <div class="space-y-6">
+            <!-- Top Tab Navigation Bar -->
+            <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                <button onclick="switchTab('fold-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">Global Distribution</button>
+                <button onclick="switchTab('fold-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Folding Landforms</button>
+                <button onclick="switchTab('fold-tab-3', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Faulting Landforms</button>
+            </div>
+
+            <!-- TAB 1: GLOBAL DISTRIBUTION OF FOLD MOUNTAINS -->
+            <div id="fold-tab-1" class="tab-content space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Examples 2+2m &amp; 13 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2023 3B / 2017 2C / 2010 2B):</b> "Explain how the study of plate tectonics has helped us to understand the global distribution of Fold Mountains." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Examples Credit:</b> 2 + 2 marks for global distribution examples</div>
+                        <div>• <b>Explanation:</b> 13 SRPs @ 2 marks each (must link to plate tectonics)</div>
+                        <div>• <b>Diagram Credit:</b> 1 SRP (+2 SRPs for additional labelled info)</div>
+                        <div>• <b>Surplus Coverage:</b> 17 distinct SRPs across 4 cards below</div>
+                    </div>
+                </div>
+
+                <!-- CARD 1: INTRO & OROGENY + SVG -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#6366f1">Intro</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Plate Tectonics &amp; Orogeny (Mountain Building)</div>
+                            <div class="int-tip">4 Opening SRPs · Destructive collision, anticlines, synclines &amp; 3 periods</div>
+                        </div>
+                    </div>
+
+                    <!-- SVG Diagram: Anticlines & Synclines -->
+                    <div class="int-cell border-b border-gray-100 dark:border-slate-800">
+                        <span class="int-tag">Diagram: Anticlines, Synclines &amp; Limbs</span>
+                        <div class="flex justify-center my-4 overflow-x-auto">
+                            <svg viewBox="0 0 600 250" class="w-full max-w-[500px] select-none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="600" height="250" fill="#f8fafc" rx="8"/>
+                                <!-- Top Green Surface Layer -->
+                                <path d="M 60 115 Q 150 45 240 115 Q 300 165 360 115 Q 450 45 540 115 L 540 140 Q 450 70 360 140 Q 300 190 240 140 Q 150 70 60 140 Z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+                                <!-- Middle Sedimentary Layer -->
+                                <path d="M 60 140 Q 150 70 240 140 Q 300 190 360 140 Q 450 70 540 140 L 540 175 Q 450 105 360 175 Q 300 225 240 175 Q 150 105 60 175 Z" fill="#eab308" stroke="#a16207" stroke-width="1.5"/>
+                                <!-- Bottom Sedimentary Layer -->
+                                <path d="M 60 175 Q 150 105 240 175 Q 300 225 360 175 Q 450 105 540 175 L 540 215 L 60 215 Z" fill="#b45309" stroke="#78350f" stroke-width="1.5"/>
+                                <!-- Compression Arrows -->
+                                <line x1="12" y1="165" x2="48" y2="165" stroke="#dc2626" stroke-width="3"/>
+                                <polygon points="52,165 42,158 42,172" fill="#dc2626"/>
+                                <line x1="588" y1="165" x2="552" y2="165" stroke="#dc2626" stroke-width="3"/>
+                                <polygon points="548,165 558,158 558,172" fill="#dc2626"/>
+                                <text x="30" y="190" font-size="10" fill="#dc2626" font-weight="700" text-anchor="middle">Compression</text>
+                                <text x="570" y="190" font-size="10" fill="#dc2626" font-weight="700" text-anchor="middle">Compression</text>
+                                <!-- Labels -->
+                                <line x1="150" y1="45" x2="150" y2="80" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="150" y="36" font-size="12" fill="#0f172a" font-weight="700" text-anchor="middle">Anticline (Ridge)</text>
+                                <line x1="450" y1="45" x2="450" y2="80" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="450" y="36" font-size="12" fill="#0f172a" font-weight="700" text-anchor="middle">Anticline (Ridge)</text>
+                                <line x1="300" y1="78" x2="300" y2="138" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="300" y="70" font-size="12" fill="#0f172a" font-weight="700" text-anchor="middle">Syncline (Valley)</text>
+                                <line x1="92" y1="88" x2="92" y2="56" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="72" y="50" font-size="11" fill="#0f172a" font-weight="600" text-anchor="middle">Limb</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Tectonic Link &amp; Orogeny</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Plate tectonics</b> and the global distribution of fold mountains are closely related because plate movement creates the conditions for mountain building, known as <b>orogeny</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Destructive Collision</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Fold mountains form at <b>destructive plate boundaries</b> when two continental plates collide, compressing horizontal sedimentary rock on the seabed and causing it to buckle and fold upwards.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Anticlines &amp; Synclines</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Folding bends strata into alternating upward-arched ridges called <b>anticlines</b> and downward-curved valleys called <b>synclines</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Three Orogenic Periods</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Globally, fold mountains formed during three major mountain-building periods: <b>Caledonian</b>, <b>Armorican</b>, and <b>Alpine</b>.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: CALEDONIAN -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Period 1: Caledonian Fold Movement</div>
+                            <div class="int-tip">4 SRPs · 400m yrs ago · NE–SW trend · Wicklow &amp; Nephin Beg</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Age &amp; Converging Plates</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Caledonian fold movement</b> occurred approximately <b>400 million years ago</b> when the <b>Eurasian</b> and <b>North American Plates</b> converged.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Structural Trend</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Mountain ranges formed during the Caledonian folding period follow a distinct <b>north-east / south-west trend</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Original Height &amp; Denudation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Caledonian mountains originally stood taller than any ranges on Earth today (as large as the present-day Alps), but millions of years of <b>weathering and erosion</b> have worn them down.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Named Irish Examples</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In Ireland, Caledonian folding formed the <b>Nephin Beg</b> and <b>Maamturk Mountains</b> in Connacht, and the <b>Dublin and Wicklow Mountains</b> (alongside the <b>Leinster Batholith</b>) in the east.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 3: ARMORICAN -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Period 2: Armorican Fold Movement</div>
+                            <div class="int-tip">5 SRPs · 250m yrs ago · E–W trend · Munster Ridge &amp; Valley</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Age &amp; Converging Plates</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The <b>Armorican fold movement</b> shaped Ireland over <b>250 million years ago</b>, caused by a collision between the <b>African</b> and <b>Eurasian plates</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Trend &amp; Smaller Scale</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Armorican ranges follow an <b>east-west trend</b>; because Ireland lay further from the point of collision than during Caledonian folding, the mountains formed were smaller.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Munster Ridge &amp; Valley</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Armorican folding created the distinctive <b>'ridge and valley' landscape</b> province of <b>Munster</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Syncline River Valleys</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Today, major southern rivers such as the <b>Blackwater</b> and the <b>Lee</b> flow through the downfolded synclines of these Armorican folds.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Named Irish Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A classic Irish example of Armorican fold mountains is the <b>Macgillycuddy's Reeks, Munster</b>.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 4: ALPINE -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">3</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Period 3: Alpine Fold Movement</div>
+                            <div class="int-tip">4 SRPs · 30m yrs ago · Highest ranges on Earth · Himalayas, Rockies &amp; Andes</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Youngest Period &amp; Ongoing Growth</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Alpine folding</b> is the most recent period of mountain building; it reached its peak <b>30 million years ago</b> and continues to grow today.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Converging Plates &amp; Trend</span>
+                        <p class="text-[13px] leading-snug mt-1.5">It occurred when the <b>Indian</b> and <b>African plates</b> collided with the <b>Eurasian Plate</b>, creating east-west trending ranges that are not found in Ireland.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 16 · Highest Mountains on Earth</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Alpine mountain ranges are the <b>highest on Earth</b> because they are young and have not undergone the same degree of denudation as older ranges.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 17 · Global Examples</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Prominent global examples include <b>The Himalayas</b>, <b>The Rockies</b>, and <b>The Andes</b>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: LANDFORM DEVELOPMENT - FOLDING -->
+            <div id="fold-tab-2" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Landform 2m + 14 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2025 / 2015 3C):</b> "Explain how <b>Folding</b> influences the development of landforms." [30m] (Or pair 7–8 SRPs with Tab 3 for the <b>2007 3B</b> joint Folding &amp; Faulting essay.)
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>2025 Scheme:</b> Landform (2m) + 14 SRPs (2nd landform = 1 SRP; examples = 2 SRPs)</div>
+                        <div>• <b>Surplus Coverage:</b> 7 Mechanics/Fold Type SRPs + 8 Landscape SRPs = 15 SRPs</div>
+                    </div>
+                </div>
+
+                <!-- CARD 1: FOLDING MECHANICS & 4 TYPES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Folding Process &amp; Four Types of Folds</div>
+                            <div class="int-tip">7 SRPs · Compression, anticlines/synclines &amp; simple to overthrust folds</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Definition &amp; Boundary</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Folding</b> occurs at destructive plate boundaries when colliding plates compress horizontal sedimentary rock, causing it to buckle and wrinkle upwards into folds on the landscape.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Anticlines, Synclines &amp; Limbs</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Folded rock is divided into upward-arched ridges (<b>anticlines</b>) and downward-curved valleys (<b>synclines</b>), connected by sloping sides called <b>limbs</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Simple (Symmetrical) Fold</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In a <b>simple (symmetrical) fold</b>, both limbs of the anticline have the exact same degree of slope.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Asymmetrical Fold</span>
+                        <p class="text-[13px] leading-snug mt-1.5">In an <b>asymmetrical fold</b>, unequal compressional pressure makes the slope of one limb greater than the other.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Overfold</span>
+                        <p class="text-[13px] leading-snug mt-1.5">An <b>overfold</b> develops under intense compression when one limb is pushed and moved over the other.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Overthrust Fold</span>
+                        <p class="text-[13px] leading-snug mt-1.5">An <b>overthrust fold</b> occurs when one limb is pushed forward over the other until the force of compression causes the rock strata to break.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Orogeny &amp; Fold Mountains</span>
+                        <p class="text-[13px] leading-snug mt-1.5">When continental plates collide, seabed sedimentary rocks are compressed into major <b>fold mountain</b> ranges (orogeny) responsible for many of Ireland's mountain landscapes.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: IRISH FOLD MOUNTAIN LANDFORMS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Fold Mountain Landforms (Ireland &amp; Global)</div>
+                            <div class="int-tip">8 SRPs · Caledonian peaks, Armorican Munster Ridge &amp; Valley, Alpine contrast</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Caledonian Orogeny</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Ireland's oldest mountain ranges formed during the <b>Caledonian fold movement</b> over <b>400 million years ago</b> when the Eurasian and North American plates converged.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Caledonian Buckling &amp; Trend</span>
+                        <p class="text-[13px] leading-snug mt-1.5">This collision buckled large parts of Connacht and Leinster along a <b>north-east / south-west trend</b>, building peaks originally as tall as the present-day Alps.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Weathering &amp; Erosion</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Millions of years of <b>weathering and erosion</b> have worn these Caledonian ranges down to their present rounded heights.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Caledonian Irish Examples</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Named Irish landforms include the <b>Nephin Beg</b> and <b>Maamturk Mountains</b> in the west, and the <b>Dublin and Wicklow Mountains</b> (with the <b>Leinster Batholith</b>) in the east.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Armorican Orogeny</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Over <b>250 million years ago</b>, the <b>Armorican fold movement</b> shaped southern Ireland following a collision between the African and Eurasian plates.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Armorican Size &amp; Trend</span>
+                        <p class="text-[13px] leading-snug mt-1.5">These mountains follow an <b>east-west trend</b> and were smaller than Caledonian ranges because Ireland lay further from the point of collision.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Munster Ridge &amp; Valley</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Armorican folding built the <b>Macgillycuddy's Reeks</b> and the <b>Munster ridge and valley province</b>, where rivers such as the <b>Blackwater</b> and <b>Lee</b> flow along the synclines.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Alpine Fold Contrast</span>
+                        <p class="text-[13px] leading-snug mt-1.5">The youngest <b>Alpine folding</b> (peaking <b>30 million years ago</b> from Indian/African–Eurasian collision) is absent in Ireland, forming the world's highest ranges: <b>The Himalayas</b>, <b>The Rockies</b>, and <b>The Andes</b>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: LANDFORM DEVELOPMENT - FAULTING -->
+            <div id="fold-tab-3" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Landform 2m + 14 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2025 / 2015 3C):</b> "Explain how <b>Faulting</b> influences the development of landforms." [30m] (Or pair 7–8 SRPs with Tab 2 for the <b>2007 3B</b> joint Folding &amp; Faulting essay.)
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>2025 Scheme:</b> Landform (2m) + 14 SRPs (must link faulting directly to landforms)</div>
+                        <div>• <b>Surplus Coverage:</b> 15 distinct SRPs across 3 cards + Faults SVG diagram below</div>
+                    </div>
+                </div>
+
+                <!-- CARD 1: FAULTING MECHANICS & STRESS FORCES + SVG -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#ef4444">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Faulting Mechanics &amp; Three Crustal Forces</div>
+                            <div class="int-tip">5 SRPs · Fracturing, tension, compression &amp; shearing</div>
+                        </div>
+                    </div>
+
+                    <!-- SVG Diagram: Normal Fault (Horst/Graben) & Reverse Fault -->
+                    <div class="int-cell border-b border-gray-100 dark:border-slate-800">
+                        <span class="int-tag">Diagram: Normal Fault (Horst &amp; Graben) vs. Reverse Fault</span>
+                        <div class="flex justify-center my-4 overflow-x-auto">
+                            <svg viewBox="0 0 600 250" class="w-full max-w-[520px] select-none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="600" height="250" fill="#f8fafc" rx="8"/>
+                                <!-- LEFT PANEL: HORST & GRABEN (NORMAL FAULTS / TENSION) -->
+                                <text x="155" y="24" font-size="12" fill="#0f172a" font-weight="700" text-anchor="middle">Normal Faults: Horst &amp; Graben (Tension)</text>
+                                <!-- Left Horst Block -->
+                                <polygon points="30,90 105,90 120,190 30,190" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                                <polygon points="30,90 105,90 108,105 30,105" fill="#22c55e"/>
+                                <!-- Centre Graben (Lowered Block) -->
+                                <polygon points="110,128 195,128 185,190 120,190" fill="#cbd5e1" stroke="#334155" stroke-width="1.5"/>
+                                <polygon points="110,128 195,128 193,140 112,140" fill="#22c55e"/>
+                                <!-- Right Horst Block -->
+                                <polygon points="200,90 275,90 275,190 185,190" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                                <polygon points="200,90 275,90 275,105 198,105" fill="#22c55e"/>
+                                <!-- Fault Lines -->
+                                <line x1="103" y1="75" x2="122" y2="200" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,3"/>
+                                <line x1="202" y1="75" x2="183" y2="200" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,3"/>
+                                <!-- Tension Arrows -->
+                                <line x1="65" y1="215" x2="30" y2="215" stroke="#2563eb" stroke-width="2.5"/>
+                                <polygon points="25,215 35,209 35,221" fill="#2563eb"/>
+                                <line x1="240" y1="215" x2="275" y2="215" stroke="#2563eb" stroke-width="2.5"/>
+                                <polygon points="280,215 270,209 270,221" fill="#2563eb"/>
+                                <text x="155" y="219" font-size="11" fill="#2563eb" font-weight="700" text-anchor="middle">Tension (Pulling Apart)</text>
+                                <!-- Labels -->
+                                <text x="68" y="80" font-size="11" fill="#0f172a" font-weight="600" text-anchor="middle">Horst</text>
+                                <text x="153" y="118" font-size="11" fill="#0f172a" font-weight="600" text-anchor="middle">Graben</text>
+                                <text x="238" y="80" font-size="11" fill="#0f172a" font-weight="600" text-anchor="middle">Horst</text>
+
+                                <!-- Divider -->
+                                <line x1="305" y1="20" x2="305" y2="230" stroke="#cbd5e1" stroke-width="1.5"/>
+
+                                <!-- RIGHT PANEL: REVERSE FAULT (COMPRESSION) -->
+                                <text x="455" y="24" font-size="12" fill="#0f172a" font-weight="700" text-anchor="middle">Reverse Fault (Compression)</text>
+                                <!-- Left Lower Block -->
+                                <polygon points="340,120 445,120 480,190 340,190" fill="#cbd5e1" stroke="#334155" stroke-width="1.5"/>
+                                <polygon points="340,120 445,120 452,134 340,134" fill="#22c55e"/>
+                                <!-- Right Upthrust Block -->
+                                <polygon points="428,85 570,85 570,190 480,190" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                                <polygon points="428,85 570,85 570,99 435,99" fill="#22c55e"/>
+                                <!-- Fault Plane -->
+                                <line x1="422" y1="73" x2="485" y2="200" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="4,3"/>
+                                <!-- Upward Movement Arrow -->
+                                <line x1="468" y1="125" x2="450" y2="95" stroke="#dc2626" stroke-width="2"/>
+                                <polygon points="447,90 456,96 447,101" fill="#dc2626"/>
+                                <!-- Compression Arrows -->
+                                <line x1="340" y1="215" x2="380" y2="215" stroke="#dc2626" stroke-width="2.5"/>
+                                <polygon points="385,215 375,209 375,221" fill="#dc2626"/>
+                                <line x1="570" y1="215" x2="530" y2="215" stroke="#dc2626" stroke-width="2.5"/>
+                                <polygon points="525,215 535,209 535,221" fill="#dc2626"/>
+                                <text x="455" y="219" font-size="11" fill="#dc2626" font-weight="700" text-anchor="middle">Compression</text>
+                                <text x="512" y="75" font-size="11" fill="#0f172a" font-weight="600" text-anchor="middle">Pushed Upwards</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Tectonic Cause</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Faulting</b> is the result of the movement of the Earth's tectonic plates, occurring when rocks within the crust are subjected to intense stress or pressure.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Fracture &amp; Geological Fault</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Rocks can only withstand pressure up to a certain point before developing a <b>fracture</b> (line of weakness); when fracturing involves land movement, it forms a <b>geological fault</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Direction &amp; Scale of Movement</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Movement along a fault may be <b>vertical</b>, <b>horizontal</b>, or both, ranging from a few centimetres to many kilometres.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Three Crustal Processes</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Faulting is driven by three crustal processes: <b>tension</b> (pulling apart, downwards), <b>compression</b> (pressure on both sides, upwards), and <b>shearing</b> (moving in opposite directions laterally).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Three Types of Fault</span>
+                        <p class="text-[13px] leading-snug mt-1.5">These forces produce three main fault types: <b>normal faults</b>, <b>reverse faults</b>, and <b>tear (transform) faults</b>.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: NORMAL FAULTS, HORSTS & GRABENS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Normal Faults, Horsts &amp; Grabens</div>
+                            <div class="int-tip">5 SRPs · Constructive tension, downward movement &amp; Kingscourt, Cavan</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Tension &amp; Thinning</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>normal fault</b> occurs when crustal rocks experience <b>tension</b> at constructive plate boundaries, causing the rock to stretch and thin.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Downward Movement</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Once stretched beyond breaking point, the rock fractures and the resulting movement of the land is <b>downwards</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Irish Normal Fault Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Numerous normal faults are found across Ireland, including a clear example near <b>Kingscourt, Co. Cavan</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Horst Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Horsts and grabens</b> are regions lying between normal faults; a <b>horst</b> represents a block pushed upward relative to the blocks on either side.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Graben Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>graben</b> is a block of land that has been lowered downward relative to the blocks on either side due to faulting.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 3: REVERSE FAULTS, BLOCK MOUNTAINS & TEAR FAULTS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">3</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Reverse Faults, Block Mountains &amp; Tear Faults</div>
+                            <div class="int-tip">5 SRPs · Compression, Killarney–Mallow, Ox Mountains &amp; lateral shearing</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Compression at Destructive Boundaries</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>reverse fault</b> occurs when crustal rocks are subjected to <b>compression</b> from both sides at destructive plate boundaries.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Anticline Fracture &amp; Upward Movement</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Compression folds the rock upwards until it reaches its limit and fractures along the anticline, forcing the subsequent movement of land <b>upwards</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Irish Reverse Fault Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A classic Irish example of a reverse fault runs from <b>Killarney to Mallow</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Block Mountains &amp; Irish Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Faulting also produces <b>block mountains</b> when land between two parallel faults is forced upwards—for example, the <b>Ox Mountains in Connacht</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Tear (Transform) Faults</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Tear (transform) faults</b> are produced by <b>shearing</b> forces, where crustal rocks move in opposite directions and tear apart laterally.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+            },
             "geo-p6": {
                 title: "Chapter 6: The Rock Cycle",
                 section: "Unit 1: Core Physical Geography",
@@ -4838,6 +5786,976 @@
                         </div>
                     </div>
                 `
+            },
+            "geo-p9": {
+                title: "Chapter 9: Isostasy & Rejuvenation",
+                section: "Unit 1: Core Physical Geography",
+                content: `
+        <div class="space-y-6">
+            <!-- Top Tab Navigation Bar -->
+            <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                <button onclick="switchTab('iso-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">Isostasy &amp; Ireland</button>
+                <button onclick="switchTab('iso-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Coastal Impact</button>
+                <button onclick="switchTab('iso-tab-3', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Rejuvenation (Fluvial)</button>
+            </div>
+
+            <!-- TAB 1: ISOSTASY & THE IRISH LANDSCAPE -->
+            <div id="iso-tab-1" class="tab-content space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Feature 2m + 14 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2025 1C / 2023 1C / 2020 3B / 2015 2C):</b> "Describe and explain how isostasy has shaped the Irish landscape." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Tied to Ireland:</b> Credit 2 SRPs for two named Irish examples</div>
+                        <div>• <b>Marking Scheme (2025):</b> Impact/feature (2m) + 14 SRPs (coastal emergence &amp; rejuvenation accepted)</div>
+                        <div>• <b>Diagram Credit:</b> 1 SRP (+2 SRPs for new labelled info)</div>
+                        <div>• <b>Surplus Coverage:</b> 18 distinct SRPs across 3 cards below</div>
+                    </div>
+                </div>
+
+                <!-- CARD 1: ISOSTASY & REBOUND -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#6366f1">Intro</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Core Process: Isostasy &amp; Isostatic Rebound</div>
+                            <div class="int-tip">4 Opening SRPs · Crustal movement, glacial unloading &amp; Gulf of Bothnia</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Definition of Isostasy</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Isostatic change</b> refers to a change in the level of the land relative to sea level; isostasy states that when a great weight or pressure is removed from an object, it will rise.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Causes of Crustal Movement</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A change in sea level triggers isostatic processes caused by the uplift or sinking of the Earth's crust via <b>tectonic forces</b> or <b>glacier movement</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Ice Age Depression</span>
+                        <p class="text-[13px] leading-snug mt-1.5">During the last <b>Ice Age</b>, vast ice sheets accumulated on the Earth's surface, forcing the crust to sink downward into the mantle.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Isostatic Rebound</span>
+                        <p class="text-[13px] leading-snug mt-1.5">When the ice melted, this great weight was lifted and the crust began rising slowly in a process called <b>isostatic rebound</b>, which continues today (e.g., in the <b>Gulf of Bothnia, Finland</b>).</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: RAISED BEACH -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Coastal Feature: Raised Beach (Emergence)</div>
+                            <div class="int-tip">7 SRPs · Relic caves, old notch, vegetation &amp; Ballyhillin, Malin Head</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>raised beach</b> is a former beach that today lies above the present high-tide level.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Coastline of Emergence</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>coastline of emergence</b> forms when sea level falls or weight is removed from the land causing it to rise, creating raised beaches alongside <b>relic caves</b> and <b>raised cliffs</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Old Coastline Notch</span>
+                        <p class="text-[13px] leading-snug mt-1.5">When sea level falls relative to the land, the former coastline can be identified as a <b>wave-cut notch</b> in the land.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Relic Caves</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Relic caves</b> sit high and dry above the present sea level, providing clear physical evidence of an earlier sea level.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Vegetation &amp; Weathering</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A raised beach is easily identified because it is now covered in <b>vegetation</b>; although no longer shaped by marine processes, these features remain subject to weathering.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · New Lower-Level Landforms</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At the new, lower sea level, the sea has eroded 'new' sea caves and deposited a 'new' present-day beach.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Named Irish Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A classic Irish example of a raised beach is found at <b>Ballyhillin, Malin Head, Co. Donegal</b>.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 3: KNICKPOINT -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Fluvial Feature: Knickpoint (Rejuvenation)</div>
+                            <div class="int-tip">7 SRPs · Steepened gradient, renewed vertical erosion &amp; River Barrow</div>
+                        </div>
+                    </div>
+
+                    <!-- SVG Diagram: Knickpoint -->
+                    <div class="int-cell border-b border-gray-100 dark:border-slate-800">
+                        <span class="int-tag">Diagram: Fluvial Feature Formed by Isostasy (Knickpoint)</span>
+                        <div class="flex justify-center my-4 overflow-x-auto">
+                            <svg viewBox="0 0 600 280" class="w-full max-w-[500px] select-none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="600" height="280" fill="#f8fafc" rx="8"/>
+                                <!-- Land Profile (New Graded Profile with Knickpoint) -->
+                                <path d="M 40 50 Q 150 130 240 155 Q 340 205 460 225 L 540 225 L 540 250 L 40 250 Z" fill="#d97706" opacity="0.85"/>
+                                <!-- Old Graded Profile (Dashed) -->
+                                <path d="M 240 155 Q 350 175 490 180" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6,5"/>
+                                <!-- Past Sea Level Line -->
+                                <line x1="490" y1="180" x2="540" y2="180" stroke="#64748b" stroke-width="2" stroke-dasharray="4,4"/>
+                                <!-- Present Sea Level Water -->
+                                <path d="M 455 210 L 540 210 L 540 250 L 460 250 Z" fill="#38bdf8" opacity="0.9"/>
+                                <!-- River Flow Line -->
+                                <path d="M 40 50 Q 150 130 240 155 Q 340 205 460 225" fill="none" stroke="#0284c7" stroke-width="3.5"/>
+                                <!-- Knickpoint Marker -->
+                                <circle cx="240" cy="155" r="5" fill="#dc2626"/>
+                                <!-- Labels & Arrows -->
+                                <line x1="95" y1="60" x2="68" y2="75" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="100" y="60" font-size="13" fill="#0f172a" font-weight="600">River</text>
+                                <line x1="185" y1="110" x2="233" y2="148" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="180" y="106" font-size="13" fill="#0f172a" font-weight="600" text-anchor="end">Knickpoint</text>
+                                <text x="360" y="160" font-size="11" fill="#475569" font-style="italic">Former Long Profile</text>
+                                <text x="545" y="176" font-size="11" fill="#0f172a" font-weight="600" text-anchor="end">Past Sea Level</text>
+                                <text x="535" y="233" font-size="11" fill="#0f172a" font-weight="600" text-anchor="end">Present Sea Level</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>knickpoint</b> is observed as a sharp change in slope along a river's long profile.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Post-Glacial Uplift &amp; Gradient</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At the end of the last Ice Age, the land rose, creating new land and a steeper gradient along the lower course of the river's profile.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Velocity &amp; Erosive Power</span>
+                        <p class="text-[13px] leading-snug mt-1.5">This steepened river gradient increases the velocity of the river, significantly boosting its erosive power.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Rejuvenation</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Vertical erosion</b> (normally dominant in the youthful stage) begins again in the lower stages as the river cuts into its own floodplains—a process called <b>rejuvenation</b> (to become young again).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 16 · Profile Intersection</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A knickpoint marks the point of change between the old river profile and the new profile being carved in response to a drop in <b>base level</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 17 · Waterfalls, Rapids &amp; Polycyclic Rivers</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A knickpoint is often marked by a <b>waterfall</b> (or smaller <b>rapids</b> where less steep); where multiple knickpoints occur along a river, the river is described as <b>polycyclic</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 18 · Named Irish Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A classic Irish example of a knickpoint is located on <b>The River Barrow, Co. Kilkenny</b>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: COASTAL IMPACT (EMERGENCE & SUBMERGENCE) -->
+            <div id="iso-tab-2" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Impact 2m + 14 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2018 1B):</b> "Describe and explain how isostasy impacts on the <b>coastal</b> or on the fluvial landscape." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Exam Warning:</b> Pick ONE landscape only (if both discussed, marked separately &amp; highest awarded)</div>
+                        <div>• <b>Surplus Coverage:</b> 4 Process SRPs + 7 Raised Beach SRPs + 6 Fiord SRPs = 17 Coastal SRPs</div>
+                    </div>
+                </div>
+
+                <!-- CARD 1: ISOSTASY & EUSTATIC OVERVIEW -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#6366f1">Intro</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Coastal Sea-Level Change: Isostatic &amp; Eustatic</div>
+                            <div class="int-tip">4 Opening SRPs · Emergence vs. submergence coastlines</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Isostasy Concept</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Isostatic change</b> refers to a change in land level relative to sea level; when great weight or pressure is removed from the crust, it rises.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Post-Glacial Rebound</span>
+                        <p class="text-[13px] leading-snug mt-1.5">During the Ice Age, accumulated ice pushed the crust down into the mantle; once melted, the crust rose slowly via <b>isostatic rebound</b> (ongoing today in the <b>Gulf of Bothnia, Finland</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Tectonic &amp; Glacial Triggers</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Changes in relative sea level are triggered by crustal uplift/sinking (tectonic forces or glacier unloading) as well as global meltwater changes (eustatic movement).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Two Coastal Landforms</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Two signature coastal features shaped by these sea-level changes are <b>raised beaches</b> (coastline of emergence) and <b>fiords</b> (coastline of submergence).</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: RAISED BEACH + SVG -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Coastline of Emergence: Raised Beach</div>
+                            <div class="int-tip">7 SRPs · Relic caves, old notch, vegetation &amp; Ballyhillin, Malin Head</div>
+                        </div>
+                    </div>
+
+                    <!-- SVG Diagram: Raised Beach -->
+                    <div class="int-cell border-b border-gray-100 dark:border-slate-800">
+                        <span class="int-tag">Diagram: Coastal Feature Formed by Isostasy (Raised Beach)</span>
+                        <div class="flex justify-center my-4 overflow-x-auto">
+                            <svg viewBox="0 0 600 280" class="w-full max-w-[500px] select-none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="600" height="280" fill="#f8fafc" rx="8"/>
+                                <!-- Bedrock / Land Profile -->
+                                <path d="M 30 60 L 140 60 L 140 130 L 310 135 L 330 205 L 430 220 L 570 230 L 570 260 L 30 260 Z" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+                                <!-- Old Wave-Cut Notch & Relic Cave -->
+                                <path d="M 140 115 Q 115 122 140 130 Z" fill="#334155"/>
+                                <ellipse cx="105" cy="115" rx="14" ry="11" fill="#1e293b"/>
+                                <!-- Vegetated Raised Beach Layer -->
+                                <path d="M 140 130 L 310 135 L 310 144 L 140 140 Z" fill="#22c55e"/>
+                                <!-- Present Storm Beach Layer -->
+                                <path d="M 330 205 L 435 220 L 435 228 L 328 214 Z" fill="#f59e0b"/>
+                                <!-- Sea Water -->
+                                <path d="M 415 217 L 570 217 L 570 260 L 415 260 Z" fill="#38bdf8" opacity="0.85"/>
+                                <!-- Labels & Lines -->
+                                <line x1="105" y1="104" x2="105" y2="42" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="105" y="36" font-size="11" fill="#0f172a" font-weight="600" text-anchor="middle">Relic / Fossil Sea Cave</text>
+
+                                <line x1="145" y1="122" x2="210" y2="78" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="215" y="75" font-size="11" fill="#0f172a" font-weight="600">Old Wave-Cut Notch</text>
+
+                                <line x1="235" y1="133" x2="290" y2="105" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="295" y="103" font-size="11" fill="#0f172a" font-weight="600">Raised Beach (now vegetated)</text>
+
+                                <line x1="322" y1="170" x2="395" y2="155" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="400" y="153" font-size="11" fill="#0f172a" font-weight="600">Cliff separating raised</text>
+                                <text x="400" y="167" font-size="11" fill="#0f172a" font-weight="600">&amp; present beach</text>
+
+                                <line x1="375" y1="212" x2="430" y2="192" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="435" y="192" font-size="11" fill="#0f172a" font-weight="600">Present Storm Beach</text>
+
+                                <text x="515" y="242" font-size="13" fill="#0f172a" font-weight="700" text-anchor="middle">SEA</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>raised beach</b> is a beach that today sits above the high-tide level.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Coastline of Emergence</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>coastline of emergence</b> forms when sea level drops or land rises after ice weight is removed, producing raised beaches, <b>relic caves</b>, and <b>raised cliffs</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Old Coastline Notch</span>
+                        <p class="text-[13px] leading-snug mt-1.5">As sea level falls, the former shoreline remains visible as an old <b>wave-cut notch</b> in the land.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Relic Caves</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Relic caves</b> lie high and dry above present sea level, serving as evidence of sea level from an earlier period.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Vegetation &amp; Weathering</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A raised beach is identified by its cover of <b>vegetation</b>; although no longer eroded by marine waves, it remains subject to sub-aerial weathering.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · New Lower-Level Erosion</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At the lower present sea level, marine processes have carved 'new' caves and deposited a 'new' present-day storm beach.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Named Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A prime Irish example is <b>Ballyhillin, Malin Head, Co. Donegal</b>.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 3: FIORD (EUSTATIC SUBMERGENCE) -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Coastline of Submergence: Fiord (Eustatic Change)</div>
+                            <div class="int-tip">6 SRPs · Drowned glacial trough, meltwater rise &amp; Killary Harbour</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Definition &amp; Discordant Coastline</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>fiord</b> is a drowned glaciated valley (glacial trough); fiords are commonly called <b>discordant coastlines</b> because they run roughly at right angles to the coast.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Eustatic Movement</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Fiords formed due to a global change in sea level known as <b>eustatic movement</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Glacial Meltwater &amp; Submergence</span>
+                        <p class="text-[13px] leading-snug mt-1.5">At the end of the last Ice Age, glaciers melted and meltwater returned to the sea, raising sea levels above land levels and submerging low-lying coastlines.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Glaciated Valley Characteristics</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Fiords retain the landforms of glaciated valleys, including very steep sides, <b>truncated spurs</b>, and <b>hanging valleys</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 16 · Submerged Terminal Moraines</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Islands may appear near a fiord's entrance, representing partially submerged <b>terminal moraines</b> deposited by glaciers.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 17 · Named Irish Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A renowned Irish example of a fiord is <b>Killary Harbour, Co. Galway</b>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: REJUVENATION / CHANGE IN BASE LEVEL (FLUVIAL) -->
+            <div id="iso-tab-3" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (Processes 2m + Landform 2m + 13 SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question (2021 3B / 2016 2C / 2013 1C):</b> "Examine how changes in base level impact on geomorphic processes and landforms in a fluvial environment." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>2016 Scheme:</b> Process impact (2m) + Landform impact (2m) + 13 SRPs</div>
+                        <div>• <b>Surplus Coverage:</b> 5 Base Level SRPs + 6 Paired Terraces SRPs + 6 Incised Meanders SRPs = 17 SRPs</div>
+                    </div>
+                </div>
+
+                <!-- CARD 1: BASE LEVEL & REJUVENATION -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#6366f1">Intro</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Process: Base Level Change &amp; River Rejuvenation</div>
+                            <div class="int-tip">5 Opening SRPs · Drop in base level, renewed vertical erosion &amp; knickpoints</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Rejuvenation &amp; Base Level</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Rejuvenation</b> (to become young again) occurs when sea level changes relative to the land—most commonly via a change in <b>base level</b> (lower limit of erosion) caused by falling sea level or rising land.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Sea Level &amp; Isostatic Processes</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Sea level</b> is the lowest level to which a river can erode; isostatic processes (from tectonic plate movement or glacier unloading) alter the base level of rivers flowing across the Irish landscape.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Renewed Vertical Erosion</span>
+                        <p class="text-[13px] leading-snug mt-1.5">When base level falls, <b>vertical erosion</b>—normally dominant in the youthful stage—resumes in the lower course as the river cuts downwards into its own floodplain.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Knickpoints, Waterfalls &amp; Rapids</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A drop in base level changes the river's long profile; the intersection of old and new profiles forms a <b>knickpoint</b>, often marked by a <b>waterfall</b> or smaller <b>rapids</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Signature Fluvial Landforms</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Two distinctive landforms created as a river adjusts to rejuvenation are <b>paired terraces</b> and <b>incised meanders</b>.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: PAIRED TERRACES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Rejuvenation Landform 1: Paired Terraces</div>
+                            <div class="int-tip">6 SRPs · Floodplain incision, divagation, stepped terraces &amp; River Dodder</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Mature/Old Stage Floodplains</span>
+                        <p class="text-[13px] leading-snug mt-1.5">During the mature and old-age stages of a river's profile, broad flat <b>floodplains</b> develop along the valley floor.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Downcutting into Former Floodplain</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Rejuvenation renews the river's energy, causing it to erode vertically down into its former floodplain and leaving the old valley floor perched well above the present river level.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Lower Narrower Floodplain</span>
+                        <p class="text-[13px] leading-snug mt-1.5">As incision continues, a new, narrower floodplain forms at this lower level.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Lateral Erosion &amp; Divagation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Over time, lateral erosion carves a new valley at the lower level; the process of <b>divagation</b> widens the valley so remnants of the former floodplain remain as matching ledges on either side called <b>paired terraces</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Stepped Terraces</span>
+                        <p class="text-[13px] leading-snug mt-1.5">If rejuvenation occurs again, a second set of terraces forms at an even lower level beneath the first, creating <b>stepped terraces</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Named Irish Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">An Irish example of paired terraces is found along the <b>River Dodder, Terenure, Co. Dublin</b>.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 3: INCISED MEANDERS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#8b5cf6">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Rejuvenation Landform 2: Incised Meanders</div>
+                            <div class="int-tip">6 SRPs · Entrenched vs. ingrown meanders &amp; River Barrow, Co. Carlow</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Incised meanders</b> are river meanders that have eroded deeply downward into the landscape.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Vertical Cutting of Mature Loops</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Meanders are traditionally mature/old-age features; when rejuvenation triggers vertical erosion along the bend, the river cuts deeply into the valley floor to create incised meanders.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Entrenched Meanders</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Entrenched meanders</b> form where vertical erosion dominates, producing steep, symmetrical valley sides.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Ingrown Meanders</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Ingrown meanders</b> form where both vertical and lateral erosion continue after rejuvenation, leaving the outer bend with a steep slope and the inner bend with a gentler slope.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 16 · Regular vs. Irregular Profiles</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Accordingly, the cross-valley profile of an entrenched meander is <b>regular</b>, whereas the cross-valley profile of an ingrown meander is <b>irregular</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 17 · Named Irish Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A classic Irish example of incised meanders is found along the <b>River Barrow, Co. Carlow</b>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+            },
+            "geo-p10": {
+                title: "Chapter 10: The Sea (Coastal Processes & Landforms)",
+                section: "Unit 1: Core Physical Geography",
+                content: `
+        <div class="space-y-6">
+            <!-- Top Tab Navigation Bar -->
+            <div class="flex border-b border-gray-200 dark:border-slate-800 text-xs md:text-sm font-medium overflow-x-auto whitespace-nowrap">
+                <button onclick="switchTab('sea-tab-1', this)" class="tab-btn shrink-0 px-4 py-2 text-blue-600 border-b-2 border-blue-600 active">Waves &amp; Processes</button>
+                <button onclick="switchTab('sea-tab-2', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Cliffs &amp; Headlands</button>
+                <button onclick="switchTab('sea-tab-3', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Caves to Stumps</button>
+                <button onclick="switchTab('sea-tab-4', this)" class="tab-btn shrink-0 px-4 py-2 text-gray-500 hover:text-blue-500">Deposition</button>
+            </div>
+
+            <!-- TAB 1: WAVES & COASTAL PROCESSES -->
+            <div id="sea-tab-1" class="tab-content space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Core Foundation</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">Reusable Process SRPs for All Coastal Essays</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed">
+                        Use these process SRPs (wave types, refraction, and the 5 marine erosion processes) as high-value process explanations inside any 30-mark coastal landform essay.
+                    </p>
+                </div>
+
+                <!-- CARD 1: WAVES & WAVE REFRACTION -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Wave Mechanics, Types &amp; Refraction</div>
+                            <div class="int-tip">7 SRPs · Fetch, swash/backwash, constructive vs. destructive &amp; refraction</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Wave Generation &amp; Role</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Waves are generated by wind moving over the surface of the sea and are responsible for the <b>erosion</b>, <b>transportation</b>, and <b>deposition</b> of material along coastlines.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Fetch, Crest &amp; Trough</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Wave size and strength depend on the <b>fetch</b> (distance over water that wind blows in one direction); the highest point of a wave is the <b>crest</b> and the lowest point is the <b>trough</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Swash &amp; Backwash</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Swash</b> is the rush of water up the beach after a wave breaks on the shore, whereas <b>backwash</b> is the water returning back to sea after the swash reaches its highest point.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Wave Breaking</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Waves have a circular orbit in open water that becomes elliptical as shore friction slows the wave base, causing the breaking wave to gain height.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Constructive Waves</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Constructive waves</b> have a <b>strong swash and weak backwash</b>, depositing more than they erode; they are low, further apart, and most common in <b>summer</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Destructive Waves</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Destructive waves</b> have a <b>weak swash and strong backwash</b>, eroding more than they deposit; they are steep, close together, and most common in <b>winter</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Wave Refraction</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Waves slow down in shallow water, causing them to bend and change direction (<b>wave refraction</b>); this concentrates erosive energy on <b>headlands</b> while promoting deposition in <b>bays</b>.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: PROCESSES OF MARINE EROSION & DEPOSITION -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#ef4444">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Coastal Erosion &amp; Deposition Processes</div>
+                            <div class="int-tip">7 SRPs · Hydraulic action, abrasion, attrition, solution, compression &amp; deposition</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Hydraulic Action</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Hydraulic action</b> is the sheer physical force of breaking waves crashing against the coastline.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Abrasion / Corrasion</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Abrasion (corrasion)</b> occurs when rock debris is hurled by breaking waves against the coastline, scraping and wearing down rock.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Attrition</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Attrition</b> occurs when loose fragments of stone are rounded and eroded by repeatedly hitting off each other.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Solution</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Solution</b> is the chemical process whereby sea water dissolves certain types of coastal rock.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Air Compression</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Air compression</b> breaks rock apart as air is trapped and compressed inside coastal cracks and joints by oncoming waves.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Coastal Deposition Trigger</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Coastal deposition</b> occurs when waves lose energy and their ability to carry material, dropping shingle, sand, and sediment along the coast.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Constructive Waves &amp; Sheltered Bays</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Constructive waves move sediment load inland, while wave refraction in bays reduces wave energy and encourages deposition.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: EROSION LANDFORMS - CLIFFS, WAVE-CUT PLATFORMS & HEADLANDS -->
+            <div id="sea-tab-2" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question:</b> "Examine the formation of one landform of marine erosion, with reference to an example you have studied." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Coverage:</b> 10 SRPs on Cliffs &amp; Wave-Cut Platforms + 5 SRPs on Bays &amp; Headlands</div>
+                        <div>• <b>Diagram Credit:</b> Up to 2 SRPs for a labelled Cliff &amp; Wave-Cut Platform sketch</div>
+                    </div>
+                </div>
+
+                <!-- CARD 1: CLIFFS & WAVE-CUT PLATFORMS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#3b82f6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Marine Erosion: Cliffs &amp; Wave-Cut Platforms</div>
+                            <div class="int-tip">10 SRPs · Wave-cut notch, overhang collapse, cliff retreat &amp; platform</div>
+                        </div>
+                    </div>
+
+                    <!-- SVG Diagram: Cliff & Wave-Cut Platform -->
+                    <div class="int-cell border-b border-gray-100 dark:border-slate-800">
+                        <span class="int-tag">Diagram: Formation of a Cliff &amp; Wave-Cut Platform</span>
+                        <div class="flex justify-center my-4 overflow-x-auto">
+                            <svg viewBox="0 0 600 260" class="w-full max-w-[500px] select-none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="600" height="260" fill="#f8fafc" rx="8"/>
+                                <!-- Former Cliff Profile (Dashed) -->
+                                <path d="M 190 60 L 380 60 L 420 185" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,4"/>
+                                <!-- Present Cliff & Wave-Cut Platform -->
+                                <path d="M 30 60 L 190 60 L 190 155 Q 165 170 190 185 L 430 195 L 570 215 L 570 245 L 30 245 Z" fill="#b45309" stroke="#78350f" stroke-width="2"/>
+                                <!-- Grass Cap -->
+                                <path d="M 30 56 L 190 56 L 190 66 L 30 66 Z" fill="#22c55e"/>
+                                <!-- High Tide & Low Tide Water -->
+                                <path d="M 178 168 L 570 168 L 570 215 L 430 195 L 190 185 Q 172 176 178 168 Z" fill="#38bdf8" opacity="0.65"/>
+                                <line x1="430" y1="195" x2="570" y2="195" stroke="#0284c7" stroke-width="2" stroke-dasharray="4,3"/>
+                                <!-- Cliff Retreat Arrow -->
+                                <path d="M 320 45 L 220 45" stroke="#dc2626" stroke-width="3"/>
+                                <polygon points="212,45 224,38 224,52" fill="#dc2626"/>
+                                <text x="275" y="34" font-size="11" fill="#dc2626" font-weight="700" text-anchor="middle">Cliff Retreat</text>
+                                <!-- Labels -->
+                                <text x="385" y="95" font-size="11" fill="#64748b" font-style="italic">Former Cliff Face</text>
+                                <line x1="178" y1="168" x2="120" y2="130" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="115" y="126" font-size="11" fill="#0f172a" font-weight="600" text-anchor="end">Wave-Cut Notch</text>
+                                <line x1="190" y1="100" x2="245" y2="100" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="250" y="104" font-size="11" fill="#0f172a" font-weight="600">Overhang Collapses</text>
+                                <line x1="310" y1="190" x2="310" y2="225" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="310" y="238" font-size="11" fill="#ffffff" font-weight="700" text-anchor="middle">Wave-Cut Platform</text>
+                                <text x="560" y="162" font-size="11" fill="#0369a1" font-weight="600" text-anchor="end">High Tide</text>
+                                <text x="560" y="191" font-size="11" fill="#0369a1" font-weight="600" text-anchor="end">Low Tide</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Definition of Cliffs</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Cliffs</b> are steep, vertical slopes that develop along coastlines due to marine erosion processes.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Collective Erosion Processes</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Cliff formation is driven by <b>hydraulic action</b>, <b>air compression</b>, <b>abrasion</b>, <b>solution</b>, and <b>attrition</b>, which collectively erode and shape coastal rock over time.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Destructive Waves &amp; Joints</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Destructive waves</b> attack areas of weakness in coastal rock formations, opening up joints.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Wave-Cut Notch</span>
+                        <p class="text-[13px] leading-snug mt-1.5">These joints are eroded further by the hydraulic force of the water and by air compression, carving out a <b>wave-cut notch</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Overhang Collapse</span>
+                        <p class="text-[13px] leading-snug mt-1.5">As the notch enlarges, the rock above the notch (the <b>overhang</b>) becomes unstable and collapses under gravity to form a steep cliff.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Abrasion &amp; Solution</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Shattered rock falls into the sea, where waves hurl it against the base to further erode the cliff via <b>abrasion</b>, while <b>solution</b> also wears away the cliff face.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Cliff Retreat</span>
+                        <p class="text-[13px] leading-snug mt-1.5">These erosional cycles repeat continuously over time, causing the cliff face to gradually <b>retreat</b> inland.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Wave-Cut Platform Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>wave-cut platform</b> is a flat, often rocky area located at the base of the retreating sea cliff.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Backwash Removal</span>
+                        <p class="text-[13px] leading-snug mt-1.5">As the cliff retreats due to the formation and collapse of wave-cut notches, eroded debris is carried away by the <b>backwash</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Tidal Exposure</span>
+                        <p class="text-[13px] leading-snug mt-1.5">This leaves behind a broad, level rocky platform that is <b>exposed at low tide</b> and <b>submerged at high tide</b>.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: BAYS & HEADLANDS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Marine Erosion: Bays &amp; Headlands</div>
+                            <div class="int-tip">5 SRPs · Differential erosion, soft vs. hard rock &amp; wave refraction</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Differential Erosion</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Differential erosion</b> occurs when rocks along coastlines erode at varying rates depending on their hardness.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Soft Rock Erosion</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Sections of coastline composed of soft rock, such as <b>chalk</b>, erode much faster than harder rock types.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Hard Rock Resistance</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Sections composed of hard, more resistant rock, such as <b>granite</b>, take much longer to erode.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Bays &amp; Headlands</span>
+                        <p class="text-[13px] leading-snug mt-1.5">As a result, stretches of soft rock are carved inland to form <b>bays</b>, while harder rock remains jutting out into the sea as <b>headlands</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Wave Refraction Feedback</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Wave refraction concentrates erosive force on protruding headlands while reducing energy inside sheltered bays, where deposition occurs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: EROSION LANDFORMS - CAVES, BLOWHOLES, ARCHES, STACKS & STUMPS -->
+            <div id="sea-tab-3" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question:</b> "Examine the formation of coastal erosion landforms on a headland (Sea Cave, Blowhole, Arch, Stack &amp; Stump), with reference to Irish examples." [30m]
+                    </p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#8b5cf6">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Headland Erosion Sequence: Cave → Arch → Stack → Stump</div>
+                            <div class="int-tip">15 SRPs · Dún na mBó, Great Pollet Sea Arch &amp; Mullaghmore</div>
+                        </div>
+                    </div>
+
+                    <!-- SVG Diagram: Cave -> Arch -> Stack -> Stump -->
+                    <div class="int-cell border-b border-gray-100 dark:border-slate-800">
+                        <span class="int-tag">Diagram: Headland Erosion Sequence</span>
+                        <div class="flex justify-center my-4 overflow-x-auto">
+                            <svg viewBox="0 0 600 240" class="w-full max-w-[520px] select-none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="600" height="240" fill="#f8fafc" rx="8"/>
+                                <!-- Sea Base -->
+                                <rect x="20" y="165" width="560" height="55" fill="#38bdf8" opacity="0.8"/>
+                                <!-- Main Headland with Cave & Arch -->
+                                <path d="M 20 80 L 350 80 L 370 185 L 320 185 L 310 125 Q 280 105 250 125 L 240 185 L 155 185 L 150 135 Q 130 120 110 135 L 105 185 L 20 185 Z" fill="#92400e" stroke="#78350f" stroke-width="2"/>
+                                <!-- Grass Top -->
+                                <rect x="20" y="75" width="330" height="8" fill="#22c55e"/>
+                                <!-- Cave Hollow (Dark) -->
+                                <path d="M 105 185 L 110 135 Q 130 120 150 135 L 155 185 Z" fill="#1e293b"/>
+                                <!-- Blowhole Shaft -->
+                                <rect x="124" y="75" width="12" height="52" fill="#1e293b"/>
+                                <!-- Sea Spray -->
+                                <path d="M 130 75 Q 120 50 110 45 M 130 75 L 130 40 M 130 75 Q 140 50 150 45" stroke="#0284c7" stroke-width="2" fill="none"/>
+                                <!-- Sea Arch Water Throughway -->
+                                <path d="M 240 185 L 250 125 Q 280 105 310 125 L 320 185 Z" fill="#bae6fd"/>
+                                <!-- Sea Stack -->
+                                <polygon points="415,185 425,85 465,85 475,185" fill="#92400e" stroke="#78350f" stroke-width="2"/>
+                                <rect x="425" y="81" width="40" height="6" fill="#22c55e"/>
+                                <!-- Sea Stump -->
+                                <polygon points="515,185 522,150 558,150 565,185" fill="#92400e" stroke="#78350f" stroke-width="2"/>
+                                <!-- Labels -->
+                                <text x="130" y="30" font-size="11" fill="#0f172a" font-weight="700" text-anchor="middle">Blowhole</text>
+                                <text x="130" y="205" font-size="11" fill="#0f172a" font-weight="700" text-anchor="middle">Sea Cave</text>
+                                <text x="280" y="205" font-size="11" fill="#0f172a" font-weight="700" text-anchor="middle">Sea Arch</text>
+                                <text x="445" y="68" font-size="11" fill="#0f172a" font-weight="700" text-anchor="middle">Sea Stack</text>
+                                <text x="540" y="138" font-size="11" fill="#0f172a" font-weight="700" text-anchor="middle">Sea Stump</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Sea Cave Initiation</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Sea caves</b> form in an area of weakness on a cliff face or protruding headland.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Cave Enlargement</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Coastal erosion processes attack these weak spots to open caves, which are further eroded by <b>abrasion</b> so they grow larger over time.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Blowhole Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Blowholes</b> form at areas of weakness where a hole on the surface of a cliff top connects with the roof of a sea cave, driven primarily by <b>air compression</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Pressure &amp; Roof Collapse</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Waves trap air inside the sea cave, causing a build-up of pressure that shatters the rock in the cave's roof until it collapses to create a blowhole.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Storm Sea Spray</span>
+                        <p class="text-[13px] leading-snug mt-1.5">During stormy weather, sea spray is forced upward out through the blowhole with great force.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Geo Formation &amp; Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>geo</b> is a long, narrow inlet that forms when the roof of a cave connected to a blowhole collapses (e.g., <b>Dún na mBó, County Mayo</b>).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Sea Arch (Single Cave)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>sea arch</b> forms when continued erosion in a sea cave causes it to extend right through a headland.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Sea Arch (Opposing Caves)</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Alternatively, a sea arch forms when two sea caves located on opposite sides of a headland erode back-to-back until they meet.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Sea Arch Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A named Irish example is the <b>Great Pollet Sea Arch, County Mayo</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Sea Stack Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>sea stack</b> is a rock formation standing in isolation in the sea, separated away from the main coastline.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Sea Stack Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Sea stacks form when continued erosion widens a sea arch and causes its roof to collapse, isolating a former section of the headland in the sea.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Sea Stack Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">An Irish example of a sea stack is found at <b>Mullaghmore, County Sligo</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 13 · Sea Stump Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>sea stump</b> is the smaller, shorter eroded remains of a sea stack.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 14 · Sea Stump Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Continued wave action, wind, and chemical weathering wear down a sea stack, reducing its height and mass until it collapses or erodes to sea level.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 15 · Sea Stump Example</span>
+                        <p class="text-[13px] leading-snug mt-1.5">An Irish example of a sea stump is also found at <b>Mullaghmore, County Sligo</b>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: LANDFORMS OF COASTAL DEPOSITION -->
+            <div id="sea-tab-4" class="tab-content hidden space-y-6">
+                <div class="srp-box">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Exam Breakdown</span>
+                        <span class="text-xs text-blue-600 dark:text-blue-400 font-semibold">30 Marks (15 x SRPs)</span>
+                    </div>
+                    <p class="text-xs text-gray-700 dark:text-slate-300 leading-relaxed mb-2">
+                        <b>Exam Question:</b> "Examine the formation of landforms of coastal deposition, with reference to examples you have studied." [30m]
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-slate-400">
+                        <div>• <b>Card 1 (12 SRPs):</b> Beaches, Storm Beaches, Sand Dunes, Berms, Runnels, Ridges &amp; Cusps</div>
+                        <div>• <b>Card 2 (12 SRPs):</b> Sand Spits, Sand Bars, Lagoons &amp; Tombolos (+ SVG Diagram)</div>
+                    </div>
+                </div>
+
+                <!-- CARD 1: BEACHES, DUNES & MICRO-FEATURES -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#f59e0b">1</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Beaches, Storm Beaches, Sand Dunes &amp; Micro-Features</div>
+                            <div class="int-tip">12 SRPs · Constructive swash, marram grass, berms, runnels &amp; cusps</div>
+                        </div>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Beach Composition &amp; Zone</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>beach</b> is an area composed of sand, shingle, or gravel situated between the low-tide mark and the highest point reached by storm waves.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Beach Formation Processes</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Beaches are formed by the processes of <b>longshore drift</b>, <b>constructive waves</b>, and <b>wave refraction</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Swash &amp; Sediment Sorting</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Constructive waves have a powerful swash that slows as it moves up the shore, depositing heavier materials on the <b>backshore</b> and finer, lighter material on the <b>foreshore</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Storm Beach</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>storm beach</b> consists of pebbles and stones formed when waves are strong enough to push large rocks and boulders above the high-tide mark.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Storm Beach Gradient</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Compared to a normal beach, a storm beach typically has a <b>steep gradient</b> due to the larger, heavier materials deposited by intense wave action.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Sand Dune Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>sand dune</b> is a hill or series of hills of sand formed when beach sand dries and is blown inland by the wind.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Stabilisation by Marram Grass</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Vegetation such as <b>marram grass</b> traps wind-blown sand, helping to stabilise the dunes.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Intentional Planting</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Marram grass is often planted intentionally to prevent sand from blowing further inland, as its roots bind the sand and reduce erosion.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Berms</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Berms</b> are step-like or terrace-like ridges formed when gentle constructive waves push sediment into long, low ridges marking the junction between foreshore and backshore.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Runnels</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Runnels</b> are shallow depressions on the sand along the foreshore formed by constructive waves.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Ridges</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Ridges</b> are the gentle rises between the runnels on the foreshore, also created by constructive waves.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Cusps</span>
+                        <p class="text-[13px] leading-snug mt-1.5"><b>Cusps</b> are crescent-shaped hollows where shingle transitions to sand, resulting from complex wave actions on pebble beaches.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: SAND SPITS, SAND BARS, LAGOONS & TOMBOLOS -->
+                <div class="int-card">
+                    <div class="int-head">
+                        <div class="int-badge" style="background:#10b981">2</div>
+                        <div class="min-w-0">
+                            <div class="int-title">Sand Spits, Sand Bars, Lagoons &amp; Tombolos</div>
+                            <div class="int-tip">12 SRPs · Longshore drift, hooked spit, bar/lagoon &amp; wave refraction tombolo</div>
+                        </div>
+                    </div>
+
+                    <!-- SVG Diagram: Spit, Bar/Lagoon & Tombolo -->
+                    <div class="int-cell border-b border-gray-100 dark:border-slate-800">
+                        <span class="int-tag">Diagram: Sand Spit, Sand Bar &amp; Lagoon, and Tombolo</span>
+                        <div class="flex justify-center my-4 overflow-x-auto">
+                            <svg viewBox="0 0 600 220" class="w-full max-w-[520px] select-none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="600" height="220" fill="#bae6fd" rx="8"/>
+                                <!-- Mainland Coastline -->
+                                <path d="M 0 140 L 110 140 Q 150 95 210 140 L 265 140 Q 320 90 385 140 L 600 140 L 600 220 L 0 220 Z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+                                <!-- 1. Hooked Sand Spit -->
+                                <path d="M 105 140 L 175 135 Q 190 130 185 118 Q 178 126 168 129 L 105 132 Z" fill="#fbbf24" stroke="#b45309" stroke-width="1.2"/>
+                                <text x="150" y="92" font-size="11" fill="#0f172a" font-weight="700" text-anchor="middle">Hooked Sand Spit</text>
+                                <line x1="150" y1="97" x2="165" y2="128" stroke="#0f172a" stroke-width="1.2"/>
+                                <!-- 2. Sand Bar & Lagoon -->
+                                <rect x="262" y="133" width="126" height="9" fill="#fbbf24" stroke="#b45309" stroke-width="1.2"/>
+                                <text x="325" y="124" font-size="10" fill="#0369a1" font-weight="700" text-anchor="middle">Lagoon</text>
+                                <text x="325" y="160" font-size="11" fill="#0f172a" font-weight="700" text-anchor="middle">Sand Bar</text>
+                                <line x1="325" y1="148" x2="325" y2="142" stroke="#0f172a" stroke-width="1.2"/>
+                                <!-- 3. Tombolo & Island -->
+                                <path d="M 492 140 L 496 76 L 512 76 L 516 140 Z" fill="#fbbf24" stroke="#b45309" stroke-width="1.2"/>
+                                <ellipse cx="504" cy="58" rx="34" ry="20" fill="#16a34a" stroke="#14532d" stroke-width="1.5"/>
+                                <text x="504" y="62" font-size="11" fill="#ffffff" font-weight="700" text-anchor="middle">Island</text>
+                                <text x="556" y="112" font-size="11" fill="#0f172a" font-weight="700" text-anchor="middle">Tombolo</text>
+                                <line x1="530" y1="108" x2="514" y2="108" stroke="#0f172a" stroke-width="1.2"/>
+                                <!-- Longshore Drift Arrow -->
+                                <line x1="30" y1="185" x2="155" y2="185" stroke="#dc2626" stroke-width="3"/>
+                                <polygon points="163,185 151,179 151,191" fill="#dc2626"/>
+                                <text x="95" y="203" font-size="11" fill="#ffffff" font-weight="700" text-anchor="middle">Longshore Drift</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 1 · Sand Spit Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>sand spit</b> is a long, narrow ridge of deposited sand and shingle connected to the coast at one end.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 2 · Longshore Drift Interruption</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Sand spits form where the coastline changes direction, interrupting <b>longshore drift</b> (the transportation of sediment along the coastline).</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 3 · Loss of Energy &amp; Deposition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">As the water slows down past the coastal bend, it loses the energy needed to transport sediment, causing sand and shingle to be deposited.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 4 · Spit Growth</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Over time, accumulating sediment builds a visible ridge above sea level that grows further out into the sea.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 5 · Estuary Limit</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A sand spit cannot develop completely across a bay where a river's <b>estuary</b> prevents the build-up of sand.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 6 · Hooked / Curved End</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Sand spits usually have a curved or <b>'hooked' end</b> formed when wind causes wave direction to change the direction of longshore drift.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 7 · Sand Bar Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>sand bar</b> forms when a sand spit continues to grow and extend across a bay until it connects with the coastline on the other side.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 8 · Lagoon Formation</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>lagoon</b> is the area of water trapped between the newly formed sandbar and the original coastline.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 9 · Tombolo Definition</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A <b>tombolo</b> forms when a sand spit connects the mainland coastline to an offshore island.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 10 · Wave Refraction Around Island</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Incoming waves approach the island and bend around it via <b>wave refraction</b>.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 11 · Calm Deposition Zone</span>
+                        <p class="text-[13px] leading-snug mt-1.5">Sediment carried by the waves is deposited in the calm, sheltered area directly behind the island.</p>
+                    </div>
+                    <div class="int-cell">
+                        <span class="int-tag">SRP 12 · Mainland-to-Island Link</span>
+                        <p class="text-[13px] leading-snug mt-1.5">A sand spit gradually extends outward from the mainland towards the island until it connects them to form a tombolo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
             },
             "geo-r1": {
                 title: "Chapter 1: Concept of a Region",
